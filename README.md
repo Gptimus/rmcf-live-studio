@@ -4,6 +4,18 @@
 
 RMF 24/7 LIVE — Studio is a comprehensive graphic generation suite built for football fans and social media managers. Create stunning match-related content in seconds.
 
+## 📸 Previews
+
+<p align="center">
+  <img src="screenshots/goal.png" width="32%" alt="Goal Template">
+  <img src="screenshots/lineup.png" width="32%" alt="Lineup Template">
+  <img src="screenshots/preview.png" width="32%" alt="Preview Match Template">
+</p>
+<p align="center">
+  <img src="screenshots/classement.png" width="48%" alt="Standings Template">
+  <img src="screenshots/convocation.png" width="48%" alt="Squad List Template">
+</p>
+
 ## ⚡ Quick Start
 
 - **Live Modification:** Type in any field, and the card updates instantly.
