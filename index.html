@@ -7617,8 +7617,19 @@ Haaland·9%</textarea
         document
           .querySelectorAll(".tab-btn")
           .forEach((b) => b.classList.remove("active"));
-        document.getElementById("ws-" + name).classList.add("active");
-        btn.classList.add("active");
+        const ws = document.getElementById("ws-" + name);
+        if (ws) ws.classList.add("active");
+
+        if (btn) {
+          btn.classList.add("active");
+        } else {
+          // Fallback if triggered from code without btn ref
+          const targetBtn = document.querySelector(
+            `.tab-btn[onclick*="switchTab('${name}'"]`,
+          );
+          if (targetBtn) targetBtn.classList.add("active");
+        }
+        localStorage.setItem("rmf_active_tab", name);
       }
 
       // ══════════════════════════════════════
@@ -8447,9 +8458,14 @@ Haaland·9%</textarea
         restoreField("f-prev-p1", "9·Benzema·Attaquant·Équipe 1");
         restoreField("f-prev-p2", "7·Mbappé·Attaquant·Équipe 2");
         restoreField("f-prev-p3", "5·Marquinhos·Défenseur·Équipe 2");
-        restoreField("f-prev-p4", "");
         renderPrevPlayers();
         initNewTemplates();
+
+        // Restore active tab
+        const savedTab = localStorage.getItem("rmf_active_tab");
+        if (savedTab) {
+          switchTab(savedTab, null);
+        }
       }
 
       init();
