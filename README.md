@@ -1,7 +1,5 @@
 # RMF 24/7 LIVE — Studio v3
 
-![RMF Studio](https://raw.githubusercontent.com/Gptimus/rmcf-live-studio/main/index.html) <!-- Note: Replace with actual asset link if available -->
-
 > **17 professional football templates.** Modify, personalize, and download in high-resolution PNG.
 
 RMF 24/7 LIVE — Studio is a comprehensive graphic generation suite built for football fans and social media managers. Create stunning match-related content in seconds.
