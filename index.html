@@ -2306,6 +2306,25 @@
       }
       /* no forced ratio on but card */
 
+      /* ─────────── CAPTION BOX ─────────── */
+      .caption-box {
+        width: 100%;
+        height: 100px;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(201, 162, 39, 0.2);
+        border-radius: 8px;
+        color: var(--off);
+        padding: 12px;
+        font-size: 13px;
+        font-family: inherit;
+        resize: none;
+        outline: none;
+        line-height: 1.5;
+        min-width: 0;
+        margin-bottom: 5px;
+        border-left: 3px solid var(--gold);
+      }
+
       /* ─────────── DOWNLOAD BTN ─────────── */
       .dl-btn {
         display: flex;
@@ -3780,6 +3799,14 @@
             </div>
           </div>
         </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-but" class="caption-box" readonly>🚨 BUUUT ! [JOUEUR] ouvre le score pour le Real Madrid ! ⚽🔥 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-but', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -4037,6 +4064,14 @@
             </div>
           </div>
         </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-compo" class="caption-box" readonly>👑 LA COMPOSITION ! Voici l'équipe qui débutera la rencontre face à [ADVERSAIRE]. ⚪🦾 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-compo', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -4177,6 +4212,14 @@
             </div>
           </div>
         </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-convo" class="caption-box" readonly>📣 LES CONVOQUÉS ! Voici le groupe retenu pour le match de demain face à [ADVERSAIRE]. 📋🚀 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-convo', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -4477,6 +4520,13 @@
                 "
               />
             </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-preview" class="caption-box" readonly>⚔️ JOUR DE MATCH ! Demain, nos Merengues affrontent [ADVERSAIRE] à [LIEU]. 🏟️✨ #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-preview', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -5586,6 +5636,13 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             </div>
           </div>
         </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-stats" class="caption-box" readonly>📊 ANALYSE ! Les statistiques de [JOUEUR] après cette rencontre. Quel match ! 🔥📈 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-stats', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -5783,6 +5840,13 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             </div>
           </div>
         </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-motm" class="caption-box" readonly>⭐ HOMME DU MATCH ! [JOUEUR] a été élu meilleur joueur de la rencontre par la rédaction RMCF LIVE. 🏆👑 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-motm', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -5883,6 +5947,13 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             >Pos·Équipe·MJ·V·N·D·Pts·Forme</strong
           >
           — Forme: V,N,D séparés par virgule
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-classement" class="caption-box" readonly>🏆 CLASSEMENT ! Le Real Madrid est toujours dans la course. Voici la situation en La Liga. 📈🛡️ #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-classement', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
         </div>
       </div>
     </div>
@@ -6096,6 +6167,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
 67'·⚽·Mbappé·Éq.1</textarea
               >
             </div>
+          </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-scorelive" class="caption-box" readonly>⏱️ SCORE EN DIRECT ! [SCORE] à la [MIN]' minute. On ne lâche rien ! ⚽💪 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-scorelive', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -6311,6 +6388,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               >
             </div>
           </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-resume" class="caption-box" readonly>📝 RÉSUMÉ DU MATCH ! Une rencontre intense qui se termine sur le score de [SCORE]. ⚽🔥 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-resume', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
         </div>
       </div>
     </div>
@@ -6465,6 +6548,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 "
               />
             </div>
+          </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-carton" class="caption-box" readonly>🟥 CARTON ! [JOUEUR] est expulsé. Fin de match difficile pour la Maison Blanche. 🚨😤 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-carton', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -6682,6 +6771,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               >
             </div>
           </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-h2h" class="caption-box" readonly>⚔️ FACE-À-FACE ! Historique des confrontations entre le Real Madrid et [ADVERSAIRE]. Qui l'emportera ? 📜🛡️ #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-h2h', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
         </div>
       </div>
     </div>
@@ -6798,6 +6893,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
 14·Valverde·Sélection</textarea
               >
             </div>
+          </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-absents" class="caption-box" readonly>🤕 INFIRMERIE ! Coup dur pour le Real : [JOUEUR] est forfait pour la rencontre. Bon rétablissement ! 🙏🤍 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-absents', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -7014,6 +7115,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               />
             </div>
           </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-hattrick" class="caption-box" readonly>🎩 HAT-TRICK ! [JOUEUR] s'offre un triplé historique ce soir au Bernabéu ! Incroyable ! ⚽⚽⚽💎 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-hattrick', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
         </div>
       </div>
     </div>
@@ -7170,6 +7277,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 "
               />
             </div>
+          </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-record" class="caption-box" readonly>🏅 RECORD ! Un nouveau jalon pour [JOUEUR] qui entre un peu plus dans l'histoire du club. Légende ! 👑🎖️ #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-record', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -7449,6 +7562,12 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               />
             </div>
           </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-transfert" class="caption-box" readonly>💰 RUMEUR TRANSFERT ! [JOUEUR] serait sur les tablettes du Real Madrid cet été. Qu'en pensez-vous ? ⚪👀 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-transfert', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
         </div>
       </div>
     </div>
@@ -7546,6 +7665,12 @@ Haaland·9%</textarea
                 "
               />
             </div>
+          </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-sondage" class="caption-box" readonly>🗳️ VOTRE AVIS ! Donnez votre vote pour élire [TITRE DU SONDAGE]. ✍️🌍 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-sondage', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -7818,6 +7943,13 @@ Haaland·9%</textarea
                 "
               />
             </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-prono" class="caption-box" readonly>🎯 PRONOSTIC ! Quelles sont vos prévisions pour le match face à [ADVERSAIRE] ? Donnez-nous votre score ! 🔮⚽ #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-prono', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
           </div>
         </div>
       </div>
@@ -8217,20 +8349,23 @@ Haaland·9%</textarea
         }
       }
 
-      function copyCaption() {
-        const copyText = document.getElementById("share-caption");
+      function copyCaption(id, event) {
+        const copyText = document.getElementById(id);
         copyText.select();
         copyText.setSelectionRange(0, 99999); // Pour mobile
         navigator.clipboard.writeText(copyText.value).then(() => {
-          const btn = event.target;
+          const btn = event ? event.currentTarget : null;
+          if (!btn) return;
           const originalText = btn.innerText;
           btn.innerText = "COPIÉ ! ✅";
+          const originalBg = btn.style.background;
+          const originalColor = btn.style.color;
           btn.style.background = "#4CAF50";
           btn.style.color = "#fff";
           setTimeout(() => {
             btn.innerText = originalText;
-            btn.style.background = "var(--gold)";
-            btn.style.color = "#000";
+            btn.style.background = originalBg;
+            btn.style.color = originalColor;
           }, 2000);
         });
       }
