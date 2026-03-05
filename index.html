@@ -2120,12 +2120,11 @@
           padding: 5px 10px;
           font-size: 11px;
         }
-        .form-row {
-          grid-template-columns: 1fr;
-        }
+        /* Use auto-wrapping instead of rigid columns */
+        .form-row,
         .form-row.triple,
         .form-row.quad {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
         }
       }
       @media (max-width: 480px) {
@@ -2135,6 +2134,7 @@
         .form-section {
           padding: 12px 14px;
         }
+        .form-row,
         .form-row.triple,
         .form-row.quad {
           grid-template-columns: 1fr;
@@ -2254,22 +2254,22 @@
       }
       .form-row {
         display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        align-items: start;
       }
       .form-row.single {
         grid-template-columns: 1fr;
       }
-      .form-row.triple {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
+      .form-row.triple,
       .form-row.quad {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       }
       .field {
         display: flex;
         flex-direction: column;
         gap: 5px;
+        min-width: 0; /* Prevents text overflow from expanding the grid */
       }
       .field label {
         font-size: 9px;
@@ -2289,6 +2289,8 @@
         font-family: "Barlow";
         font-size: 13px;
         outline: none;
+        width: 100%;
+        min-width: 0; /* Important for grid items */
         transition:
           border-color 0.2s,
           box-shadow 0.2s;
