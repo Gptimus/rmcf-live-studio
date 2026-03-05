@@ -2123,7 +2123,8 @@
         .form-row {
           grid-template-columns: 1fr;
         }
-        .form-row.triple {
+        .form-row.triple,
+        .form-row.quad {
           grid-template-columns: 1fr 1fr;
         }
       }
@@ -2134,7 +2135,8 @@
         .form-section {
           padding: 12px 14px;
         }
-        .form-row.triple {
+        .form-row.triple,
+        .form-row.quad {
           grid-template-columns: 1fr;
         }
         .tab-btn {
@@ -2260,6 +2262,9 @@
       }
       .form-row.triple {
         grid-template-columns: 1fr 1fr 1fr;
+      }
+      .form-row.quad {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
       }
       .field {
         display: flex;
@@ -4011,6 +4016,10 @@
                 <div class="prev-info-val" id="prev-stade">Stade de France</div>
               </div>
               <div class="prev-info-cell">
+                <div class="prev-info-lbl">Lieu</div>
+                <div class="prev-info-val" id="prev-lieu">Vigo, Espagne 🇪🇸</div>
+              </div>
+              <div class="prev-info-cell">
                 <div class="prev-info-lbl">Arbitre</div>
                 <div class="prev-info-val" id="prev-arb">M. Dupont</div>
               </div>
@@ -4149,7 +4158,7 @@
         </div>
         <div class="form-section">
           <div class="form-section-title">Infos match</div>
-          <div class="form-row triple">
+          <div class="form-row quad">
             <div class="field">
               <label>Stade</label
               ><input
@@ -4158,6 +4167,17 @@
                 oninput="
                   save('f-prev-stade', this.value);
                   setText('prev-stade', this.value);
+                "
+              />
+            </div>
+            <div class="field">
+              <label>Lieu</label
+              ><input
+                id="f-prev-lieu"
+                value="Vigo, Espagne 🇪🇸"
+                oninput="
+                  save('f-prev-lieu', this.value);
+                  setText('prev-lieu', this.value);
                 "
               />
             </div>
@@ -8419,6 +8439,7 @@ Haaland·9%</textarea
           restoreField("f-prev-date", "SAM. 08 MARS • 20H45"),
         );
         setText("prev-stade", restoreField("f-prev-stade", "Stade de France"));
+        setText("prev-lieu", restoreField("f-prev-lieu", "Vigo, Espagne 🇪🇸"));
         setText("prev-arb", restoreField("f-prev-arb", "M. Dupont"));
         setText("prev-tv", restoreField("f-prev-tv", "Canal+"));
         restoreField("f-prev-p1", "9·Benzema·Attaquant·Équipe 1");
