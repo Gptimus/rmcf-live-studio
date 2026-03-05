@@ -27,15 +27,15 @@ _Alternatives: `|` or `:` on mobile._
 
 ## 🎨 The 17 Templates
 
-1.  Goal
-2.  Lineup
-3.  Squad List
-4.  Match Preview
-5.  Player Stats
-6.  Man of the Match
-7.  Standings
-8.  Live Score
-9.  Match Summary
+1. Goal
+2. Lineup
+3. Squad List
+4. Match Preview
+5. Player Stats
+6. Man of the Match
+7. Standings
+8. Live Score
+9. Match Summary
 10. Warnings
 11. Head-to-Head
 12. Absentees
@@ -55,3 +55,12 @@ _Alternatives: `|` or `:` on mobile._
 ---
 
 _Created for RMF 24/7 LIVE._
+
+## 📬 Contact
+
+- **Email:** [guerthmanzala@gmail.com](mailto:guerthmanzala@gmail.com)
+- **WhatsApp/Phone:** [+243977895644](tel:+243977895644)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
