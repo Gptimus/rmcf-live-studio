@@ -145,7 +145,49 @@ function switchTab(name, btn) {
     if (targetBtn) targetBtn.classList.add("active");
   }
   localStorage.setItem("rmf_active_tab", name);
+
+  // Close any open mobile dropdown after selecting
+  document
+    .querySelectorAll(".nav-dropdown.open")
+    .forEach((d) => d.classList.remove("open"));
 }
+
+// ══════════════════════════════════════
+// MOBILE DROPDOWN TOGGLE
+// ══════════════════════════════════════
+(function () {
+  function isTouchDevice() {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  }
+
+  document.addEventListener("click", function (e) {
+    const catBtn = e.target.closest(".nav-category-btn");
+    if (catBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parent = catBtn.closest(".nav-dropdown");
+      const wasOpen = parent.classList.contains("open");
+
+      // Close all other dropdowns
+      document
+        .querySelectorAll(".nav-dropdown.open")
+        .forEach((d) => d.classList.remove("open"));
+
+      // Toggle the clicked one
+      if (!wasOpen) {
+        parent.classList.add("open");
+      }
+      return;
+    }
+
+    // If click is outside any dropdown, close them all
+    if (!e.target.closest(".nav-dropdown")) {
+      document
+        .querySelectorAll(".nav-dropdown.open")
+        .forEach((d) => d.classList.remove("open"));
+    }
+  });
+})();
 
 // ══════════════════════════════════════
 // IMAGE UPLOAD
@@ -1143,24 +1185,26 @@ window.renderBirthday = function () {
   const lblVal = document.getElementById("lbl-birth-val");
   const birthVal = document.getElementById("f-birth-val").value;
   const pName = document.getElementById("f-birth-name").value;
-  const hTitle = document.getElementById("birth-header-title");
-  const hBadge = document.getElementById("birth-badge");
+  const w1 = document.getElementById("birth-title-w1");
+  const w2 = document.getElementById("birth-title-w2");
+  const metaLabel = document.getElementById("birth-meta-label");
 
   if (mode === "age") {
     lblVal.textContent = "Âge (ex: 24)";
-    if (hTitle) hTitle.textContent = "ANNIVERSAIRE / BIRTHDAY";
-    if (hBadge) hBadge.textContent = "MVP";
+    if (w1) w1.textContent = "HAPPY";
+    if (w2) w2.textContent = "BIRTHDAY";
+    if (metaLabel) metaLabel.textContent = "ans";
     document.getElementById("cap-birth").value =
       `🎂 ¡FELIZ CUMPLEAÑOS! Aujourd'hui nous célébrons l'anniversaire de notre star ${pName}. Laisse un message en commentaire ! 🤍👑 #HalaMadrid #RMCFLIVE`;
   } else {
     lblVal.textContent = "Dates / Années (ex: 1994 - 2010)";
-    if (hTitle) hTitle.textContent = "HÉRITAGE / LEGACY";
-    if (hBadge) hBadge.textContent = "LEGEND";
+    if (w1) w1.textContent = "HÉRITAGE";
+    if (w2) w2.textContent = "LEGACY";
+    if (metaLabel) metaLabel.textContent = "années";
     document.getElementById("cap-birth").value =
       `👑 LÉGENDE ÉTERNELLE. Merci pour tout ${pName}. Un Madridista ne t'oubliera jamais. 🤍🛡️ #HalaMadrid #RMCFLIVE #Leyenda`;
   }
 
-  // Update Big BG Text
   setT("birth-val-bg", birthVal);
   setT("birth-pname", pName);
   setT("birth-msg", document.getElementById("f-birth-msg").value);
@@ -1284,6 +1328,12 @@ window.updateWatermark = function () {
     logoImg.style.left = "50%";
     logoImg.style.transform = "translate(-50%, -50%)";
   }
+
+  // Shadow
+  const shadow = document.getElementById("watermark-shadow")?.checked;
+  logoImg.style.filter = shadow
+    ? "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6))"
+    : "none";
 };
 
 // Initialize after all functions are on window global

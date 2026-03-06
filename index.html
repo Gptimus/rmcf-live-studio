@@ -2814,41 +2814,31 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
       <div class="card-stage" id="birthday-stage">
         <div id="birthday-container-frame" class="card-frame" style="background: transparent; box-shadow: none; border: none; overflow: visible;">
           <div id="tpl-birthday">
-            <div class="compo-field-bg">
-              <svg viewBox="0 0 400 600" fill="none">
-                <rect width="400" height="600" fill="transparent" />
-                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
-                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
-              </svg>
+            <!-- Full-bleed player photo -->
+            <div class="birth-photo-zone">
+              <img id="birth-player-img" src="" alt="" />
+              <span id="birth-default-icon">👤</span>
             </div>
 
-            <div class="compo-header">
-              <img id="birth-logo" class="compo-logo" src="logo.png" alt="RMF" />
-              <div class="compo-center">
-                <div class="compo-match-name" id="birth-header-title">HÉRITAGE / LEGACY</div>
-                <div class="compo-match-sub" id="birth-header-sub">RMF 24/7 LIVE • STUDIO</div>
+            <!-- Top overlay: title + logo -->
+            <div class="birth-top-bar">
+              <div class="birth-title-block">
+                <div class="birth-title-line">
+                  <span class="birth-title-outline" id="birth-title-w1">HAPPY</span>
+                  <span class="birth-title-fill" id="birth-title-w2">BIRTHDAY</span>
+                </div>
+                <div class="birth-subtitle" id="birth-msg">¡Felicidades!</div>
               </div>
-              <div class="compo-form-badge" id="birth-badge">MVP</div>
+              <img id="birth-logo" class="birth-corner-logo" src="logo.png" alt="RMF" />
             </div>
 
-            <div class="birth-content">
-              <div class="birth-big-txt" id="birth-val-bg">24</div>
-              <div class="birth-glow"></div>
-              
-              <div class="birth-player-zone">
-                <img id="birth-player-img" src="" alt="" />
-                <span id="birth-default-icon">👑</span>
+            <!-- Bottom overlay: player name + info (optional) -->
+            <div class="birth-bottom-bar">
+              <div id="birth-pname">ANTONIO RÜDIGER</div>
+              <div class="birth-meta">
+                <span class="birth-meta-val" id="birth-val-bg">32</span>
+                <span class="birth-meta-label" id="birth-meta-label">ans</span>
               </div>
-              
-              <div class="birth-info">
-                <div id="birth-pname">VINICIUS JR</div>
-                <div id="birth-msg">¡FELIZ CUMPLEAÑOS!</div>
-              </div>
-            </div>
-
-            <div class="compo-footer">
-              <div class="ft-logo">RMF 24/7 LIVE</div>
-              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -5797,6 +5787,14 @@ DOMICILE·VILLARREAL·19 MARS·18:30·LALIGA</textarea>
                 oninput="updateWatermark()"
                 style="width: 100%; margin-top: 10px"
               />
+            </div>
+          </div>
+          <div class="form-row single">
+            <div class="field">
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" id="watermark-shadow" onchange="updateWatermark()" />
+                <span>Ombre portée (drop shadow)</span>
+              </label>
             </div>
           </div>
         </div>
