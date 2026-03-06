@@ -778,6 +778,10 @@ function initNewTemplates() {
   updateCarton();
 
   // H2H
+  restoreField(
+    "f-h2h-matches",
+    "15/01/25·2-1·Ligue 1\n28/09/24·1-1·Ligue 1\n12/05/24·3-0·Coupe\n10/02/24·0-1·Ligue 1",
+  );
   renderH2HMatches();
   setT("h2h-t1", load("f-h2h-t1", "REAL MADRID"));
   setT("h2h-t2", load("f-h2h-t2", "BARCELONA"));
