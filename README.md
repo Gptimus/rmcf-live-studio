@@ -1,6 +1,6 @@
 # RMFC LIVE — Studio v3
 
-> **18 professional tools & templates.** Modify, personalize, add watermarks, and download in high-resolution PNG.
+> **19 professional tools & templates.** Modify, personalize, add watermarks, and download in high-resolution PNG.
 
 RMF 24/7 LIVE — Studio is a comprehensive graphic generation suite built for football fans and social media managers. Create stunning match-related content in seconds.
 
@@ -39,7 +39,7 @@ _Alternatives: `|` or `:` on mobile._
 | **Watchlist** | `9·Benzema·FW·Real Madrid`     | Number · Name · Position · Team   |
 | **Polls**     | `Benzema·42%`                  | Option · Percentage (1 per line)  |
 
-## 🎨 The 18 Tools & Templates
+## 🎨 The 19 Tools & Templates
 
 1. Goal
 2. Lineup
@@ -59,6 +59,7 @@ _Alternatives: `|` or `:` on mobile._
 16. Poll
 17. Forecast
 18. Watermark
+19. Generic
 
 ## 🛠️ Technical Stack
 
