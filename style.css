@@ -4210,3 +4210,24 @@ body.theme-light .settings-reset-btn {
   border-color: rgba(220, 38, 38, 0.2);
   color: #dc2626;
 }
+
+/* ── LIGHT THEME: ISOLATE PREVIEW AREA ── */
+/* Graphic templates must strictly retain dark styling regardless of UI theme */
+body.theme-light .card-stage,
+body.theme-light .card-frame,
+body.theme-light [id^="tpl-"] {
+  --bg: #070c1a;
+  --panel: #0d1528;
+  --white: #ffffff;
+  --off: #e8eeff;
+  --muted: #6a7fa8;
+  --border: rgba(201, 162, 39, 0.25);
+  --royal: #1b3fa0;
+  --royal-dark: #0d2460;
+  --royal-mid: #1a3590;
+  --royal-light: #2650c8;
+  --gold: #c9a227;
+  --gold-bright: #f0c94a;
+  --gold-dark: #8a6e10;
+  --gold-pale: rgba(201, 162, 39, 0.15);
+}
