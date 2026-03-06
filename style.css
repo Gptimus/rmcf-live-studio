@@ -336,13 +336,20 @@ img:not([src]) {
   justify-content: space-between;
   align-items: flex-end;
 }
-#birth-pname {
+#birth-pname,
+#but-pname,
+#motm-pname,
+#hat-pname,
+#rec-pname,
+#tr-pname,
+#stats-pname {
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(22px, 7vw, 38px);
-  color: var(--white);
+  font-size: clamp(22px, 7vw, 42px);
+  color: #ffffff !important;
   letter-spacing: 2px;
   line-height: 1;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
 }
 .birth-meta {
   display: flex;
@@ -4215,7 +4222,8 @@ body.theme-light .settings-reset-btn {
 /* Graphic templates must strictly retain dark styling regardless of UI theme */
 body.theme-light .card-stage,
 body.theme-light .card-frame,
-body.theme-light [id^="tpl-"] {
+body.theme-light [id^="tpl-"],
+body.theme-light [id^="tpl-"] * {
   --bg: #070c1a;
   --panel: #0d1528;
   --white: #ffffff;
@@ -4230,4 +4238,12 @@ body.theme-light [id^="tpl-"] {
   --gold-bright: #f0c94a;
   --gold-dark: #8a6e10;
   --gold-pale: rgba(201, 162, 39, 0.15);
+}
+
+body.theme-light .card-stage {
+  color: #ffffff;
+}
+
+body.theme-light .card-stage * {
+  border-color: var(--border);
 }
