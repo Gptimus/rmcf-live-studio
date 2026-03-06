@@ -130,6 +130,9 @@
         <button class="tab-btn" onclick="switchTab('prono', this)">
           🎯 Pronostic
         </button>
+        <button class="tab-btn" onclick="switchTab('watermark', this)">
+          💧 Watermark
+        </button>
         <button class="tab-btn" onclick="switchTab('doc', this)">
           📖 Guide
         </button>
@@ -1568,7 +1571,7 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
 
 🔵 FB : www.facebook.com/share/1C6JBuqeR1/
 🟢 WA : whatsapp.com/channel/0029VasTsL83GJOoxHf8253X
-📸 IG : @rmcf_live
+📸 IG : https://www.instagram.com/rmcf_live
 
 #RealMadrid #HalaMadrid #RMCFLIVE</textarea
             >
@@ -1771,8 +1774,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
         </div>
       </div>
 
-      <!-- 17 TEMPLATES -->
-      <div class="doc-section-title">🎨 Les 17 templates</div>
+      <!-- 18 OUTILS & TEMPLATES -->
+      <div class="doc-section-title">🎨 Les 18 outils & templates</div>
       <div class="doc-grid">
         <div class="doc-card">
           <div class="doc-card-header">
@@ -2217,6 +2220,30 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               <div class="doc-step-num">2</div>
               <div class="doc-step-text">
                 3 options avec % : Victoire Éq.1 / Nul / Victoire Éq.2
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">💧</div>
+            <div>
+              <div class="doc-card-title">Watermark</div>
+              <div class="doc-card-sub">Filigrane sur vos images</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Uploadez votre photo via le panneau de droite
+              </div>
+            </div>
+            <div class="doc-step">
+              <div class="doc-step-num">2</div>
+              <div class="doc-step-text">
+                Ajustez la position, la taille et l'opacité du logo
               </div>
             </div>
           </div>
@@ -5142,6 +5169,63 @@ Haaland·9%</textarea
             >
               COPIER LE TEXTE
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ══════════ TAB: WATERMARK ══════════ -->
+    <div class="workspace" id="ws-watermark">
+      <div class="card-stage" style="display: flex; justify-content: center; align-items: center; background: #111;">
+        <div class="card-frame" style="background: transparent; box-shadow: none;">
+          <div id="tpl-watermark" style="position: relative; display: inline-block;">
+            <img id="watermark-bg" src="" style="display: none; max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 8px;" />
+            <img id="watermark-logo" src="logo.png" style="display: none; position: absolute; pointer-events: none; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));" />
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-section">
+          <h3>WATERMARK 💧</h3>
+          <div class="form-group">
+            <label>1. Importer votre image</label>
+            <input type="file" accept="image/*" onchange="loadWatermarkBg(event)" style="color: white; width: 100%; margin-top: 5px; background: #222; padding: 10px; border-radius: 4px; border: 1px solid #333;" />
+          </div>
+          
+          <div class="form-group" style="margin-top: 20px;">
+            <label>Position du Logo</label>
+            <select id="watermark-pos" class="val-input" onchange="updateWatermark()">
+              <option value="bottom-left">Bas Gauche</option>
+              <option value="bottom-right">Bas Droite</option>
+              <option value="top-left">Haut Gauche</option>
+              <option value="top-right">Haut Droite</option>
+              <option value="center">Centre</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Taille du Logo <span id="watermark-size-val">(15%)</span></label>
+            <input type="range" id="watermark-size" min="5" max="50" value="15" oninput="updateWatermark()" style="width: 100%; margin-top: 5px;" />
+          </div>
+          
+          <div class="form-group">
+            <label>Opacité <span id="watermark-opacity-val">(80%)</span></label>
+            <input type="range" id="watermark-opacity" min="10" max="100" value="80" oninput="updateWatermark()" style="width: 100%; margin-top: 5px;" />
+          </div>
+
+          <div style="margin-top: 30px">
+            <button class="dl-btn" onclick="downloadCard('tpl-watermark', 'rmfc-watermark')">
+              TÉLÉCHARGER + WATERMARK
+            </button>
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <div class="form-section-title">✨ Astuce</div>
+          <div class="field" style="color: var(--off); font-size: 13px; line-height: 1.5;">
+            Ajoutez le filigrane du club sur toutes vos photos exclusives avant de les poster sur les réseaux sociaux. <br/><br/>
+            Le logo s'ajuste proportionnellement à l'image uploadée, garantissant un rendu propre et optimisé.
           </div>
         </div>
       </div>
