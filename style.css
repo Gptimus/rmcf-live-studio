@@ -209,6 +209,16 @@ img:not([src]) {
 .story-mode #tpl-generic {
   aspect-ratio: 9 / 16;
 }
+.story-mode #tpl-generic .gen-content-area {
+  padding: 60px 40px;
+}
+.story-mode #tpl-generic .gen-title {
+  font-size: clamp(40px, 12vw, 70px);
+}
+.story-mode #tpl-generic .gen-desc {
+  font-size: 24px;
+  max-width: 100%;
+}
 
 /* Full-bleed photo */
 .birth-photo-zone {
@@ -536,12 +546,11 @@ img:not([src]) {
   transition: all 0.3s ease;
 }
 .gen-icon-box {
-  width: 60px;
-  height: 60px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 .gen-icon-box img {
   max-width: 100%;
@@ -555,6 +564,7 @@ img:not([src]) {
   color: #fff;
   margin-bottom: 10px;
   text-transform: uppercase;
+  transition: font-size 0.3s ease;
 }
 .gen-desc {
   font-family: "Barlow Condensed", sans-serif;
@@ -563,6 +573,7 @@ img:not([src]) {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   max-width: 90%;
+  transition: font-size 0.3s ease;
 }
 /* Positions */
 .pc-top {
@@ -2763,6 +2774,7 @@ img:not([src]) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   gap: 6px;
   min-height: 180px;
 }

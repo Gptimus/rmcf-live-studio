@@ -1333,11 +1333,11 @@
     <div class="workspace" id="ws-generic">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-generic" class="tpl-base pc-center al-center">
+          <div id="tpl-generic" class="tpl-base">
             <div class="gen-bg-overlay" id="gen-bg-img" style="background-image: none;"></div>
             <div class="gen-dark-tint" id="gen-tint" style="background: rgba(0,0,0,0.4);"></div>
             
-            <div class="gen-content-area" id="gen-align-container">
+            <div class="gen-content-area pc-center al-center" id="gen-align-container">
               <div class="gen-box">
                 <div class="gen-icon-box" id="gen-icon-zone">
                    <img id="gen-icon-img" src="" alt="" style="display:none;" />
@@ -1384,7 +1384,7 @@
               </select>
             </div>
             <div class="field">
-              <label>Alignement</label>
+              <label>Alignement Bloc</label>
               <select id="f-gen-align" onchange="updateGenLayout(); save('f-gen-align', this.value);">
                 <option value="al-left">Gauche</option>
                 <option value="al-center" selected>Centre</option>
@@ -1394,8 +1394,38 @@
           </div>
           <div class="form-row">
             <div class="field">
+              <label>Alignement Texte</label>
+              <select id="f-gen-txt-align" onchange="updateGenLayout(); save('f-gen-txt-align', this.value);">
+                <option value="left">Gauche</option>
+                <option value="center" selected>Centre</option>
+                <option value="right">Droite</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
               <label>Opacité Teinte (0-100)</label>
               <input type="range" min="0" max="100" value="40" id="f-gen-tint-op" oninput="updateGenLayout(); save('f-gen-tint-op', this.value);" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Taille Titre (px)</label>
+              <input type="number" id="f-gen-tsize" value="52" oninput="updateGenLayout(); save('f-gen-tsize', this.value);" />
+            </div>
+            <div class="field">
+              <label>Taille Desc (px)</label>
+              <input type="number" id="f-gen-dsize" value="18" oninput="updateGenLayout(); save('f-gen-dsize', this.value);" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Taille Icône (px)</label>
+              <input type="number" id="f-gen-isize" value="60" oninput="updateGenLayout(); save('f-gen-isize', this.value);" />
+            </div>
+            <div class="field">
+              <label>Taille Branding (px)</label>
+              <input type="number" id="f-gen-lsize" value="32" oninput="updateGenLayout(); save('f-gen-lsize', this.value);" />
             </div>
           </div>
         </div>
@@ -1405,7 +1435,7 @@
           <div class="form-row">
             <div class="field">
               <label>Icone/Logo</label>
-              <div class="img-upload" style="aspect-ratio: 1/1; max-width: 80px;" id="gen-ico-up-zone">
+              <div class="img-upload" style="aspect-ratio: 1/1;" id="gen-ico-up-zone">
                 <input type="file" accept="image/*" onchange="loadGenIcon(this)" />
                 <img class="img-thumb" id="gen-icon-th" src="" alt="" />
                 <span class="img-upload-icon">💠</span>
@@ -1413,7 +1443,7 @@
             </div>
             <div class="field">
               <label>Fond (Image)</label>
-              <div class="img-upload" style="aspect-ratio: 4/5; max-width: 80px;" id="gen-bg-up-zone">
+              <div class="img-upload" style="aspect-ratio: 4/5;" id="gen-bg-up-zone">
                 <input type="file" accept="image/*" onchange="loadGenBg(this)" />
                 <img class="img-thumb" id="gen-bg-th" src="" alt="" />
                 <span class="img-upload-icon">🖼️</span>

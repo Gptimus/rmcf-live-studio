@@ -28,7 +28,6 @@ function applyLogos() {
   });
 }
 
-
 // ══════════════════════════════════════
 // STORAGE
 // ══════════════════════════════════════
@@ -945,14 +944,25 @@ function initNewTemplates() {
 
   // Generic Fields
   setT("gen-title-val", restoreField("f-gen-title", "VOTRE TITRE ICI"));
-  const genDesc = restoreField("f-gen-desc", "Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouvez tout personnaliser.");
+  const genDesc = restoreField(
+    "f-gen-desc",
+    "Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouvez tout personnaliser.",
+  );
   const genDescVal = document.getElementById("gen-desc-val");
   if (genDescVal) genDescVal.textContent = genDesc;
-  
+
+  restoreField("f-gen-pos-v", "pc-center");
+  restoreField("f-gen-align", "al-center");
+  restoreField("f-gen-txt-align", "center");
+  restoreField("f-gen-tint-op", "40");
+  restoreField("f-gen-tsize", "52");
+  restoreField("f-gen-dsize", "18");
+  restoreField("f-gen-isize", "60");
+  restoreField("f-gen-lsize", "32");
+
   // Generic Layout
   updateGenLayout();
 }
-
 
 // ══════════════════════════════════════
 // FIXTURES
@@ -1445,11 +1455,42 @@ window.loadGenIcon = function (input) {
 window.updateGenLayout = function () {
   const vPos = document.getElementById("f-gen-pos-v").value;
   const hAlign = document.getElementById("f-gen-align").value;
+  const tAlign = document.getElementById("f-gen-txt-align").value;
   const opacity = document.getElementById("f-gen-tint-op").value;
-  const tpl = document.getElementById("tpl-generic");
-  tpl.className = `tpl-base ${vPos} ${hAlign}`;
-  document.getElementById("gen-tint").style.background =
-    `rgba(0,0,0,${opacity / 100})`;
+  const tSize = document.getElementById("f-gen-tsize").value;
+  const dSize = document.getElementById("f-gen-dsize").value;
+  const iSize = document.getElementById("f-gen-isize")?.value || 60;
+  const lSize = document.getElementById("f-gen-lsize")?.value || 32;
+
+  const container = document.getElementById("gen-align-container");
+  if (container) {
+    container.className = `gen-content-area ${vPos} ${hAlign}`;
+  }
+
+  const genBox = document.querySelector(".gen-box");
+  if (genBox) genBox.style.textAlign = tAlign;
+
+  const tint = document.getElementById("gen-tint");
+  if (tint) tint.style.background = `rgba(0,0,0,${opacity / 100})`;
+
+  const titleVal = document.getElementById("gen-title-val");
+  if (titleVal) titleVal.style.fontSize = tSize + "px";
+
+  const descVal = document.getElementById("gen-desc-val");
+  if (descVal)
+    descVal.textContent = document.getElementById("f-gen-desc").value;
+  if (descVal) descVal.style.fontSize = dSize + "px";
+
+  const iconBox = document.getElementById("gen-icon-zone");
+  if (iconBox) {
+    iconBox.style.width = iSize + "px";
+    iconBox.style.height = iSize + "px";
+  }
+
+  const brandingLogo = document.getElementById("gen-logo");
+  if (brandingLogo) {
+    brandingLogo.style.width = lSize + "px";
+  }
 };
 
 // Initialize after all functions are on window global
