@@ -1338,9 +1338,9 @@ window.updateWatermark = function () {
   save("watermark-format", format);
 
   if (format === "original") {
-    tpl.style.display = "inline-block";
+    tpl.style.display = "block";
     tpl.style.aspectRatio = "auto";
-    tpl.style.width = "auto";
+    tpl.style.width = "100%";
     tpl.style.height = "auto";
     bgImg.style.display = "block";
     bgCanvas.style.display = "none";
