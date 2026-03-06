@@ -1132,7 +1132,7 @@ window.toggleSettings = function () {
     p.style.display === "none" || p.style.display === "" ? "block" : "none";
 };
 
-init();
+// init() remains at the end of the file after all functions are defined.
 
 // ══════════════════════════════════════
 // WATERMARK TOOL
@@ -1244,3 +1244,6 @@ window.updateWatermark = function () {
     logoImg.style.transform = "translate(-50%, -50%)";
   }
 };
+
+// Initialize after all functions are on window global
+init();
