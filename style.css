@@ -172,7 +172,13 @@ img:not([src]) {
 }
 
 /* ── ANNIVERSAIRE / BIRTHDAY (simplified) ── */
-#tpl-birthday {
+/* ── FULL-BLEED PHOTO CARD STYLE (Birthday, MOTM, Hat-trick, Transfert, Record, But) ── */
+#tpl-birthday,
+#tpl-motm,
+#tpl-hattrick,
+#tpl-transfert,
+#tpl-record,
+#tpl-but {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -181,7 +187,12 @@ img:not([src]) {
   font-family: "Barlow Condensed", sans-serif;
 }
 
-.story-mode #tpl-birthday {
+.story-mode #tpl-birthday,
+.story-mode #tpl-motm,
+.story-mode #tpl-hattrick,
+.story-mode #tpl-transfert,
+.story-mode #tpl-record,
+.story-mode #tpl-but {
   aspect-ratio: 9 / 16;
 }
 
@@ -221,7 +232,7 @@ img:not([src]) {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 6% 5%;
+  padding: 4% 5%;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.55) 0%,
@@ -236,34 +247,34 @@ img:not([src]) {
 }
 .birth-title-line {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 10px;
-  line-height: 1;
+  align-items: baseline;
+  gap: 0;
+  line-height: 0.9;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  padding-bottom: 2px;
 }
 .birth-title-outline {
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(32px, 9vw, 52px);
+  font-size: clamp(28px, 8vw, 46px);
   color: transparent;
-  -webkit-text-stroke: 2px #fff;
-  letter-spacing: 2px;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.5px;
 }
 .birth-title-fill {
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(32px, 9vw, 52px);
+  font-size: clamp(28px, 8vw, 46px);
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: -0.5px;
   font-weight: 900;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 .birth-subtitle {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(12px, 3.5vw, 18px);
+  font-size: clamp(10px, 2.8vw, 14px);
   font-weight: 600;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 1px;
-  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  text-align: right;
+  margin-top: 4px;
 }
 .birth-corner-logo {
   width: clamp(36px, 10vw, 56px);
@@ -316,6 +327,59 @@ img:not([src]) {
   color: var(--gold);
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+/* Specifics for simplified templates */
+.fb-score-wrap {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.fb-score-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  color: #fff;
+}
+.fb-transfer-clubs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+.fb-club-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.fb-record-value {
+  position: absolute;
+  top: 95px; /* Moved up with the title */
+  left: 6%;
+  transform: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(60px, 18vw, 110px);
+  color: var(--gold-bright);
+  opacity: 0.5;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0.7;
+  text-align: left;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.fb-hattrick-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+.fb-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
 /* ═══════════════════════════════════════════════
@@ -508,129 +572,6 @@ img:not([src]) {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-top: 2px;
-}
-
-/* ── MOTM ── */
-#tpl-motm {
-  background: linear-gradient(150deg, #0a1428 0%, #14245a 50%, #0a1428 100%);
-}
-.motm-crown {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  padding: 3% 5% 1%;
-}
-.motm-crown-txt {
-  font-family: "Bebas Neue";
-  font-size: clamp(11px, 3vw, 15px);
-  letter-spacing: 4px;
-  color: var(--gold);
-}
-.motm-player-zone {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(10px, 3%, 18px);
-  padding: 3% 5% 4%;
-}
-.motm-star-badge {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: #000;
-  font-family: "Bebas Neue";
-  font-size: clamp(16px, 4vw, 22px);
-  letter-spacing: 3px;
-  padding: 4px 20px;
-  border-radius: 30px;
-  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.4);
-}
-.motm-avatar {
-  width: clamp(90px, 24vw, 140px);
-  height: clamp(90px, 24vw, 140px);
-  border-radius: 50%;
-  border: 3px solid var(--gold-bright);
-  margin-bottom: clamp(8px, 2.5%, 16px);
-  overflow: hidden;
-  background: var(--royal-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(36px, 10vw, 64px);
-  box-shadow:
-    0 0 0 6px rgba(201, 162, 39, 0.15),
-    0 0 30px rgba(201, 162, 39, 0.4);
-  position: relative;
-}
-.motm-avatar img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-.motm-avatar img.visible {
-  display: block;
-}
-.motm-pname {
-  font-family: "Bebas Neue";
-  font-size: clamp(22px, 7vw, 40px);
-  letter-spacing: 3px;
-  color: #fff;
-  text-align: center;
-  line-height: 1;
-}
-.motm-prole {
-  font-size: clamp(10px, 2.5vw, 13px);
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 2px;
-}
-.motm-rating {
-  font-family: "Bebas Neue";
-  font-size: clamp(40px, 12vw, 72px);
-  color: var(--gold-bright);
-  text-shadow: 0 2px 0 var(--gold-dark);
-  line-height: 1;
-}
-.motm-rating-lbl {
-  font-size: clamp(9px, 2vw, 11px);
-  font-weight: 800;
-  color: var(--muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.motm-stats-row {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  margin: 0 5% 3%;
-  border: 1px solid rgba(201, 162, 39, 0.25);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.motm-stat {
-  flex: 1;
-  text-align: center;
-  padding: 3% 2%;
-  background: rgba(0, 0, 0, 0.3);
-}
-.motm-stat + .motm-stat {
-  border-left: 1px solid rgba(201, 162, 39, 0.15);
-}
-.motm-stat-val {
-  font-family: "Bebas Neue";
-  font-size: clamp(20px, 6vw, 32px);
-  color: var(--gold-bright);
-  line-height: 1;
-}
-.motm-stat-lbl {
-  font-size: clamp(7px, 1.8vw, 9px);
-  font-weight: 800;
-  color: var(--muted);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
 }
 
 /* ── CLASSEMENT ── */
@@ -1310,7 +1251,6 @@ img:not([src]) {
 .absent-reason.suspension {
   color: var(--gold);
 }
-
 /* ── HAT-TRICK ── */
 #tpl-hattrick {
   background: linear-gradient(150deg, #0a0a1a 0%, #14143a 50%, #0a0a1a 100%);
@@ -2658,245 +2598,6 @@ img:not([src]) {
 /* ─────────────────────────────────────────
    TEMPLATE 1: BUT / GOAL
 ───────────────────────────────────────── */
-#tpl-but {
-  background: linear-gradient(150deg, #0a1840 0%, #152d7a 45%, #0a1840 100%);
-  position: relative;
-  overflow: hidden;
-  font-family: "Barlow Condensed";
-}
-.but-noise {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity: 0.4;
-}
-.but-radial {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 70% 60% at 50% 55%,
-    rgba(201, 162, 39, 0.13) 0%,
-    transparent 70%
-  );
-}
-.but-lines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.015) 0px,
-    rgba(255, 255, 255, 0.015) 1px,
-    transparent 1px,
-    transparent 48px
-  );
-}
-
-/* Header */
-.but-header {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4% 5% 3%;
-}
-.but-hdr-logo {
-  height: 9%;
-  min-height: 32px;
-  max-height: 52px;
-  width: auto;
-}
-.but-live {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(220, 30, 30, 0.9);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: clamp(8px, 2vw, 11px);
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #fff;
-}
-.but-live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #fff;
-  animation: blink 1.2s ease-in-out infinite;
-}
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
-/* Goal label */
-.but-goal-wrap {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 0 5% 1%;
-}
-.but-goal-text {
-  font-family: "Bebas Neue";
-  font-size: clamp(52px, 17vw, 88px);
-  letter-spacing: 6px;
-  line-height: 0.9;
-  color: var(--gold-bright);
-  text-shadow:
-    0 2px 0 var(--gold-dark),
-    0 4px 12px rgba(201, 162, 39, 0.4);
-  margin-top: 30px;
-}
-
-/* Player zone */
-.but-player-zone {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3% 5% 4%;
-  gap: clamp(8px, 2.5%, 14px);
-}
-.but-avatar-ring {
-  width: clamp(80px, 22%, 130px);
-  height: clamp(80px, 22%, 130px);
-  border-radius: 50%;
-  border: 3px solid var(--gold);
-  margin-bottom: clamp(6px, 2%, 12px);
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--royal-dark), var(--royal-mid));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 0 0 6px rgba(201, 162, 39, 0.12),
-    0 0 30px rgba(201, 162, 39, 0.3);
-  flex-shrink: 0;
-}
-.but-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-.but-avatar-icon {
-  font-size: clamp(32px, 9%, 54px);
-  display: block;
-}
-.but-pname {
-  font-family: "Bebas Neue";
-  font-size: clamp(20px, 6vw, 36px);
-  letter-spacing: 3px;
-  color: var(--white);
-  text-align: center;
-  line-height: 1;
-}
-.but-pnum {
-  font-size: clamp(11px, 3vw, 16px);
-  font-weight: 800;
-  color: var(--gold);
-  letter-spacing: 2px;
-}
-
-/* Score */
-.but-score-wrap {
-  position: relative;
-  z-index: 10;
-  margin: 0 5% 3%;
-}
-.but-score-card {
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(201, 162, 39, 0.35);
-  border-radius: 10px;
-  display: flex;
-  align-items: stretch;
-  margin-top: 20px;
-}
-.but-team {
-  flex: 1;
-  padding: 3.5% 3%;
-  text-align: center;
-}
-.but-tname {
-  font-size: clamp(8px, 2.2vw, 12px);
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.but-tscore {
-  font-family: "Bebas Neue";
-  font-size: clamp(30px, 10vw, 56px);
-  line-height: 1;
-  color: var(--white);
-}
-.but-tscore.gold {
-  color: var(--gold-bright);
-}
-.but-divider-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  position: relative;
-  background: rgba(201, 162, 39, 0.06);
-  border-left: 1px solid rgba(201, 162, 39, 0.2);
-  border-right: 1px solid rgba(201, 162, 39, 0.2);
-}
-.but-min-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gold);
-  color: #000;
-  border-radius: 20px;
-  font-size: clamp(8px, 2vw, 10px);
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 2px 8px;
-  white-space: nowrap;
-}
-.but-score-vs {
-  font-family: "Bebas Neue";
-  font-size: clamp(10px, 3vw, 16px);
-  color: var(--muted);
-}
-
-/* Footer */
-.but-footer {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2% 5% 4%;
-  border-top: 1px solid rgba(201, 162, 39, 0.15);
-}
-.but-comp-txt {
-  font-size: clamp(8px, 2vw, 11px);
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.but-hash {
-  font-size: clamp(8px, 2vw, 11px);
-  font-weight: 700;
-  color: rgba(201, 162, 39, 0.7);
-  letter-spacing: 1px;
-}
 
 /* ─────────────────────────────────────────
    TEMPLATE 2: COMPOSITION
@@ -3561,21 +3262,16 @@ body.story-mode .tpl-base {
   padding-bottom: 5% !important;
 }
 /* Center middle blocks in story mode to avoid empty space at bottom */
-body.story-mode .but-player-zone,
 body.story-mode .compo-pitch,
 body.story-mode .convo-players,
 body.story-mode .prev-vs-zone,
 body.story-mode .stats-bars,
-body.story-mode .motm-player-zone,
 body.story-mode .class-table,
 body.story-mode .live-score-zone,
 body.story-mode .res-events,
 body.story-mode .carton-zone,
 body.story-mode .h2h-table,
 body.story-mode .abs-table,
-body.story-mode .hat-player-zone,
-body.story-mode .rec-player-zone,
-body.story-mode .tr-player-zone,
 body.story-mode .sond-zone,
 body.story-mode .prono-zone,
 body.story-mode #rat-container,
@@ -3589,7 +3285,6 @@ body.story-mode #tpl-comunicado > div:nth-child(2) {
 }
 /* Ensure footer elements are pushed to the bottom */
 body.story-mode .tpl-footer,
-body.story-mode .but-score-wrap,
 body.story-mode .compo-footer,
 body.story-mode .prev-footer {
   margin-top: auto;
@@ -3607,7 +3302,6 @@ body.theme-away {
   --gold-pale: rgba(255, 102, 0, 0.15);
 }
 body.theme-away .tpl-base,
-body.theme-away #tpl-but,
 body.theme-away #tpl-compo,
 body.theme-away #tpl-convo,
 body.theme-away #tpl-preview {
