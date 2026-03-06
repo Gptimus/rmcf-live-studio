@@ -133,6 +133,20 @@ body {
   overflow-x: hidden;
 }
 
+/* ── SHARED TEMPLATE SYSTEM ── */
+.tpl-base-coherent {
+  background: linear-gradient(170deg, #06102a 0%, #0e1e52 45%, #06102a 100%);
+  position: relative;
+  font-family: "Barlow Condensed", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.story-mode .tpl-base-coherent {
+  min-height: 100%;
+}
+
 /* ─────────── SCROLLBAR ─────────── */
 ::-webkit-scrollbar {
   width: 5px;
@@ -154,18 +168,16 @@ img:not([src]) {
 
 /* ── ANNIVERSAIRE / BIRTHDAY ── */
 #tpl-birthday {
-  background: radial-gradient(circle at center, #001f3f 0%, #000 100%);
+  background: linear-gradient(170deg, #06102a 0%, #0e1e52 45%, #06102a 100%);
   position: relative;
-  overflow: hidden;
   font-family: "Barlow Condensed", sans-serif;
   display: flex;
   flex-direction: column;
-  aspect-ratio: 1 / 1;
   width: 100%;
 }
 
 .story-mode #tpl-birthday {
-  aspect-ratio: 9 / 16;
+  min-height: 100%;
 }
 
 .birth-glow {
@@ -177,8 +189,8 @@ img:not([src]) {
   height: 100%;
   background: radial-gradient(
     circle,
-    rgba(201, 162, 39, 0.25) 0%,
-    transparent 70%
+    rgba(201, 162, 39, 0.2) 0%,
+    transparent 75%
   );
   z-index: 1;
   pointer-events: none;
@@ -186,13 +198,13 @@ img:not([src]) {
 
 .birth-big-txt {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Bebas Neue", sans-serif;
   font-size: min(320px, 60vw);
   line-height: 0.8;
-  color: rgba(201, 162, 39, 0.08);
+  color: rgba(201, 162, 39, 0.06);
   z-index: 2;
   letter-spacing: -5px;
   pointer-events: none;
@@ -207,6 +219,7 @@ img:not([src]) {
   flex-direction: column;
   z-index: 10;
   overflow: hidden;
+  margin-top: 25px;
 }
 
 .birth-player-zone {
@@ -217,21 +230,21 @@ img:not([src]) {
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Align to the baseline of the info area */
+  align-items: flex-end;
   z-index: 5;
-  padding: 10px 0 100px; /* Sanctuary space at bottom for text overlay */
+  padding: 10px 0 110px; /* Space for info overlay */
 }
 
 .birth-player-zone img {
-  max-width: 125%;
-  max-height: 100%;
+  max-width: 130%;
+  max-height: 105%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
 }
 
 #birth-default-icon {
   font-size: 100px;
-  opacity: 0.15;
+  opacity: 0.1;
 }
 
 .birth-info {
@@ -239,25 +252,25 @@ img:not([src]) {
   text-align: center;
   position: relative;
   z-index: 15;
-  padding: 80px 40px 35px;
+  padding: 100px 40px 40px;
   background: linear-gradient(
     to top,
     #000 0%,
-    rgba(0, 0, 0, 0.95) 40%,
-    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.95) 35%,
+    rgba(0, 0, 0, 0.6) 65%,
     transparent 100%
   );
 }
 
 #birth-pname {
   font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 8.5vw, 44px);
+  font-size: clamp(26px, 9vw, 48px);
   font-weight: 900;
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  line-height: 1;
+  letter-spacing: -1.5px;
+  line-height: 0.95;
   margin-bottom: 8px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
   white-space: normal;
@@ -267,9 +280,9 @@ img:not([src]) {
 
 #birth-msg {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(10px, 3vw, 15px);
+  font-size: clamp(10px, 3.2vw, 16px);
   font-weight: 800;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
   color: var(--gold);
   text-transform: uppercase;
 }
@@ -804,18 +817,20 @@ img:not([src]) {
 .live-events {
   position: relative;
   z-index: 5;
-  padding: 0 5% 3%;
+  padding: 0 5% 4%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 .live-event-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .live-event-min {
   font-family: "Bebas Neue";
@@ -847,7 +862,8 @@ img:not([src]) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 5% 3%;
+  margin: 30px 5% 4%;
+
   padding: 4% 5%;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(201, 162, 39, 0.3);
@@ -918,11 +934,12 @@ img:not([src]) {
 .res-events {
   position: relative;
   z-index: 5;
-  padding: 0 5% 3%;
+  padding: 10px 5% 4%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
+
 .res-events-title {
   font-size: clamp(9px, 2vw, 11px);
   font-weight: 800;
@@ -931,15 +948,22 @@ img:not([src]) {
   text-transform: uppercase;
   margin-bottom: 4px;
 }
+#res-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .res-event {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(201, 162, 39, 0.1);
+  gap: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .res-ev-min {
   font-family: "Bebas Neue";
   font-size: clamp(13px, 3.5vw, 18px);
@@ -2686,6 +2710,7 @@ img:not([src]) {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 4px 12px rgba(201, 162, 39, 0.4));
+  margin-top: 30px;
 }
 
 /* Player zone */
@@ -3480,7 +3505,6 @@ img:not([src]) {
       ═══════════════════════════════════════════════ */
 /* Mode Story (V9:16) */
 body.story-mode .card-frame {
-  aspect-ratio: 9 / 16;
   height: auto;
 }
 body.story-mode .card-frame > div[id^="tpl-"],

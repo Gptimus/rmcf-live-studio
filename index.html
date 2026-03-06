@@ -262,16 +262,22 @@
       <!-- CARD -->
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-but">
-            <div class="but-noise"></div>
-            <div class="but-radial"></div>
-            <div class="but-lines"></div>
-            <div class="but-header">
-              <img id="but-logo" class="but-hdr-logo" src="" alt="RMF" />
-              <div class="but-live">
-                <div class="but-live-dot"></div>
-                LIVE
+          <div id="tpl-but" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
+            </div>
+            
+            <div class="compo-header">
+              <img id="but-logo" class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name">BUT / GOAL</div>
+                <div class="compo-match-sub">RMF 24/7 LIVE • STUDIO</div>
               </div>
+              <div class="compo-form-badge">LIVE</div>
             </div>
             <div class="but-goal-wrap">
               <div class="but-goal-text">BUUUT !</div>
@@ -300,11 +306,9 @@
                 </div>
               </div>
             </div>
-            <div class="but-footer">
-              <div class="but-comp-txt" id="but-comp">
-                UEFA Champions League
-              </div>
-              <div class="but-hash">#RMF247LIVE</div>
+            <div class="compo-footer">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -481,7 +485,7 @@
     <div class="workspace" id="ws-compo">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-compo">
+          <div id="tpl-compo" class="tpl-base-coherent">
             <div class="compo-field-bg">
               <svg
                 viewBox="0 0 400 540"
@@ -550,7 +554,7 @@
               </svg>
             </div>
             <div class="compo-header">
-              <img id="compo-logo" class="compo-logo" src="" alt="RMF" />
+              <img id="compo-logo" class="compo-logo" src="logo.png" alt="RMF" />
               <div class="compo-center">
                 <div class="compo-match-name" id="compo-match">EQ1 vs EQ2</div>
                 <div class="compo-match-sub" id="compo-date">
@@ -758,25 +762,29 @@
     <div class="workspace" id="ws-convo">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-convo">
-            <div class="convo-topbar"></div>
-            <div class="convo-header">
-              <div class="convo-title-block">
-                <div class="convo-pre-label">Liste officielle</div>
-                <div class="convo-big-title">CONVOQUÉS</div>
-                <div class="convo-match-label" id="convo-match">
-                  EQ1 vs EQ2 • JOURNÉE 22
-                </div>
-              </div>
-              <img id="convo-logo" class="convo-logo-img" src="" alt="RMF" />
+          <div id="tpl-convo" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
-            <div class="convo-separator"></div>
-            <div class="convo-body" id="convo-body"></div>
-            <div class="convo-footer">
-              <div class="ft-logo">RMF 24/7 LIVE</div>
-              <div class="convo-total-lbl">
-                Total: <span id="convo-count">0</span> joueurs
+
+            <div class="compo-header">
+              <img id="convo-logo" class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name">L'ÉQUIPE CONVOQUÉE</div>
+                <div class="compo-match-sub" id="convo-match">Real Madrid vs Barcelona • J22</div>
               </div>
+              <div class="compo-form-badge"><span id="convo-count">0</span> J.</div>
+            </div>
+
+            <div class="convo-body" id="convo-body"></div>
+
+            <div class="compo-footer">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -902,17 +910,24 @@
     <div class="workspace" id="ws-preview">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-preview">
-            <div class="prev-diamond-bg"></div>
-            <div class="prev-header">
-              <img id="prev-logo" class="prev-logo" src="" alt="RMF" />
-              <div style="text-align: right">
-                <div class="prev-comp-txt" id="prev-comp">
-                  UEFA Champions League
-                </div>
-                <div class="prev-type-lbl">Avant-match</div>
-              </div>
+          <div id="tpl-preview" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="prev-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="prev-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">AVANT-MATCH</div>
+              </div>
+              <div class="compo-form-badge">PREVIEW</div>
+            </div>
+
             <div class="prev-vs-zone">
               <div class="prev-team-block">
                 <div class="prev-crest" id="prev-em1-wrap">
@@ -967,7 +982,8 @@
               <div class="prev-players-lbl">⚡ Joueurs à surveiller</div>
               <div class="prev-players-grid" id="prev-players"></div>
             </div>
-            <div class="prev-footer">
+            
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -1223,7 +1239,7 @@
     <!-- ══════════════ TAB: DOCUMENTATION ══════════════ -->
     <div class="workspace" id="ws-doc">
       <div class="doc-hero">
-        <img class="doc-hero-logo" id="doc-logo" src="" alt="RMF" />
+        <img class="doc-hero-logo" id="doc-logo" src="logo.png" alt="RMF" />
         <div class="doc-hero-text">
           <div class="doc-hero-title">RMF 24/7 LIVE — Studio v3</div>
           <div class="doc-hero-sub">
@@ -2471,24 +2487,22 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-stats">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-stats" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="stats-logo" src="" alt="RMF" />
-              <div style="text-align: right">
-                <div class="tpl-comp" id="stats-comp">
-                  UEFA Champions League
-                </div>
-                <div
-                  style="
-                    font-size: 9px;
-                    font-weight: 800;
-                    letter-spacing: 2px;
-                    color: var(--muted);
-                  "
-                >
-                  Stats Joueur
-                </div>
+          <div id="tpl-stats" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
+            </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="stats-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="stats-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">STATISTIQUES JOUEUR</div>
               </div>
+              <div class="compo-form-badge">STATS</div>
             </div>
             <div class="stats-player-banner">
               <div class="stats-avatar">
@@ -2799,31 +2813,42 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-birthday">
       <div class="card-stage" id="birthday-stage">
         <div id="birthday-container-frame" class="card-frame" style="background: transparent; box-shadow: none; border: none; overflow: visible;">
-          <div id="tpl-birthday" class="tpl-base" style="width: 100%; height: 100%; position: relative; background: radial-gradient(circle at center, #001f3f 0%, #000 100%);">
-            <div class="tpl-header">
-              <img class="tpl-logo birth-hdr-logo" src="logo.png" alt="RMF" style="height: 40px;" />
-              <div class="tpl-comp" style="color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 3px;">LEGACY EDITION</div>
+          <div id="tpl-birthday">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
 
-            <div class="birth-glow"></div>
-            
+            <div class="compo-header">
+              <img id="birth-logo" class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="birth-header-title">HÉRITAGE / LEGACY</div>
+                <div class="compo-match-sub" id="birth-header-sub">RMF 24/7 LIVE • STUDIO</div>
+              </div>
+              <div class="compo-form-badge" id="birth-badge">MVP</div>
+            </div>
+
             <div class="birth-content">
               <div class="birth-big-txt" id="birth-val-bg">24</div>
+              <div class="birth-glow"></div>
               
               <div class="birth-player-zone">
                 <img id="birth-player-img" src="" alt="" />
                 <span id="birth-default-icon">👑</span>
               </div>
-
+              
               <div class="birth-info">
                 <div id="birth-pname">VINICIUS JR</div>
                 <div id="birth-msg">¡FELIZ CUMPLEAÑOS!</div>
               </div>
             </div>
 
-            <div class="tpl-footer" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
-              <div class="ft-hash" style="color: rgba(255,255,255,0.3);">#GRACIASLEYENDA</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -2891,19 +2916,31 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-motm">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-motm" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="motm-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="motm-comp">UEFA Champions League</div>
+          <div id="tpl-motm" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="motm-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name">MAN OF THE MATCH</div>
+                <div class="compo-match-sub" id="motm-match">EQ1 vs EQ2</div>
+              </div>
+              <div class="compo-form-badge">MOTM</div>
+            </div>
+
             <div class="motm-crown">
               <div class="motm-crown-txt">⭐ HOMME DU MATCH</div>
             </div>
             <div class="motm-player-zone">
               <div class="motm-star-badge" id="motm-match">EQ1 vs EQ2</div>
               <div class="motm-avatar">
-                <span id="motm-icon">👑</span
-                ><img id="motm-img" src="" alt="" />
+                <span id="motm-icon">👑</span><img id="motm-img" src="" alt="" />
               </div>
               <div class="motm-pname" id="motm-pname">BENZEMA</div>
               <div class="motm-prole" id="motm-prole">Attaquant • #9</div>
@@ -2928,7 +2965,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 <div class="motm-stat-lbl">Tirs</div>
               </div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -3108,13 +3146,27 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-classement">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-classement" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="class-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="class-comp">CLASSEMENT • LIGA</div>
+          <div id="tpl-classement" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="class-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="class-comp">CLASSEMENT • LIGA</div>
+                <div class="compo-match-sub">TABLEAU OFFICIEL</div>
+              </div>
+              <div class="compo-form-badge">TOP</div>
+            </div>
+
             <div class="class-table" id="class-table"></div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -3229,11 +3281,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-scorelive">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-scorelive" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="slive-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="slive-comp">UEFA Champions League</div>
+          <div id="tpl-scorelive" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="slive-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="slive-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">SCORE EN DIRECT</div>
+              </div>
+              <div class="compo-form-badge">LIVE</div>
+            </div>
+
             <div class="live-badge-row">
               <div class="live-badge">
                 <div class="live-dot-anim"></div>
@@ -3265,7 +3330,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               </div>
             </div>
             <div class="live-events" id="slive-events"></div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -3463,23 +3529,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-resume">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-resume" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="res-logo" src="" alt="RMF" />
-              <div style="text-align: right">
-                <div class="tpl-comp" id="res-comp">UEFA Champions League</div>
-                <div
-                  style="
-                    font-size: 9px;
-                    font-weight: 800;
-                    letter-spacing: 2px;
-                    color: var(--muted);
-                  "
-                >
-                  Résumé
-                </div>
-              </div>
+          <div id="tpl-resume" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="res-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="res-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">RÉSUMÉ DU MATCH</div>
+              </div>
+              <div class="compo-form-badge">FINAL</div>
+            </div>
+
             <div class="res-scoreboard">
               <div class="res-team">
                 <div class="res-team-badge">
@@ -3508,7 +3575,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               <div class="res-events-title">Événements du match</div>
               <div id="res-events-list"></div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -3872,11 +3940,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-h2h">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-h2h" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="h2h-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="h2h-comp">H2H • Champions League</div>
+          <div id="tpl-h2h" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="h2h-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="h2h-comp">H2H • CHAMPIONS LEAGUE</div>
+                <div class="compo-match-sub">FACE-À-FACE HISTORIQUE</div>
+              </div>
+              <div class="compo-form-badge">VERSUS</div>
+            </div>
+
             <div class="h2h-teams">
               <div class="h2h-team">
                 <div class="h2h-badge">
@@ -3914,7 +3995,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               <div class="h2h-recent-title">Dernières confrontations</div>
               <div id="h2h-matches-list"></div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -4245,11 +4327,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-hattrick">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-hattrick" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="hat-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="hat-comp">UEFA Champions League</div>
+          <div id="tpl-hattrick" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="hat-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="hat-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">HAT-TRICK HÉROÏQUE</div>
+              </div>
+              <div class="compo-form-badge">TOP</div>
+            </div>
+
             <div class="hat-glow"></div>
             <div class="hat-main">
               <div class="hat-emoji-big">🎩</div>
@@ -4258,15 +4353,7 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 <span id="hat-icon">⚽</span><img id="hat-img" src="" alt="" />
               </div>
               <div class="hat-pname" id="hat-pname">BENZEMA</div>
-              <div
-                style="
-                  font-size: clamp(10px, 2.5vw, 13px);
-                  font-weight: 700;
-                  color: var(--gold);
-                  letter-spacing: 2px;
-                "
-                id="hat-prole"
-              >
+              <div id="hat-prole" style="font-size: clamp(10px, 2.5vw, 13px); font-weight: 700; color: var(--gold); letter-spacing: 2px;">
                 Attaquant • #9
               </div>
               <div class="hat-mins" id="hat-mins-row">
@@ -4275,42 +4362,17 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 <div class="hat-min-badge" id="hat-min3">⏱ 78'</div>
               </div>
             </div>
-            <div
-              style="
-                position: relative;
-                z-index: 5;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 0 5% 3%;
-                background: rgba(0, 0, 0, 0.35);
-                border: 1px solid rgba(201, 162, 39, 0.3);
-                border-radius: 10px;
-                padding: 3% 5%;
-              "
-            >
-              <div
-                style="
-                  font-size: clamp(11px, 3vw, 15px);
-                  font-weight: 800;
-                  color: #fff;
-                "
-                id="hat-match"
-              >
+            
+            <div style="position: relative; z-index: 5; display: flex; justify-content: space-between; align-items: center; margin: 0 5% 3%; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(201, 162, 39, 0.3); border-radius: 10px; padding: 3% 5%;">
+              <div style="font-size: clamp(11px, 3vw, 15px); font-weight: 800; color: #fff;" id="hat-match">
                 EQ1 3-0 EQ2
               </div>
-              <div
-                style="
-                  font-size: clamp(9px, 2vw, 11px);
-                  font-weight: 700;
-                  color: var(--muted);
-                "
-                id="hat-date"
-              >
+              <div style="font-size: clamp(9px, 2vw, 11px); font-weight: 700; color: var(--muted);" id="hat-date">
                 15 Mars 2025
               </div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -4480,11 +4542,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-record">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-record" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="rec-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="rec-comp">UEFA Champions League</div>
+          <div id="tpl-record" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="rec-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="rec-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">RECORD HISTORIQUE</div>
+              </div>
+              <div class="compo-form-badge">RECORD</div>
+            </div>
+
             <div class="record-burst"></div>
             <div class="record-main">
               <div class="record-label-top">⚡ NOUVEAU RECORD</div>
@@ -4502,7 +4577,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             <div class="record-context" id="rec-context">
               Record établi le 15 mars 2025 lors de EQ1 vs EQ2
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -4657,11 +4733,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-transfert">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-transfert" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="tr-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="tr-comp">OFFICIEL • TRANSFERT</div>
+          <div id="tpl-transfert" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="tr-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="tr-comp">OFFICIEL • TRANSFERT</div>
+                <div class="compo-match-sub">MERCATO ESTIVAL</div>
+              </div>
+              <div class="compo-form-badge">SIGNING</div>
+            </div>
+
             <div class="transfert-arrow">➡️</div>
             <div class="transfert-clubs">
               <div class="transf-club">
@@ -4687,19 +4776,10 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             </div>
             <div class="transfert-player">
               <div class="transf-avatar">
-                <span id="tr-icon">👤</span
-                ><img id="tr-player-img" src="" alt="" />
+                <span id="tr-icon">👤</span><img id="tr-player-img" src="" alt="" />
               </div>
               <div class="transf-pname" id="tr-pname">MBAPPÉ</div>
-              <div
-                style="
-                  font-size: clamp(10px, 2.5vw, 13px);
-                  font-weight: 700;
-                  color: var(--gold);
-                  letter-spacing: 2px;
-                "
-                id="tr-prole"
-              >
+              <div id="tr-prole" style="font-size: clamp(10px, 2.5vw, 13px); font-weight: 700; color: var(--gold); letter-spacing: 2px;">
                 Attaquant • France
               </div>
             </div>
@@ -4717,7 +4797,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
                 <div class="transf-cell-val" id="tr-num">#7</div>
               </div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -4955,11 +5036,24 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
     <div class="workspace" id="ws-sondage">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-sondage" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="sond-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="sond-comp">RMF 24/7 LIVE • SONDAGE</div>
+          <div id="tpl-sondage" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" id="sond-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="sond-comp">VOUS AVEZ LA PAROLE</div>
+                <div class="compo-match-sub">SONDAGE RMF 24/7 LIVE</div>
+              </div>
+              <div class="compo-form-badge">VOTE</div>
+            </div>
+
             <div class="sondage-question">
               <div class="sondage-q-label">🗳️ Vote — Question du jour</div>
               <div class="sondage-q-txt" id="sond-question">
@@ -4967,7 +5061,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               </div>
             </div>
             <div class="sondage-options" id="sond-options"></div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -5073,29 +5168,27 @@ Haaland·9%</textarea
     <div class="workspace" id="ws-prono">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-prono" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" id="prono-logo" src="" alt="RMF" />
-              <div class="tpl-comp" id="prono-comp">UEFA Champions League</div>
+          <div id="tpl-prono" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
-            <div
-              style="
-                position: relative;
-                z-index: 5;
-                text-align: center;
-                padding: 2% 5% 0;
-              "
-            >
-              <div
-                style="
-                  font-size: clamp(9px, 2.2vw, 11px);
-                  font-weight: 800;
-                  letter-spacing: 3px;
-                  color: var(--gold);
-                  text-transform: uppercase;
-                "
-              >
-                🎯 Votre Pronostic
+
+            <div class="compo-header">
+              <img class="compo-logo" id="prono-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="prono-comp">UEFA Champions League</div>
+                <div class="compo-match-sub">VOTRE PRONOSTIC</div>
+              </div>
+              <div class="compo-form-badge">PRONO</div>
+            </div>
+
+            <div style="position: relative; z-index: 5; text-align: center; padding: 2% 5% 0;">
+              <div style="font-size: clamp(9px, 2.2vw, 11px); font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase;">
+                🎯 Faites vos jeux
               </div>
             </div>
             <div class="prono-matchup">
@@ -5152,7 +5245,8 @@ Haaland·9%</textarea
                 <div class="prono-option-pct" id="prono-opt3-pct">24%</div>
               </div>
             </div>
-            <div class="tpl-footer">
+
+            <div class="compo-footer">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -5366,11 +5460,24 @@ Haaland·9%</textarea
     <div class="workspace" id="ws-quote">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-quote" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" src="logo.png" alt="RMCF" />
-              <div class="tpl-comp" id="quote-comp">CONFÉRENCE DE PRESSE</div>
+          <div id="tpl-quote" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
             </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="quote-comp">CONFÉRENCE DE PRESSE</div>
+                <div class="compo-match-sub">DÉCLARATION OFFICIELLE</div>
+              </div>
+              <div class="compo-form-badge">QUOTE</div>
+            </div>
+
             <div style="position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10% 8% 5%; flex: 1;">
               <div style="font-size: clamp(60px, 15vw, 100px); color: rgba(201, 162, 39, 0.2); line-height: 0.5; font-family: 'Playfair Display', serif; position: absolute; top: 5%; left: 5%;">"</div>
               <div id="quote-text" style="font-size: clamp(24px, 7vw, 42px); color: #fff; font-family: 'Bebas Neue'; letter-spacing: 2px; text-align: center; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; z-index: 5;">
@@ -5379,10 +5486,10 @@ Haaland·9%</textarea
               <div id="quote-author" style="font-size: clamp(14px, 3.5vw, 20px); color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">CARLO ANCELOTTI</div>
               <div id="quote-role" style="font-size: clamp(10px, 2.5vw, 14px); color: var(--muted); font-weight: 700; text-transform: uppercase; margin-top: 4px;">ENTRAÎNEUR</div>
             </div>
-            
-            <div class="tpl-footer" style="margin-top: auto;">
-              <span class="gold-text">RMCF LIVE</span>
-              <span>100% MADRIDISTA</span>
+
+            <div class="compo-footer">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -5426,15 +5533,15 @@ Haaland·9%</textarea
               <div style="text-align: center; margin-bottom: 25px;">
                 <img src="logo.png" style="width: 70px; height: auto; filter: contrast(1.5) grayscale(100%); opacity: 0.1; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(5); pointer-events: none;" />
                 <h2 style="font-family: 'Bebas Neue'; font-size: clamp(36px, 10vw, 60px); color: #111; letter-spacing: 4px; border-bottom: 2px solid #ccc; display: inline-block; padding-bottom: 15px; margin-bottom: 30px;">COMUNICADO OFICIAL</h2>
-              </div>
-              
+            </div>
+            
               <div id="com-text" style="font-family: 'Barlow', sans-serif; font-size: clamp(14px, 4vw, 22px); color: #333; line-height: 1.6; text-align: justify; z-index: 5;">
                 À la suite des examens effectués aujourd'hui sur notre joueur par les Services Médicaux du Real Madrid, il a été diagnostiqué une entorse du ligament latéral externe du genou droit. 
                 <br><br>
                 En attente d'évolution.
               </div>
             </div>
-            
+
             <div style="padding: 5% 8%; text-align: right; font-family: 'Bebas Neue'; font-size: clamp(14px, 3.5vw, 20px); color: #888; letter-spacing: 2px; border-top: 1px solid #ddd;">
               RMCF LIVE — <span id="com-date">15 MARS 2025</span>
             </div>
@@ -5463,10 +5570,22 @@ Haaland·9%</textarea
     <div class="workspace" id="ws-fixtures">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-fixtures" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" src="logo.png" alt="RMCF" />
-              <div class="tpl-comp" id="fix-title">CALENDRIER DU MOIS</div>
+          <div id="tpl-fixtures" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
+            </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="fix-title">CALENDRIER DU MOIS</div>
+                <div class="compo-match-sub">RMF 24/7 LIVE • STUDIO</div>
+              </div>
+              <div class="compo-form-badge">EVENT</div>
             </div>
             
             <div class="fix-list" style="position: relative; z-index: 5; padding: 4% 5% 2%; flex: 1;">
@@ -5474,9 +5593,9 @@ Haaland·9%</textarea
               <div id="fix-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
             </div>
 
-            <div class="tpl-footer" style="margin-top: auto;">
-              <span class="gold-text">RMCF LIVE</span>
-              <span>100% MADRIDISTA</span>
+            <div class="compo-footer">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
@@ -5505,19 +5624,31 @@ DOMICILE·VILLARREAL·19 MARS·18:30·LALIGA</textarea>
     <div class="workspace" id="ws-ratings">
       <div class="card-stage">
         <div class="card-frame">
-          <div id="tpl-ratings" class="tpl-base">
-            <div class="tpl-header">
-              <img class="tpl-logo" src="logo.png" alt="RMCF" />
-              <div class="tpl-comp" id="rat-title">NOTES DU MATCH</div>
+          <div id="tpl-ratings" class="tpl-base-coherent">
+            <div class="compo-field-bg">
+              <svg viewBox="0 0 400 600" fill="none">
+                <rect width="400" height="600" fill="transparent" />
+                <path d="M0 300 H400 M200 0 V600" stroke="white" stroke-opacity="0.2" />
+                <circle cx="200" cy="300" r="50" stroke="white" stroke-opacity="0.2" />
+              </svg>
+            </div>
+
+            <div class="compo-header">
+              <img class="compo-logo" src="logo.png" alt="RMF" />
+              <div class="compo-center">
+                <div class="compo-match-name" id="rat-title">NOTES DU MATCH</div>
+                <div class="compo-match-sub">ÉVALUATIONS OFFICIELLES</div>
+              </div>
+              <div class="compo-form-badge">RATING</div>
             </div>
             
             <div style="position: relative; z-index: 5; padding: 4% 8%; display: flex; flex-direction: column; gap: 15px; flex: 1;" id="rat-container">
               <!-- JS rendered -->
             </div>
 
-            <div class="tpl-footer" style="margin-top: auto;">
-              <span class="gold-text">RMCF LIVE</span>
-              <span>100% MADRIDISTA</span>
+            <div class="compo-footer">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash">#RMF247LIVE</div>
             </div>
           </div>
         </div>
