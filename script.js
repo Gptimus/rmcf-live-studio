@@ -1518,6 +1518,65 @@ window.toggleSettings = function () {
     p.style.display === "none" || p.style.display === "" ? "block" : "none";
 };
 
+window.exportStorage = function () {
+  const data = {};
+  Object.keys(localStorage).forEach((key) => {
+    if (key.startsWith("rmf247_")) {
+      data[key] = localStorage.getItem(key);
+    }
+  });
+  if (Object.keys(data).length === 0) {
+    alert("Aucune donnée à exporter.");
+    return;
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const date = new Date().toISOString().split("T")[0];
+  a.href = url;
+  a.download = `rmf-studio-backup-${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
+window.importStorage = function (event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (
+        confirm(
+          "L'importation va supprimer vos données actuelles et les remplacer par le fichier de sauvegarde. Continuer ?",
+        )
+      ) {
+        // Clear current rmf keys
+        Object.keys(localStorage).forEach((key) => {
+          if (key.startsWith("rmf247_")) {
+            localStorage.removeItem(key);
+          }
+        });
+        // Set new data
+        Object.keys(data).forEach((key) => {
+          localStorage.setItem(key, data[key]);
+        });
+        alert("Données importées avec succès !");
+        location.reload();
+      }
+    } catch (err) {
+      alert(
+        "Erreur lors de l'importation : le fichier est corrompu ou invalide.",
+      );
+    }
+  };
+  reader.readAsText(file);
+  // Clear the input so same file can be imported again if needed
+  event.target.value = "";
+};
+
 window.resetAllStorage = function () {
   if (
     confirm(

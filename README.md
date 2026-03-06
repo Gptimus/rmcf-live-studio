@@ -1,6 +1,6 @@
-# RMFC LIVE — Studio v3
+# RMFC LIVE — Studio v3.1
 
-> **19 professional tools & templates.** Modify, personalize, add watermarks, and download in high-resolution PNG.
+> **22 professional tools & templates.** Modify, personalize, add watermarks, and download in high-resolution PNG.
 
 RMF 24/7 LIVE — Studio is a comprehensive graphic generation suite built for football fans and social media managers. Create stunning match-related content in seconds.
 
@@ -16,15 +16,20 @@ RMF 24/7 LIVE — Studio is a comprehensive graphic generation suite built for f
   <img src="screenshots/convocation.png" width="48%" alt="Squad List Template">
 </p>
 
+## v3.1 New Features 🚀
+
+- **Match Day Pro:** New full-bleed photo layout with customizable right-aligned overlay and dual club logos.
+- **Enhanced Absentees:** Redesigned with background photo support, opacity controls, and flexible content positioning.
+- **Data Mobility:** New **Export/Import** buttons in Settings to backup your local database or transfer it to another device.
+- **Improved Watermarks:** Better rendering logic for background logos in official templates.
+
 ## ⚡ Quick Start
 
 - **Live Modification:** Type in any field, and the card updates instantly.
 - **Auto-Save:** All your data is automatically saved in your browser (LocalStorage).
 - **High-Res Export:** Use the golden button under each card to download a 3x resolution PNG.
-- **Photo Uploads:** Support for player photos (Goal/Stats/MOTM) and team logos (Preview/Score/H2H).
-- **Auto-Formation:** Lineups are redrawn automatically when you change the formation (4-3-3, 4-4-2, etc.).
-- **Social Promo:** Generate instant visually stunning social media previews inside the Guide section.
-- **Watermark Engine:** An overlay tool to sign all your exclusive photos with the club logo before posting.
+- **UI Customization:** Adjust overlays, blend modes, and positioning for photo-based templates.
+- **Data Portability:** Download your configuration and images as a JSON file and restore them anytime.
 
 ## 📐 Universal Data Format
 
@@ -39,7 +44,7 @@ _Alternatives: `|` or `:` on mobile._
 | **Watchlist** | `9·Benzema·FW·Real Madrid`     | Number · Name · Position · Team   |
 | **Polls**     | `Benzema·42%`                  | Option · Percentage (1 per line)  |
 
-## 🎨 The 19 Tools & Templates
+## 🎨 The 22 Tools & Templates
 
 1. Goal
 2. Lineup
@@ -60,13 +65,16 @@ _Alternatives: `|` or `:` on mobile._
 17. Forecast
 18. Watermark
 19. Generic
+20. Calendrier
+21. Citation
+22. Comunicado
 
 ## 🛠️ Technical Stack
 
 - **Frontend:** Vanilla HTML5 / CSS3 / JavaScript
 - **Typography:** Google Fonts (Bebas Neue, Barlow, Playfair Display)
 - **Rendering:** [html2canvas](https://html2canvas.hertzen.com/)
-- **Storage:** Browser LocalStorage API
+- **Storage:** Browser LocalStorage API (with JSON Export/Import)
 
 ---
 

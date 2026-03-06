@@ -320,6 +320,58 @@
           Fermer
         </button>
 
+        <div style="display: flex; gap: 8px; margin-top: 20px">
+          <button
+            onclick="exportStorage()"
+            style="
+              flex: 1;
+              padding: 8px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              color: #fff;
+              cursor: pointer;
+              font-size: 10px;
+              text-transform: uppercase;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 5px;
+            "
+          >
+            📥 Export
+          </button>
+          <button
+            onclick="document.getElementById('f-import').click()"
+            style="
+              flex: 1;
+              padding: 8px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              color: #fff;
+              cursor: pointer;
+              font-size: 10px;
+              text-transform: uppercase;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 5px;
+            "
+          >
+            📤 Import
+          </button>
+          <input
+            type="file"
+            id="f-import"
+            style="display: none"
+            accept=".json"
+            onchange="importStorage(event)"
+          />
+        </div>
+
         <button
           onclick="resetAllStorage()"
           style="
@@ -344,10 +396,25 @@
     <!-- ══════════════ TAB: HOME ══════════════ -->
     <div class="workspace active" id="ws-home">
       <div class="home-hero">
+        <div
+          style="
+            background: var(--gold);
+            color: #000;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+          "
+        >
+          VERSION 3.1 ALPHA
+        </div>
         <h1>RMCF LIVE <span>STUDIO</span></h1>
         <p>
           La plateforme de création graphique ultime pour les fans du Real
-          Madrid. Générez 17 types de visuels professionnels en haute résolution
+          Madrid. Générez 22 types de visuels professionnels en haute résolution
           pour vos réseaux sociaux.
         </p>
         <button
@@ -384,19 +451,27 @@
           </p>
         </div>
         <div class="home-feature">
-          <div class="home-feature-icon">💎</div>
-          <h3>Qualité 3X</h3>
+          <div class="home-feature-icon">📸</div>
+          <h3>Premium Layouts</h3>
           <p>
-            Exportez vos créations en haute résolution (PNG) optimisées pour
-            Instagram, WhatsApp et Facebook.
+            Nouveaux templates "Match Day" et "Absents" avec photos plein écran,
+            overlays dynamiques et double logos.
           </p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon">💾</div>
           <h3>Auto-Sauvegarde</h3>
           <p>
-            Vos données et vos logos sont conservés localement dans votre
-            navigateur. Reprenez là où vous vous étiez arrêté.
+            Toutes vos données sont conservées localement. Reprenez vos
+            créations exactement là où vous les avez laissées.
+          </p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon">📥</div>
+          <h3>Mobilité</h3>
+          <p>
+            Exportez et importez votre base de données (JSON). Transférez vos
+            templates et photos entre vos appareils.
           </p>
         </div>
       </div>
@@ -2206,9 +2281,9 @@ Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouve
       <div class="doc-hero">
         <img class="doc-hero-logo" id="doc-logo" src="logo.png" alt="RMF" />
         <div class="doc-hero-text">
-          <div class="doc-hero-title">RMF 24/7 LIVE — Studio v3</div>
+          <div class="doc-hero-title">RMF 24/7 LIVE — Studio v3.1</div>
           <div class="doc-hero-sub">
-            19 templates football professionnels.<br />Modifie, personnalise et
+            22 templates football professionnels.<br />Modifie, personnalise et
             télécharge en PNG haute résolution.
           </div>
           <div
@@ -2252,12 +2327,21 @@ Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouve
           </div>
         </div>
         <div class="doc-shortcut">
+          <div class="doc-shortcut-emoji">💾</div>
+          <div class="doc-shortcut-info">
+            <div class="doc-shortcut-name">Données & Backup</div>
+            <div class="doc-shortcut-desc">
+              Sauvegarde auto + boutons <strong>Export/Import</strong> dans les
+              réglages
+            </div>
+          </div>
+        </div>
+        <div class="doc-shortcut">
           <div class="doc-shortcut-emoji">📷</div>
           <div class="doc-shortcut-info">
             <div class="doc-shortcut-name">Upload de photos</div>
             <div class="doc-shortcut-desc">
-              But/Stats/MOTM/Hat-trick/Transfert : photo joueur<br />Preview/Score/Résumé/H2H/Prono
-              : logos équipes
+              But/MatchDay/Absents/MOTM : photos plein écran ou sans fond
             </div>
           </div>
         </div>
@@ -2275,8 +2359,7 @@ Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouve
           <div class="doc-shortcut-info">
             <div class="doc-shortcut-name">Séparateur ·</div>
             <div class="doc-shortcut-desc">
-              Point médian entre chaque champ. Alternatives :
-              <strong>|</strong> ou <strong>:</strong> sur mobile
+              Point médian entre chaque champ auto-formaté
             </div>
           </div>
         </div>
@@ -2783,6 +2866,30 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
       <div class="doc-grid">
         <div class="doc-card">
           <div class="doc-card-header">
+            <div class="doc-card-icon">📸</div>
+            <div>
+              <div class="doc-card-title">Match Day</div>
+              <div class="doc-card-sub">Annonce du jour du match</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Photo plein écran + overlay personnalisable
+              </div>
+            </div>
+            <div class="doc-step">
+              <div class="doc-step-num">2</div>
+              <div class="doc-step-text">
+                Double logos clubs (H2H) en haut à droite
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card-header">
             <div class="doc-card-icon">🥅</div>
             <div>
               <div class="doc-card-title">But</div>
@@ -2793,21 +2900,13 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             <div class="doc-step">
               <div class="doc-step-num">1</div>
               <div class="doc-step-text">
-                Upload <strong>photo du joueur</strong> (optionnel, PNG sans
-                fond idéal)
+                Upload <strong>photo du joueur</strong> (fond noir auto)
               </div>
             </div>
             <div class="doc-step">
               <div class="doc-step-num">2</div>
               <div class="doc-step-text">
-                Équipe 1 = <strong>celle qui marque</strong> → score surligné en
-                or
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">3</div>
-              <div class="doc-step-text">
-                Minute : <strong>47'</strong> ou <strong>90+3'</strong>
+                Score avec <strong>équipe qui marque</strong> surlignée
               </div>
             </div>
           </div>
@@ -3094,15 +3193,13 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             <div class="doc-step">
               <div class="doc-step-num">1</div>
               <div class="doc-step-text">
-                Format : <strong>4·Alaba·Blessure</strong> (1 par ligne)
+                Photo de fond + assombrissement réglable
               </div>
             </div>
             <div class="doc-step">
               <div class="doc-step-num">2</div>
               <div class="doc-step-text">
-                Raisons :
-                <strong style="color: #ef4444">Blessure</strong> (rouge) ou
-                <strong style="color: var(--gold)">Suspension</strong> (or)
+                Positionnement flexible du texte sur l'image
               </div>
             </div>
           </div>
