@@ -2795,6 +2795,98 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
       </div>
     </div>
 
+    <!-- ══════════ TAB: ANNIVERSAIRE ══════════ -->
+    <div class="workspace" id="ws-birthday">
+      <div class="card-stage" id="birthday-stage">
+        <div id="birthday-container-frame" class="card-frame" style="background: transparent; box-shadow: none; border: none; overflow: visible;">
+          <div id="tpl-birthday" class="tpl-base" style="width: 100%; height: 100%; position: relative; background: radial-gradient(circle at center, #001f3f 0%, #000 100%);">
+            <div class="tpl-header">
+              <img class="tpl-logo birth-hdr-logo" src="logo.png" alt="RMF" style="height: 40px;" />
+              <div class="tpl-comp" style="color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 3px;">LEGACY EDITION</div>
+            </div>
+
+            <div class="birth-glow"></div>
+            
+            <div class="birth-content" style="position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 100px); text-align: center; padding: 0 40px;">
+              <div class="birth-big-txt" id="birth-val-bg">24</div>
+              
+              <div class="birth-player-wrap" style="position: relative; z-index: 10; width: 100%; height: 60%; display: flex; justify-content: center; align-items: flex-end; margin-bottom: 20px;">
+                <img id="birth-player-img" src="" alt="" style="max-height: 110%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));" />
+                <span id="birth-default-icon" style="font-size: 15vw; opacity: 0.1;">👑</span>
+              </div>
+
+              <div class="birth-info" style="position: relative; z-index: 15; width: 100%;">
+                <div id="birth-pname" style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; font-style: italic; color: #fff; line-height: 1; letter-spacing: -1px; margin-bottom: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5);">VINICIUS JR</div>
+                <div id="birth-msg" style="font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px;">¡FELIZ CUMPLEAÑOS!</div>
+              </div>
+            </div>
+
+            <div class="tpl-footer" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+              <div class="ft-logo">RMF 24/7 LIVE</div>
+              <div class="ft-hash" style="color: rgba(255,255,255,0.3);">#GRACIASLEYENDA</div>
+            </div>
+          </div>
+        </div>
+        <button class="dl-btn" onclick="downloadCard('tpl-birthday', 'rmf-anniversaire')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+          Télécharger
+        </button>
+      </div>
+
+      <div class="form-panel">
+        <div class="form-section">
+          <div class="form-section-title">Photo du Joueur</div>
+          <div class="img-upload" id="birth-upload">
+            <input type="file" accept="image/*" onchange="loadPlayerImg(this, 'birth-player-img', 'birth-default-icon', 'birth-thumb')" />
+            <img class="img-thumb" id="birth-thumb" src="" alt="" />
+            <span class="img-upload-icon">👤</span>
+            <div class="img-upload-text"><strong>Uploader</strong>Photo (PNG recommandé)</div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Type de Template</div>
+          <div class="form-row single">
+             <div class="field">
+               <label>Mode d'affichage</label>
+               <select id="f-birth-mode" class="val-input" onchange="renderBirthday(); save('f-birth-mode', this.value);">
+                 <option value="age">🎂 Anniversaire (Âge)</option>
+                 <option value="legacy">👑 Héritage (Dates / Années)</option>
+               </select>
+             </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Informations</div>
+          <div class="form-row single">
+            <div class="field">
+              <label>Nom du Joueur</label>
+              <input id="f-birth-name" value="VINICIUS JR" oninput="setT('birth-pname', this.value); save('f-birth-name', this.value);" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label id="lbl-birth-val">Âge (ex: 24)</label>
+              <input id="f-birth-val" value="24" oninput="setT('birth-val-bg', this.value); save('f-birth-val', this.value);" />
+            </div>
+            <div class="field">
+               <label>Message</label>
+               <input id="f-birth-msg" value="¡FELIZ CUMPLEAÑOS!" oninput="setT('birth-msg', this.value); save('f-birth-msg', this.value);" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">✨ Texte accompagnateur</div>
+          <div class="field">
+            <textarea id="cap-birth" class="caption-box" readonly>🎂 ¡FELIZ CUMPLEAÑOS! Aujourd'hui nous célébrons l'anniversaire de notre star [JOUEUR]. Laisse un message en commentaire ! 🤍👑 #HalaMadrid #RMCFLIVE</textarea>
+            <button class="dl-btn" onclick="copyCaption('cap-birth', event)" style="margin-top: 10px; width: 100%; height: 40px; font-size: 11px;">COPIER LE TEXTE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ══════════ TAB: MOTM ══════════ -->
     <div class="workspace" id="ws-motm">
       <div class="card-stage">
