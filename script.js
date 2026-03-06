@@ -725,14 +725,14 @@ function initNewTemplates() {
     const v = load(id, document.getElementById(id)?.value || "");
     if (document.getElementById(id)) document.getElementById(id).value = v;
   });
-  setT("stats-pname", load("f-stats-name", "BENZEMA"));
-  setT("stats-prole", load("f-stats-prole", "Attaquant • Real Madrid"));
-  setT("stats-rating", load("f-stats-rating", "91"));
-  setT("stats-buts", load("f-stats-buts", "18"));
-  setT("stats-passes", load("f-stats-passes", "9"));
-  setT("stats-matchs", load("f-stats-matchs", "24"));
-  setT("stats-tirs", load("f-stats-tirs", "68"));
-  setT("stats-comp", load("f-stats-comp", "Real Madrid • Liga"));
+  setT("stats-pname", restoreField("f-stats-name", "BENZEMA"));
+  setT("stats-prole", restoreField("f-stats-prole", "Attaquant • Real Madrid"));
+  setT("stats-rating", restoreField("f-stats-rating", "91"));
+  setT("stats-buts", restoreField("f-stats-buts", "18"));
+  setT("stats-passes", restoreField("f-stats-passes", "9"));
+  setT("stats-matchs", restoreField("f-stats-matchs", "24"));
+  setT("stats-tirs", restoreField("f-stats-tirs", "68"));
+  setT("stats-comp", restoreField("f-stats-comp", "Real Madrid • Liga"));
   ["vitesse", "dribble", "tir", "passe", "physique"].forEach((n) => {
     const v = load(
       "f-stats-v-" + n,
@@ -750,9 +750,9 @@ function initNewTemplates() {
   );
   if (document.getElementById("f-class-data"))
     document.getElementById("f-class-data").value = classData;
-  setT("class-comp", load("f-class-comp", "CLASSEMENT • LIGA"));
+  setT("class-comp", restoreField("f-class-comp", "CLASSEMENT • LIGA"));
   if (document.getElementById("f-class-comp"))
-    document.getElementById("f-class-comp").value = load(
+    document.getElementById("f-class-comp").value = restoreField(
       "f-class-comp",
       "CLASSEMENT • LIGA",
     );
@@ -760,19 +760,19 @@ function initNewTemplates() {
 
   // Score Live
   renderLiveEvents();
-  setT("slive-t1", load("f-slive-t1", "ÉQUIPE 1"));
-  setT("slive-t2", load("f-slive-t2", "ÉQUIPE 2"));
-  setT("slive-s1", load("f-slive-s1", "1"));
-  setT("slive-s2", load("f-slive-s2", "0"));
-  setT("slive-min", "⏱ " + load("f-slive-min", "67'"));
-  setT("slive-comp", load("f-slive-comp", "UEFA Champions League"));
+  setT("slive-t1", restoreField("f-slive-t1", "ÉQUIPE 1"));
+  setT("slive-t2", restoreField("f-slive-t2", "ÉQUIPE 2"));
+  setT("slive-s1", restoreField("f-slive-s1", "1"));
+  setT("slive-s2", restoreField("f-slive-s2", "0"));
+  setT("slive-min", "⏱ " + restoreField("f-slive-min", "67'"));
+  setT("slive-comp", restoreField("f-slive-comp", "UEFA Champions League"));
 
   // Résumé
   renderResEvents();
-  setT("res-t1", load("f-res-t1", "ÉQUIPE 1"));
-  setT("res-t2", load("f-res-t2", "ÉQUIPE 2"));
-  setT("res-s1", load("f-res-s1", "2"));
-  setT("res-s2", load("f-res-s2", "1"));
+  setT("res-t1", restoreField("f-res-t1", "ÉQUIPE 1"));
+  setT("res-t2", restoreField("f-res-t2", "ÉQUIPE 2"));
+  setT("res-s1", restoreField("f-res-s1", "2"));
+  setT("res-s2", restoreField("f-res-s2", "1"));
 
   // Carton
   updateCarton();
@@ -783,53 +783,59 @@ function initNewTemplates() {
     "15/01/25·2-1·Ligue 1\n28/09/24·1-1·Ligue 1\n12/05/24·3-0·Coupe\n10/02/24·0-1·Ligue 1",
   );
   renderH2HMatches();
-  setT("h2h-t1", load("f-h2h-t1", "REAL MADRID"));
-  setT("h2h-t2", load("f-h2h-t2", "BARCELONA"));
-  setT("h2h-v1", load("f-h2h-v1", "8"));
-  setT("h2h-v2", load("f-h2h-v2", "4"));
-  setT("h2h-nuls", load("f-h2h-nuls", "5"));
+  setT("h2h-t1", restoreField("f-h2h-t1", "REAL MADRID"));
+  setT("h2h-t2", restoreField("f-h2h-t2", "BARCELONA"));
+  setT("h2h-v1", restoreField("f-h2h-v1", "8"));
+  setT("h2h-v2", restoreField("f-h2h-v2", "4"));
+  setT("h2h-nuls", restoreField("f-h2h-nuls", "5"));
 
   // Absents
   renderAbsents();
-  setT("abs-team", load("f-abs-team", "ÉQUIPE 1"));
+  setT("abs-team", restoreField("f-abs-team", "ÉQUIPE 1"));
 
   // Hat-trick
-  setT("hat-pname", load("f-hat-name", "BENZEMA"));
-  setT("hat-prole", load("f-hat-prole", "Attaquant • #9"));
-  setT("hat-min1", "⏱ " + load("f-hat-min1", "23'"));
-  setT("hat-min2", "⏱ " + load("f-hat-min2", "56'"));
-  setT("hat-min3", "⏱ " + load("f-hat-min3", "78'"));
-  setT("hat-match", load("f-hat-match", "EQ1 3-0 EQ2"));
-  setT("hat-date", load("f-hat-date", "15 Mars 2025"));
+  setT("hat-pname", restoreField("f-hat-name", "BENZEMA"));
+  setT("hat-prole", restoreField("f-hat-prole", "Attaquant • #9"));
+  setT("hat-min1", "⏱ " + restoreField("f-hat-min1", "23'"));
+  setT("hat-min2", "⏱ " + restoreField("f-hat-min2", "56'"));
+  setT("hat-min3", "⏱ " + restoreField("f-hat-min3", "78'"));
+  setT("hat-match", restoreField("f-hat-match", "EQ1 3-0 EQ2"));
+  setT("hat-date", restoreField("f-hat-date", "15 Mars 2025"));
 
   // Record
-  setT("rec-title", load("f-rec-title", "MEILLEUR BUTEUR"));
-  setT("rec-medal", load("f-rec-medal", "🏅"));
-  setT("rec-value", load("f-rec-value", "38"));
-  setT("rec-unit", load("f-rec-unit", "BUTS EN UNE SAISON"));
-  setT("rec-pname", load("f-rec-pname", "CRISTIANO RONALDO"));
-  setT("rec-pnum", "# " + load("f-rec-pnum", "7"));
+  setT("rec-title", restoreField("f-rec-title", "MEILLEUR BUTEUR"));
+  setT("rec-medal", restoreField("f-rec-medal", "🏅"));
+  setT("rec-value", restoreField("f-rec-value", "38"));
+  setT("rec-unit", restoreField("f-rec-unit", "BUTS EN UNE SAISON"));
+  setT("rec-pname", restoreField("f-rec-pname", "CRISTIANO RONALDO"));
+  setT("rec-pnum", "# " + restoreField("f-rec-pnum", "7"));
   setT(
     "rec-context",
-    load("f-rec-context", "Record établi le 15 mars 2025 lors de EQ1 vs EQ2"),
+    restoreField(
+      "f-rec-context",
+      "Record établi le 15 mars 2025 lors de EQ1 vs EQ2",
+    ),
   );
 
   // Sondage
   renderSondage();
   setT(
     "sond-question",
-    load("f-sond-question", "Qui sera le meilleur joueur de la saison ?"),
+    restoreField(
+      "f-sond-question",
+      "Qui sera le meilleur joueur de la saison ?",
+    ),
   );
 
   // Pronostic
-  setT("prono-t1", load("f-prono-t1", "ÉQUIPE 1"));
-  setT("prono-t2", load("f-prono-t2", "ÉQUIPE 2"));
-  setT("prono-date", load("f-prono-date", "SAM. 15 MARS • 20H45"));
-  setT("prono-s1", load("f-prono-s1", "?"));
-  setT("prono-s2", load("f-prono-s2", "?"));
-  setT("prono-opt1-pct", load("f-prono-p1", "52%"));
-  setT("prono-opt2-pct", load("f-prono-p2", "24%"));
-  setT("prono-opt3-pct", load("f-prono-p3", "24%"));
+  setT("prono-t1", restoreField("f-prono-t1", "ÉQUIPE 1"));
+  setT("prono-t2", restoreField("f-prono-t2", "ÉQUIPE 2"));
+  setT("prono-date", restoreField("f-prono-date", "SAM. 15 MARS • 20H45"));
+  setT("prono-s1", restoreField("f-prono-s1", "?"));
+  setT("prono-s2", restoreField("f-prono-s2", "?"));
+  setT("prono-opt1-pct", restoreField("f-prono-p1", "52%"));
+  setT("prono-opt2-pct", restoreField("f-prono-p2", "24%"));
+  setT("prono-opt3-pct", restoreField("f-prono-p3", "24%"));
 
   // Next Match
   const nmSub = restoreField("f-nm-sub", "PRÓXIMO PARTIDO");
@@ -861,6 +867,7 @@ function initNewTemplates() {
       if (img) {
         img.src = d;
         img.classList.add("visible");
+        img.style.display = "block";
       }
       const em = document.getElementById(emojiId);
       if (em) em.style.display = "none";
@@ -869,6 +876,7 @@ function initNewTemplates() {
         if (th) {
           th.src = d;
           th.classList.add("visible");
+          th.style.display = "block";
         }
       }
     }
@@ -879,6 +887,7 @@ function initNewTemplates() {
     "stats-player-img",
     "motm-img",
     "hat-img",
+    "rec-player-img",
     "tr-player-img",
     "nm-player-img",
     "gen-icon-img",
@@ -887,11 +896,17 @@ function initNewTemplates() {
       "stats-player-img": "stats-icon",
       "motm-img": "motm-icon",
       "hat-img": "hat-icon",
+      "rec-player-img": "rec-icon",
       "tr-player-img": "tr-icon",
       "nm-player-img": "nm-default-icon",
       "gen-icon-img": "gen-emoji-icon",
     };
     const thumbMap = {
+      "stats-player-img": "stats-thumb",
+      "motm-img": "motm-thumb",
+      "hat-img": "hat-thumb",
+      "rec-player-img": "rec-upload-thumb",
+      "tr-player-img": "tr-player-th",
       "nm-player-img": "nm-up-thumb",
       "gen-icon-img": "gen-icon-th",
     };
@@ -909,6 +924,7 @@ function initNewTemplates() {
       if (th) {
         th.src = d;
         th.classList.add("visible");
+        th.style.display = "block";
       }
     }
   });
@@ -1037,16 +1053,16 @@ function init() {
   applyLogos();
 
   // Quote
-  setT("quote-comp", load("f-quote-comp", "CONFÉRENCE DE PRESSE"));
+  setT("quote-comp", restoreField("f-quote-comp", "CONFÉRENCE DE PRESSE"));
   setT(
     "quote-text",
-    load(
+    restoreField(
       "f-quote-text",
       "Gagner est la seule option quand vous portez ce maillot.",
     ),
   );
-  setT("quote-author", load("f-quote-author", "CARLO ANCELOTTI"));
-  setT("quote-role", load("f-quote-role", "ENTRAÎNEUR"));
+  setT("quote-author", restoreField("f-quote-author", "CARLO ANCELOTTI"));
+  setT("quote-role", restoreField("f-quote-role", "ENTRAÎNEUR"));
 
   // Comunicado
   const comText = load(
@@ -1055,15 +1071,15 @@ function init() {
   );
   const elCom = document.getElementById("com-text");
   if (elCom) elCom.innerHTML = comText.replace(/\n/g, "<br>");
-  setT("com-date", load("f-com-date", "15 MARS 2025"));
+  setT("com-date", restoreField("f-com-date", "15 MARS 2025"));
 
   // Fixtures
   renderFixtures();
-  setT("fix-title", load("f-fix-title", "CALENDRIER DU MOIS"));
+  setT("fix-title", restoreField("f-fix-title", "CALENDRIER DU MOIS"));
 
   // Ratings
   renderRatings();
-  setT("rat-title", load("f-rat-title", "NOTES DU MATCH"));
+  setT("rat-title", restoreField("f-rat-title", "NOTES DU MATCH"));
 
   // BUT
   const butName = restoreField("f-but-name", "CRISTIANO RONALDO");
