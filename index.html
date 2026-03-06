@@ -396,21 +396,7 @@
     <!-- ══════════════ TAB: HOME ══════════════ -->
     <div class="workspace active" id="ws-home">
       <div class="home-hero">
-        <div
-          style="
-            background: var(--gold);
-            color: #000;
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 11px;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-          "
-        >
-          VERSION 3.1 ALPHA
-        </div>
+        <div class="version-badge">VERSION 3.1 ALPHA</div>
         <h1>RMCF LIVE <span>STUDIO</span></h1>
         <p>
           La plateforme de création graphique ultime pour les fans du Real
@@ -425,19 +411,24 @@
               document.querySelector('.tab-btn[onclick*=\'but\']'),
             )
           "
-          style="max-width: 280px; margin: 30px auto 0"
+          style="
+            max-width: 320px;
+            margin: 40px auto 0;
+            height: 56px;
+            gap: 12px;
+            font-size: 14px;
+          "
         >
           <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            stroke-width="3"
+            style="width: 20px; height: 20px"
           >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-          COMMENCER À CRÉER
+          COMMENCER LA CRÉATION
         </button>
       </div>
 
@@ -446,37 +437,37 @@
           <div class="home-feature-icon">⚡</div>
           <h3>Ultra Rapide</h3>
           <p>
-            Édition en temps réel. Pas d'inscription, pas d'attente. Modifiez et
-            téléchargez en quelques secondes.
+            Édition en temps réel sans inscription. Modifiez vos visuels et
+            téléchargez-les en quelques secondes.
           </p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon">📸</div>
           <h3>Premium Layouts</h3>
           <p>
-            Nouveaux templates "Match Day" et "Absents" avec photos plein écran,
-            overlays dynamiques et double logos.
+            Nouveaux templates premium avec photos plein écran, overlays
+            glassmorphism et double logos dynamiques.
           </p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon">💾</div>
           <h3>Auto-Sauvegarde</h3>
           <p>
-            Toutes vos données sont conservées localement. Reprenez vos
-            créations exactement là où vous les avez laissées.
+            Vos données sont conservées localement. Reprenez vos créations
+            exactement là où vous les avez laissées.
           </p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon">📥</div>
-          <h3>Mobilité</h3>
+          <h3>Mobilité Totale</h3>
           <p>
-            Exportez et importez votre base de données (JSON). Transférez vos
-            templates et photos entre vos appareils.
+            Exportez et importez votre base de données via JSON. Transférez vos
+            préférences entre tous vos appareils.
           </p>
         </div>
       </div>
 
-      <div class="doc-section-title">✨ Templates Populaires</div>
+      <div class="doc-section-title">✨ Modèles Populaires</div>
       <div class="home-previews">
         <div class="home-preview-card" onclick="switchTab('but', null)">
           <img src="screenshots/goal.png" alt="But" />
