@@ -831,6 +831,26 @@ function initNewTemplates() {
   setT("res-s1", restoreField("f-res-s1", "2"));
   setT("res-s2", restoreField("f-res-s2", "1"));
 
+  // Match Day
+  setT("md-time-val", restoreField("f-md-time", "21:00 CET"));
+  setT(
+    "md-stadium-val",
+    restoreField("f-md-stadium", "ESTADIO SANTIAGO BERNABÉU"),
+  );
+  setT("md-comp-val", restoreField("f-md-comp", "LALIGA"));
+  const mdOppLogo = loadImg("md-logo-opp");
+  if (mdOppLogo) {
+    const img = document.getElementById("md-logo-opp");
+    const thumb = document.getElementById("md-opp-thumb");
+    const emoji = document.getElementById("md-opp-emoji");
+    if (img) img.src = mdOppLogo;
+    if (thumb) {
+      thumb.src = mdOppLogo;
+      thumb.classList.add("visible");
+    }
+    if (emoji) emoji.style.display = "none";
+  }
+
   // Carton — restore ALL fields THEN update
   restoreField("f-carton-type", "🟨 Carton Jaune");
   restoreField("f-carton-name", "RAMOS");
@@ -1006,6 +1026,7 @@ function initNewTemplates() {
     "tr-player-img",
     "nm-player-img",
     "gen-icon-img",
+    "md-player-img",
   ].forEach((imgId) => {
     const iconMap = {
       "stats-player-img": "stats-icon",
@@ -1016,6 +1037,7 @@ function initNewTemplates() {
       "tr-player-img": "tr-icon",
       "nm-player-img": "nm-default-icon",
       "gen-icon-img": "gen-emoji-icon",
+      "md-player-img": "md-default-icon",
     };
     const thumbMap = {
       "stats-player-img": "stats-thumb",
@@ -1026,6 +1048,7 @@ function initNewTemplates() {
       "tr-player-img": "tr-player-th",
       "nm-player-img": "nm-up-thumb",
       "gen-icon-img": "gen-icon-th",
+      "md-player-img": "md-upload-thumb",
     };
     const d = loadImg(imgId);
     if (d) {
@@ -1265,8 +1288,9 @@ function init() {
   // CONVO
   setText(
     "convo-match",
-    restoreField("f-convo-match", "Real Madrid vs Barcelona • J22"),
+    restoreField("f-convo-match", "Real Madrid vs Barcelona"),
   );
+  setText("convo-coach-name", restoreField("f-convo-coach", "CARLO ANCELOTTI"));
   restoreField("f-convo-gk", "1·Courtois, 13·Lunin, 25·González");
   restoreField(
     "f-convo-def",
@@ -1435,6 +1459,21 @@ window.toggleSettings = function () {
   if (!p) return;
   p.style.display =
     p.style.display === "none" || p.style.display === "" ? "block" : "none";
+};
+
+window.resetAllStorage = function () {
+  if (
+    confirm(
+      "Voulez-vous vraiment réinitialiser toutes vos données et vos photos ? Cette action est irréversible.",
+    )
+  ) {
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith("rmf247_")) {
+        localStorage.removeItem(key);
+      }
+    });
+    location.reload();
+  }
 };
 
 // init() remains at the end of the file after all functions are defined.

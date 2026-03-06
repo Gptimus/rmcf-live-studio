@@ -89,6 +89,7 @@
           <button class="nav-category-btn">🏆 Match Day</button>
           <div class="dropdown-content">
             <button class="dropdown-item" onclick="switchTab('but', this)">🥅 But</button>
+            <button class="dropdown-item" onclick="switchTab('matchday', this)">📸 Match Day</button>
             <button class="dropdown-item" onclick="switchTab('compo', this)">📋 Composition</button>
             <button class="dropdown-item" onclick="switchTab('convo', this)">📣 Convoqués</button>
             <button class="dropdown-item" onclick="switchTab('preview', this)">📅 Preview</button>
@@ -167,6 +168,10 @@
         <button onclick="toggleSettings()" style="margin-top: 20px; width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: var(--muted); cursor: pointer; font-size: 11px; text-transform: uppercase; font-weight: 700;">
           Fermer
         </button>
+         
+         <button onclick="resetAllStorage()" style="margin-top: 10px; width: 100%; padding: 8px; background: rgba(255,50,50,0.1); border: 1px solid rgba(255,0,0,0.2); border-radius: 6px; color: #ff8888; cursor: pointer; font-size: 11px; text-transform: uppercase; font-weight: 700;">
+           ⚠️ Réinitialiser Tout
+         </button>
       </div>
     </nav>
 
@@ -259,7 +264,93 @@
       </div>
     </div>
 
-    <!-- ══════════════ TAB: BUT ══════════════ -->
+    <!-- ══════════════ TAB: MATCH DAY ══════════════ -->
+    <div class="workspace" id="ws-matchday">
+      <div class="card-stage">
+        <div class="card-frame">
+          <div id="tpl-matchday">
+            <div class="birth-photo-zone">
+              <img id="md-player-img" src="" alt="" />
+              <span id="md-default-icon">📸</span>
+            </div>
+            
+            <div class="md-content">
+              <div class="md-header">
+                <span class="md-title-fill">MATCH</span><span class="md-title-outline">DAY</span>
+              </div>
+
+              <div class="md-top-info">
+                <div class="md-logos">
+                  <div class="md-logo-box">
+                    <img id="md-logo-opp" src="" alt="" />
+                    <span id="md-opp-emoji" style="font-size: 24px;">🛡️</span>
+                  </div>
+                  <div class="md-sep">/</div>
+                  <div class="md-logo-box">
+                    <img class="md-logo-rm" src="logo.png" alt="RMF" />
+                  </div>
+                </div>
+                <div class="md-time" id="md-time-val">21:00 CET</div>
+              </div>
+
+              <div class="md-footer-line">
+                <div class="md-footer-item" id="md-stadium-val">ESTADIO SANTIAGO BERNABÉU</div>
+                <img class="md-partner-logo" src="logo.png" alt="RMF" style="height: 20px; opacity: 0.8;" />
+                <div class="md-footer-item" id="md-comp-val">LALIGA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="dl-btn" onclick="downloadCard('tpl-matchday', 'rmf-matchday')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+          </svg>
+          Télécharger
+        </button>
+      </div>
+
+      <div class="form-panel">
+        <div class="form-section">
+          <div class="form-section-title">Photo Match Day</div>
+          <div class="img-upload" id="md-upload-zone">
+            <input type="file" accept="image/*" onchange="loadPlayerImg(this, 'md-player-img', 'md-default-icon', 'md-upload-thumb')" />
+            <img class="img-thumb" id="md-upload-thumb" src="" alt="" />
+            <span class="img-upload-icon">📸</span>
+            <div class="img-upload-text"><strong>Cliquer pour uploader</strong>Photo plein écran</div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Logos & Temps</div>
+          <div class="field">
+            <label>Logo Adversaire</label>
+            <div class="img-upload" id="md-opp-zone">
+              <input type="file" accept="image/*" onchange="loadTeamLogo(this, 'md-logo-opp', 'md-opp-zone', 'md-opp-emoji')" />
+              <img class="img-thumb" id="md-opp-thumb" src="" alt="" />
+              <span class="img-upload-icon">🏟️</span>
+              <div class="img-upload-text">Logo Éq. Adverse</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Heure du Match</label>
+            <input id="f-md-time" value="21:00 CET" oninput="setT('md-time-val', this.value); save('f-md-time', this.value);" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Infos Stade & Compétition</div>
+          <div class="field">
+            <label>Stade</label>
+            <input id="f-md-stadium" value="ESTADIO SANTIAGO BERNABÉU" oninput="setT('md-stadium-val', this.value); save('f-md-stadium', this.value);" />
+          </div>
+          <div class="field">
+            <label>Compétition</label>
+            <input id="f-md-comp" value="LALIGA" oninput="setT('md-comp-val', this.value); save('f-md-comp', this.value);" />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="workspace" id="ws-but">
       <!-- CARD -->
       <div class="card-stage">
@@ -758,18 +849,25 @@
               </svg>
             </div>
 
-            <div class="compo-header">
+            <!-- BG Watermark (White & Subtle) -->
+            <img src="logo.png" style="width: 80px; height: auto; position: absolute; left: 50%; top: 55%; transform: translate(-50%, -50%) scale(6); opacity: 0.03; filter: brightness(100); pointer-events: none; z-index: 1;" />
+
+            <div class="compo-header" style="position: relative; z-index: 10;">
               <img id="convo-logo" class="compo-logo" src="logo.png" alt="RMF" />
               <div class="compo-center">
                 <div class="compo-match-name">L'ÉQUIPE CONVOQUÉE</div>
-                <div class="compo-match-sub" id="convo-match">Real Madrid vs Barcelona • J22</div>
+                <div class="compo-match-sub" id="convo-match">Real Madrid vs Barcelona</div>
               </div>
               <div class="compo-form-badge"><span id="convo-count">0</span> J.</div>
             </div>
 
-            <div class="convo-body" id="convo-body"></div>
+            <div class="convo-body" id="convo-body" style="position: relative; z-index: 10;"></div>
+            <div id="convo-coach-box" style="margin: 0 5% 15px; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid rgba(201, 162, 39, 0.2); border-radius: 8px; display: flex; align-items: center; gap: 10px; position: relative; z-index: 10;">
+              <span style="font-family: 'Bebas Neue'; color: var(--gold); letter-spacing: 1px; font-size: 11px; text-transform: uppercase; opacity: 0.7;">👨‍🏫 Coach:</span>
+              <span id="convo-coach-name" style="font-family: 'Bebas Neue'; color: #fff; letter-spacing: 1.5px; font-size: 14px; text-transform: uppercase;">CARLO ANCELOTTI</span>
+            </div>
 
-            <div class="compo-footer">
+            <div class="compo-footer" style="position: relative; z-index: 10;">
               <div class="ft-logo">RMF 24/7 LIVE</div>
               <div class="ft-hash">#RMF247LIVE</div>
             </div>
@@ -796,16 +894,21 @@
       <div class="form-panel">
         <div class="form-section">
           <div class="form-section-title">Match</div>
-          <div class="form-row single">
+          <div class="form-row">
             <div class="field">
-              <label>Match / Compétition</label
-              ><input
+              <label>Match / Compétition</label>
+              <input
                 id="f-convo-match"
-                value="Real Madrid vs Barcelona • J22"
-                oninput="
-                  save('f-convo-match', this.value);
-                  setText('convo-match', this.value);
-                "
+                value="Real Madrid vs Barcelona"
+                oninput="save('f-convo-match', this.value); setText('convo-match', this.value);"
+              />
+            </div>
+            <div class="field">
+              <label>Entraîneur</label>
+              <input
+                id="f-convo-coach"
+                value="CARLO ANCELOTTI"
+                oninput="save('f-convo-coach', this.value); setText('convo-coach-name', this.value);"
               />
             </div>
           </div>
