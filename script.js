@@ -1126,7 +1126,44 @@ function init() {
       bgImg.onload = window.updateWatermark;
     }
   }
+  // BIRTHDAY RESTORE
+  const birthImg = loadImg("birth-player-img");
+  if (birthImg) {
+    const img = document.getElementById("birth-player-img");
+    const thumb = document.getElementById("birth-thumb");
+    const ico = document.getElementById("birth-default-icon");
+    if (img) img.src = birthImg;
+    if (thumb) thumb.src = birthImg;
+    if (ico) ico.style.display = "none";
+  }
+  restoreField("f-birth-name", "VINICIUS JR");
+  restoreField("f-birth-val", "24");
+  restoreField("f-birth-msg", "¡FELIZ CUMPLEAÑOS!");
+  restoreField("f-birth-mode", "age");
+  renderBirthday();
 }
+
+window.renderBirthday = function () {
+  const mode = document.getElementById("f-birth-mode").value;
+  const lblVal = document.getElementById("lbl-birth-val");
+  const birthVal = document.getElementById("f-birth-val").value;
+  const pName = document.getElementById("f-birth-name").value;
+
+  if (mode === "age") {
+    lblVal.textContent = "Âge (ex: 24)";
+    document.getElementById("cap-birth").value =
+      `🎂 ¡FELIZ CUMPLEAÑOS! Aujourd'hui nous célébrons l'anniversaire de notre star ${pName}. Laisse un message en commentaire ! 🤍👑 #HalaMadrid #RMCFLIVE`;
+  } else {
+    lblVal.textContent = "Dates / Années (ex: 1994 - 2010)";
+    document.getElementById("cap-birth").value =
+      `👑 LÉGENDE ÉTERNELLE. Merci pour tout ${pName}. Un Madridista ne t'oubliera jamais. 🤍🛡️ #HalaMadrid #RMCFLIVE #Leyenda`;
+  }
+
+  // Update Big BG Text
+  setT("birth-val-bg", birthVal);
+  setT("birth-pname", pName);
+  setT("birth-msg", document.getElementById("f-birth-msg").value);
+};
 
 window.toggleSettings = function () {
   const p = document.getElementById("settings-panel");
