@@ -190,10 +190,10 @@ img:not([src]) {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Bebas Neue", sans-serif;
-  font-size: 320px;
+  font-size: min(320px, 60vw);
   line-height: 0.8;
-  color: rgba(201, 162, 39, 0.1);
-  z-index: 1;
+  color: rgba(201, 162, 39, 0.08);
+  z-index: 2;
   letter-spacing: -5px;
   pointer-events: none;
   filter: blur(1px);
@@ -206,29 +206,27 @@ img:not([src]) {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  padding: 0 40px;
   overflow: hidden;
 }
 
 .birth-player-zone {
-  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  position: relative;
+  align-items: flex-end; /* Align to the baseline of the info area */
   z-index: 5;
-  /* Use a bit of padding to avoid hitting the header line */
-  padding: 10px 0 20px;
-  min-height: 0; /* Important for flex-shrink */
+  padding: 10px 0 100px; /* Sanctuary space at bottom for text overlay */
 }
 
 .birth-player-zone img {
-  max-width: 115%;
+  max-width: 125%;
   max-height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
-  /* Ensure image doesn't push down the info section */
-  margin-bottom: -5%;
 }
 
 #birth-default-icon {
@@ -237,33 +235,39 @@ img:not([src]) {
 }
 
 .birth-info {
+  margin-top: auto;
   text-align: center;
   position: relative;
   z-index: 15;
-  padding-bottom: 30px;
-  flex-shrink: 0;
-  /* Add a subtle dark glow behind text for readability */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  margin: 0 -40px;
-  padding-top: 40px;
+  padding: 80px 40px 35px;
+  background: linear-gradient(
+    to top,
+    #000 0%,
+    rgba(0, 0, 0, 0.95) 40%,
+    rgba(0, 0, 0, 0.7) 70%,
+    transparent 100%
+  );
 }
 
 #birth-pname {
   font-family: "Playfair Display", serif;
-  font-size: 46px;
+  font-size: clamp(24px, 8.5vw, 44px);
   font-weight: 900;
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1.5px;
-  line-height: 0.9;
-  margin-bottom: 6px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 #birth-msg {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 15px;
+  font-size: clamp(10px, 3vw, 15px);
   font-weight: 800;
   letter-spacing: 5px;
   color: var(--gold);
