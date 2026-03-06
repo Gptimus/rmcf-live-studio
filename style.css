@@ -294,6 +294,7 @@ img:not([src]) {
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
   letter-spacing: -0.5px;
+  opacity: 0.7;
 }
 .birth-title-fill {
   font-family: "Bebas Neue", sans-serif;
@@ -301,6 +302,7 @@ img:not([src]) {
   color: var(--white);
   letter-spacing: -0.5px;
   font-weight: 900;
+  opacity: 0.7;
 }
 .birth-subtitle {
   font-family: "Barlow Condensed", sans-serif;
@@ -310,6 +312,7 @@ img:not([src]) {
   letter-spacing: 0.5px;
   text-align: right;
   margin-top: 4px;
+  opacity: 0.7;
 }
 .birth-corner-logo {
   width: 32px;
@@ -497,7 +500,7 @@ img:not([src]) {
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   line-height: 1.1;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 .nm-date {
   font-family: "Barlow Condensed", sans-serif;
@@ -507,6 +510,7 @@ img:not([src]) {
   letter-spacing: 0.5px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   line-height: 1;
+  opacity: 0.7;
 }
 .nm-top-logo {
   position: absolute;
