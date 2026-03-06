@@ -897,6 +897,7 @@ function initNewTemplates() {
       if (img) {
         img.src = d;
         img.classList.add("visible");
+        img.style.display = "block";
       }
       const ic = document.getElementById(iconMap[imgId]);
       if (ic) ic.style.display = "none";

@@ -589,13 +589,24 @@ img:not([src]) {
   align-items: flex-start;
   text-align: left;
 }
+.al-left .gen-box {
+  align-items: flex-start;
+}
+
 .al-center {
   align-items: center;
   text-align: center;
 }
+.al-center .gen-box {
+  align-items: center;
+}
+
 .al-right {
   align-items: flex-end;
   text-align: right;
+}
+.al-right .gen-box {
+  align-items: flex-end;
 }
 
 /* ═══════════════════════════════════════════════
