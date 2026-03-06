@@ -847,16 +847,16 @@ function initNewTemplates() {
 
   // Restore team logos for all new templates
   const logoMaps = [
-    ["slive-logo1-img", "slive-em1"],
-    ["slive-logo2-img", "slive-em2"],
-    ["res-logo1-img", "res-em1"],
-    ["res-logo2-img", "res-em2"],
-    ["h2h-logo1-img", "h2h-em1"],
-    ["h2h-logo2-img", "h2h-em2"],
-    ["tr-logo1-img", "tr-em1"],
-    ["tr-logo2-img", "tr-em2"],
-    ["prono-logo1-img", "prono-em1"],
-    ["prono-logo2-img", "prono-em2"],
+    ["slive-logo1-img", "slive-em1", "slive-th1"],
+    ["slive-logo2-img", "slive-em2", "slive-th2"],
+    ["res-logo1-img", "res-em1", "res-th1"],
+    ["res-logo2-img", "res-em2", "res-th2"],
+    ["h2h-logo1-img", "h2h-em1", "h2h-th1"],
+    ["h2h-logo2-img", "h2h-em2", "h2h-th2"],
+    ["tr-logo1-img", "tr-em1", "tr-th1"],
+    ["tr-logo2-img", "tr-em2", "tr-th2"],
+    ["prono-logo1-img", "prono-em1", "prono-th1"],
+    ["prono-logo2-img", "prono-em2", "prono-th2"],
     ["nm-logo1-img", "nm-em1-emoji", "nm-lt1"],
     ["nm-logo2-img", "nm-em2-emoji", "nm-lt2"],
   ];
