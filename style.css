@@ -3869,39 +3869,7 @@ body.theme-light {
   --gold-pale: rgba(27, 63, 160, 0.1);
 }
 
-body.theme-light [id^="tpl-"] {
-  background: linear-gradient(
-    145deg,
-    #ffffff 0%,
-    #f0f2f5 50%,
-    #e2e8f0 100%
-  ) !important;
-}
-
-body.theme-light .record-burst {
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    transparent 0deg,
-    rgba(27, 63, 160, 0.05) 30deg,
-    transparent 60deg,
-    rgba(27, 63, 160, 0.05) 90deg,
-    transparent 120deg,
-    rgba(27, 63, 160, 0.05) 150deg,
-    transparent 180deg,
-    rgba(27, 63, 160, 0.05) 210deg,
-    transparent 240deg,
-    rgba(27, 63, 160, 0.05) 270deg,
-    transparent 300deg,
-    rgba(27, 63, 160, 0.05) 330deg,
-    transparent 360deg
-  );
-}
-
-body.theme-light svg path,
-body.theme-light svg circle {
-  stroke-opacity: 0.15;
-  stroke: var(--white);
-}
+/* Templates keep their original dark style in light mode — no override */
 
 body.theme-light .dl-btn {
   color: #fff !important;
