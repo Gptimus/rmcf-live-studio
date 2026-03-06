@@ -298,7 +298,7 @@ img:not([src]) {
 .birth-title-fill {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(28px, 8vw, 46px);
-  color: #fff;
+  color: var(--white);
   letter-spacing: -0.5px;
   font-weight: 900;
 }
@@ -339,7 +339,7 @@ img:not([src]) {
 #birth-pname {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(22px, 7vw, 38px);
-  color: #fff;
+  color: var(--white);
   letter-spacing: 2px;
   line-height: 1;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
@@ -377,7 +377,7 @@ img:not([src]) {
 .fb-score-num {
   font-family: "Bebas Neue", sans-serif;
   font-size: 28px;
-  color: #fff;
+  color: var(--white);
 }
 .fb-transfer-clubs {
   display: flex;
@@ -485,7 +485,7 @@ img:not([src]) {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(10px, 2.5vw, 14px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -496,7 +496,7 @@ img:not([src]) {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(14px, 4.5vw, 24px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   letter-spacing: 0.5px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   line-height: 1;
@@ -561,7 +561,7 @@ img:not([src]) {
   font-family: "Bebas Neue", sans-serif;
   font-size: 52px;
   line-height: 0.9;
-  color: #fff;
+  color: var(--white);
   margin-bottom: 10px;
   text-transform: uppercase;
   transition: font-size 0.3s ease;
@@ -696,7 +696,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(20px, 6vw, 34px);
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--white);
   line-height: 1;
 }
 .stats-prole {
@@ -939,7 +939,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(14px, 4vw, 18px);
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--white);
 }
 .live-dot-anim {
   width: 8px;
@@ -993,7 +993,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(13px, 4vw, 20px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 .live-score-center {
@@ -1005,7 +1005,7 @@ img:not([src]) {
 .live-score-num {
   font-family: "Bebas Neue";
   font-size: clamp(52px, 16vw, 90px);
-  color: #fff;
+  color: var(--white);
   line-height: 1;
   letter-spacing: 4px;
 }
@@ -1109,7 +1109,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(12px, 3.5vw, 18px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   line-height: 1.1;
 }
@@ -1121,7 +1121,7 @@ img:not([src]) {
 .res-score-txt {
   font-family: "Bebas Neue";
   font-size: clamp(40px, 12vw, 70px);
-  color: #fff;
+  color: var(--white);
   line-height: 1;
   letter-spacing: 2px;
 }
@@ -1248,7 +1248,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(28px, 8vw, 50px);
   letter-spacing: 4px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   line-height: 1;
 }
@@ -1270,7 +1270,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(20px, 6vw, 36px);
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--white);
   line-height: 1;
 }
 .carton-pnum {
@@ -1304,7 +1304,7 @@ img:not([src]) {
 .carton-info-val {
   font-size: clamp(11px, 2.8vw, 14px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   margin-top: 2px;
 }
 
@@ -1379,7 +1379,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(13px, 3.8vw, 20px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 .h2h-vs {
@@ -1461,7 +1461,7 @@ img:not([src]) {
 .h2h-match-score {
   font-family: "Bebas Neue";
   font-size: clamp(14px, 3.5vw, 18px);
-  color: #fff;
+  color: var(--white);
   letter-spacing: 1px;
 }
 .h2h-match-comp {
@@ -1502,7 +1502,7 @@ img:not([src]) {
   flex: 1;
   font-size: clamp(11px, 3vw, 15px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
 }
 .absent-reason {
   font-size: clamp(9px, 2vw, 11px);
@@ -1581,7 +1581,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(22px, 7vw, 40px);
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   line-height: 1;
 }
@@ -1652,7 +1652,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(30px, 9vw, 56px);
   letter-spacing: 4px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   line-height: 1;
 }
@@ -1686,7 +1686,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(16px, 4.5vw, 24px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
 }
 .record-pnum {
   font-family: "Bebas Neue";
@@ -1763,7 +1763,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(12px, 3.5vw, 18px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 .transf-arrow-center {
@@ -1824,7 +1824,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(20px, 6vw, 36px);
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   line-height: 1;
 }
@@ -1853,7 +1853,7 @@ img:not([src]) {
 .transf-cell-val {
   font-size: clamp(11px, 2.8vw, 14px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   margin-top: 2px;
 }
 
@@ -1879,7 +1879,7 @@ img:not([src]) {
   font-family: "Barlow Condensed";
   font-size: clamp(14px, 4vw, 22px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   line-height: 1.3;
   letter-spacing: 0.5px;
 }
@@ -1923,7 +1923,7 @@ img:not([src]) {
   flex: 1;
   font-size: clamp(11px, 3vw, 15px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   position: relative;
   z-index: 1;
 }
@@ -1983,7 +1983,7 @@ img:not([src]) {
   font-family: "Bebas Neue";
   font-size: clamp(12px, 3.5vw, 18px);
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 .prono-vs-block {
@@ -3764,7 +3764,7 @@ body.theme-away .live-badge {
 .fix-time {
   font-size: clamp(8px, 2vw, 11px);
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   margin-top: 2px;
 }
 .fix-info {
@@ -3773,7 +3773,7 @@ body.theme-away .live-badge {
 .fix-adv {
   font-family: "Bebas Neue";
   font-size: clamp(18px, 5vw, 24px);
-  color: #fff;
+  color: var(--white);
   letter-spacing: 1px;
 }
 .fix-meta {
@@ -3813,7 +3813,7 @@ body.theme-away .live-badge {
 .rat-name {
   font-family: "Bebas Neue";
   font-size: clamp(16px, 5vw, 28px);
-  color: #fff;
+  color: var(--white);
   letter-spacing: 1.5px;
 }
 .rat-desc {
@@ -3847,4 +3847,58 @@ body.theme-away .live-badge {
 #tpl-matchday .birth-title-fill,
 #tpl-matchday .birth-title-outline {
   font-size: clamp(40px, 10vw, 70px);
+}
+
+
+/* ───────────────────────────────────────────────────
+   LIGHT THEME 
+─────────────────────────────────────────────────── */
+body.theme-light {
+  --bg: #f3f5f8;
+  --panel: #ffffff;
+  --border: rgba(13, 36, 96, 0.15);
+  --white: #111827;
+  --off: #374151;
+  --muted: #6b7280;
+  --royal: #ffffff;
+  --royal-dark: #e5e7eb;
+  --royal-mid: #f9fafb;
+  --royal-light: #f3f4f6;
+  --gold: #1b3fa0; /* Changed to Blue for high contrast */
+  --gold-bright: #0d2460;
+  --gold-dark: #1e3a8a;
+  --gold-pale: rgba(27, 63, 160, 0.1);
+}
+
+body.theme-light [id^="tpl-"] {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f2f5 50%, #e2e8f0 100%) !important;
+}
+
+body.theme-light .record-burst {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(27, 63, 160, 0.05) 30deg,
+    transparent 60deg,
+    rgba(27, 63, 160, 0.05) 90deg,
+    transparent 120deg,
+    rgba(27, 63, 160, 0.05) 150deg,
+    transparent 180deg,
+    rgba(27, 63, 160, 0.05) 210deg,
+    transparent 240deg,
+    rgba(27, 63, 160, 0.05) 270deg,
+    transparent 300deg,
+    rgba(27, 63, 160, 0.05) 330deg,
+    transparent 360deg
+  );
+}
+
+body.theme-light svg path, body.theme-light svg circle {
+  stroke-opacity: 0.15;
+  stroke: var(--white);
+}
+
+body.theme-light .dl-btn {
+  color: #fff !important;
+  background: var(--gold) !important;
 }

@@ -1433,6 +1433,12 @@ function init() {
     const chk = document.getElementById("check-away");
     if (chk) chk.checked = true;
   }
+  const tl = load("f-theme-light", false);
+  if (tl === "true" || tl === true) {
+    document.body.classList.add("theme-light");
+    const chkc = document.getElementById("check-light");
+    if (chkc) chkc.checked = true;
+  }
 
   // WATERMARK RESTORE
   const wmImg = loadImg("watermark-bg");
