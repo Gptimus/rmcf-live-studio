@@ -213,13 +213,8 @@
         </button>
 
         <button
-          class="tab-btn"
+          class="tab-btn settings-toggle-btn"
           onclick="toggleSettings()"
-          style="
-            margin-left: auto;
-            border: 1px solid var(--border);
-            background: rgba(201, 162, 39, 0.1);
-          "
         >
           ⚙️ Réglages
         </button>
@@ -242,18 +237,7 @@
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         "
       >
-        <div
-          style="
-            font-size: 14px;
-            color: var(--gold);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 10px;
-          "
-        >
+        <div class="settings-panel-title">
           ⚙️ Paramètres Studio
         </div>
 
@@ -333,64 +317,25 @@
         </div>
 
         <button
+          id="settings-close-btn"
           onclick="toggleSettings()"
-          style="
-            margin-top: 20px;
-            width: 100%;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 700;
-          "
+          class="settings-action-btn settings-close-btn"
         >
           Fermer
         </button>
 
         <div style="display: flex; gap: 8px; margin-top: 20px">
           <button
+            id="settings-export-btn"
             onclick="exportStorage()"
-            style="
-              flex: 1;
-              padding: 8px;
-              background: rgba(255, 255, 255, 0.1);
-              border: 1px solid var(--border);
-              border-radius: 6px;
-              color: #fff;
-              cursor: pointer;
-              font-size: 10px;
-              text-transform: uppercase;
-              font-weight: 700;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 5px;
-            "
+            class="settings-action-btn settings-io-btn"
           >
             📥 Export
           </button>
           <button
+            id="settings-import-btn"
             onclick="document.getElementById('f-import').click()"
-            style="
-              flex: 1;
-              padding: 8px;
-              background: rgba(255, 255, 255, 0.1);
-              border: 1px solid var(--border);
-              border-radius: 6px;
-              color: #fff;
-              cursor: pointer;
-              font-size: 10px;
-              text-transform: uppercase;
-              font-weight: 700;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 5px;
-            "
+            class="settings-action-btn settings-io-btn"
           >
             📤 Import
           </button>
@@ -404,20 +349,9 @@
         </div>
 
         <button
+          id="settings-reset-btn"
           onclick="resetAllStorage()"
-          style="
-            margin-top: 10px;
-            width: 100%;
-            padding: 8px;
-            background: rgba(255, 50, 50, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            border-radius: 6px;
-            color: #ff8888;
-            cursor: pointer;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 700;
-          "
+          class="settings-action-btn settings-reset-btn"
         >
           ⚠️ Réinitialiser Tout
         </button>

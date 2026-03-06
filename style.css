@@ -3850,6 +3850,66 @@ body.theme-away .live-badge {
 }
 
 /* ───────────────────────────────────────────────────
+   SETTINGS PANEL CLASSES (theme-agnostic)
+─────────────────────────────────────────────────── */
+.settings-toggle-btn {
+  margin-left: auto;
+  border: 1px solid var(--border) !important;
+  background: rgba(201, 162, 39, 0.1) !important;
+}
+
+.settings-panel-title {
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+.settings-action-btn {
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.settings-close-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.settings-io-btn {
+  flex: 1;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.settings-reset-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  background: rgba(255, 50, 50, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  color: #ff8888;
+}
+
+/* ───────────────────────────────────────────────────
    LIGHT THEME 
 ─────────────────────────────────────────────────── */
 body.theme-light {
@@ -4076,30 +4136,7 @@ body.theme-light .home-feature p {
   color: #6b7280;
 }
 
-/* ── LIGHT THEME: PREVIEW CARDS ── */
-body.theme-light .home-preview-card {
-  border-color: rgba(27, 63, 160, 0.12);
-  background: #f3f4f6;
-  box-shadow: none;
-}
-
-body.theme-light .home-preview-card:hover {
-  border-color: #1b3fa0;
-  box-shadow: none;
-}
-
-body.theme-light .home-preview-card-info {
-  /* Keep dark overlay so text stays readable on top of photo */
-  background: linear-gradient(transparent, rgba(0, 0, 20, 0.82));
-}
-
-body.theme-light .home-preview-card span {
-  color: #fff;
-}
-
-body.theme-light .home-preview-card:hover span {
-  color: var(--gold-bright);
-}
+/* Preview cards: no light-theme override — keep exact dark style */
 
 /* ── LIGHT THEME: HOME CTA/SECTION TITLE ── */
 body.theme-light .home-section-title {
@@ -4142,4 +4179,34 @@ body.theme-light .doc-format-box {
 
 body.theme-light .doc-format-example {
   color: #111827;
+}
+
+/* ── LIGHT THEME: SETTINGS PANEL BUTTONS ── */
+body.theme-light .settings-toggle-btn {
+  border-color: rgba(27, 63, 160, 0.2) !important;
+  background: rgba(27, 63, 160, 0.08) !important;
+  color: #1b3fa0;
+}
+
+body.theme-light .settings-panel-title {
+  color: #1b3fa0;
+  border-bottom-color: rgba(27, 63, 160, 0.1);
+}
+
+body.theme-light .settings-close-btn {
+  background: rgba(27, 63, 160, 0.05);
+  border-color: rgba(27, 63, 160, 0.15);
+  color: #6b7280;
+}
+
+body.theme-light .settings-io-btn {
+  background: rgba(27, 63, 160, 0.08);
+  border-color: rgba(27, 63, 160, 0.2);
+  color: #1b3fa0;
+}
+
+body.theme-light .settings-reset-btn {
+  background: rgba(220, 38, 38, 0.06);
+  border-color: rgba(220, 38, 38, 0.2);
+  color: #dc2626;
 }
