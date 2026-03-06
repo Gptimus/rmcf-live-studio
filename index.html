@@ -1449,7 +1449,7 @@
       <!-- SOCIAL & CAPTION -->
       <div class="doc-section-title">📲 Réseaux Sociaux & Partage</div>
       <div class="doc-full-card" style="margin-bottom: 24px">
-        <div class="form-row">
+        <div class="form-row triple">
           <div>
             <div
               style="
@@ -1528,23 +1528,6 @@
                 Instagram
               </a>
             </div>
-
-            <button
-              onclick="downloadCard('tpl-social-preview', 'rmfc-social-promo')"
-              class="doc-hero-badge"
-              style="
-                cursor: pointer;
-                background: var(--gold);
-                color: #000;
-                border: none;
-                font-weight: 800;
-                letter-spacing: 0.5px;
-                width: fit-content;
-                margin-top: 16px;
-              "
-            >
-              📥 Télécharger l'image promo
-            </button>
           </div>
           <div>
             <div
@@ -1563,7 +1546,7 @@
               id="share-caption"
               style="
                 width: 100%;
-                height: 90px;
+                height: 120px;
                 background: rgba(0, 0, 0, 0.2);
                 border: 1px solid rgba(201, 162, 39, 0.2);
                 border-radius: 8px;
@@ -1602,6 +1585,185 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               "
             >
               Copier le texte
+            </button>
+          </div>
+          <div>
+            <div
+              style="
+                font-size: 11px;
+                color: var(--gold);
+                font-weight: 800;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 12px;
+              "
+            >
+              Créer votre image
+            </div>
+            <div
+              style="
+                width: 100%;
+                aspect-ratio: 1/1;
+                position: relative;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid rgba(201, 162, 39, 0.3);
+                margin-bottom: 8px;
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: url(&quot;https://w0.peakpx.com/wallpaper/774/249/HD-wallpaper-santiago-bernabeu-madrid-spain-real-madrid-logo-spanish-football-club-light-sign-real-madrid-fc-emblem.jpg&quot;)
+                    center/cover;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                      180deg,
+                      rgba(0, 0, 0, 0.4) 0%,
+                      rgba(0, 0, 0, 0.9) 100%
+                    );
+                  "
+                ></div>
+                <div
+                  style="
+                    position: relative;
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    padding: 10%;
+                  "
+                >
+                  <img
+                    src="logo.png"
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      object-fit: contain;
+                      filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.5));
+                      margin-bottom: 8%;
+                    "
+                  />
+                  <h1
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 900;
+                      color: #c9a227;
+                      text-transform: uppercase;
+                      text-align: center;
+                      margin: 0;
+                      line-height: 1;
+                      font-family: &quot;Barlow Condensed&quot;, sans-serif;
+                    "
+                  >
+                    RMCF LIVE
+                  </h1>
+                  <p
+                    style="
+                      font-size: 0.6rem;
+                      font-family: &quot;Barlow&quot;, sans-serif;
+                      font-weight: 600;
+                      color: #fff;
+                      margin: 5% 0 10%;
+                      text-align: center;
+                    "
+                  >
+                    LA COMMUNAUTÉ 100% MADRIDISTA
+                  </p>
+                  <div style="display: flex; gap: 10px">
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.1);
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                        backdrop-filter: blur(5px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      "
+                    >
+                      <svg
+                        style="width: 12px; height: 12px; fill: #c9a227"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.1);
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                        backdrop-filter: blur(5px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      "
+                    >
+                      <svg
+                        style="width: 12px; height: 12px; fill: #c9a227"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm5.83 14.03c-.24.67-1.18 1.24-1.63 1.34-1.02.21-2.43.08-3.71-.5-1.12-.5-1.12-.5-2.22-1.33-1.01-.76-1.57-1.38-2.17-2.16-.62-.78-.85-1.58-.85-1.58s.02-.03.02-.04c0-.02-.02-.03-.02-.03-.1-.13-.37-.43-.37-.43s.06-.06.12-.13c.09-.12.44-.61.44-.61s.14-.14.24-.14.28 0 .42.01c.14.01.35.03.54.43.2.41.67 1.61.73 1.73.06.12.1.26.02.42-.08.16-.12.26-.24.41s-.25.33-.36.44c-.12.11-.25.23-.1.49.15.26.66 1.09 1.41 1.76.97.86 1.79 1.12 2.05 1.26.26.13.41.11.57-.07.16-.18.67-.79.85-1.06.18-.26.37-.22.61-.13.24.1.1.04 1.55.76.1.05.17.08.24.12.38.18.63.29.72.44.09.15.09.86-.15 1.53z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.1);
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                        backdrop-filter: blur(5px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      "
+                    >
+                      <svg
+                        style="width: 12px; height: 12px; fill: #c9a227"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.8 2h8.4c3.2 0 5.8 2.6 5.8 5.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2C5.6 4 4 5.6 4 7.6v8.8c0 2 1.6 3.6 3.6 3.6h8.8c2 0 3.6-1.6 3.6-3.6V7.6c0-2-1.6-3.6-3.6-3.6H7.6zM12 7c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm5.2-2.5c.4 0 .8.3.8.8s-.3.8-.8.8-.8-.3-.8-.8.3-.8.8-.8z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="downloadCard('tpl-social-preview', 'rmfc-social-promo')"
+              class="doc-hero-badge"
+              style="
+                cursor: pointer;
+                background: var(--gold);
+                color: #000;
+                border: none;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+                width: 100%;
+              "
+            >
+              Télécharger (1080x1080)
             </button>
           </div>
         </div>
