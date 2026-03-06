@@ -311,7 +311,6 @@ function renderConvo() {
     { label: "Défenseurs", id: "f-convo-def", icon: "🛡️" },
     { label: "Milieux de terrain", id: "f-convo-mid", icon: "⚙️" },
     { label: "Attaquants", id: "f-convo-att", icon: "⚡" },
-    { label: "Remplaçants", id: "f-convo-subs", icon: "🔄" },
   ];
   const body = document.getElementById("convo-body");
   let total = 0,
