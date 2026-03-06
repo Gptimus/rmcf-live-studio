@@ -92,6 +92,7 @@
             <button class="dropdown-item" onclick="switchTab('compo', this)">📋 Composition</button>
             <button class="dropdown-item" onclick="switchTab('convo', this)">📣 Convoqués</button>
             <button class="dropdown-item" onclick="switchTab('preview', this)">📅 Preview</button>
+            <button class="dropdown-item" onclick="switchTab('nextmatch', this)">⚔️ Next Match</button>
             <button class="dropdown-item" onclick="switchTab('scorelive', this)">⏱️ Score Live</button>
             <button class="dropdown-item" onclick="switchTab('resume', this)">📝 Résumé</button>
             <button class="dropdown-item" onclick="switchTab('carton', this)">🟥 Carton</button>
@@ -1216,6 +1217,112 @@
             >
               COPIER LE TEXTE
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ TAB: NEXT MATCH ══════════════ -->
+    <div class="workspace" id="ws-nextmatch">
+      <div class="card-stage">
+        <div class="card-frame">
+          <div id="tpl-nextmatch">
+            <div class="birth-photo-zone">
+              <img id="nm-player-img" src="" alt="" />
+              <span id="nm-default-icon">⚽</span>
+            </div>
+
+            <div class="nm-overlay">
+              <div class="nm-crests">
+                <div class="nm-crest-box">
+                  <img class="team-logo-img" id="nm-logo1-img" src="" alt="" />
+                  <span id="nm-em1-emoji">🏟️</span>
+                </div>
+                <div class="nm-divider"></div>
+                <div class="nm-crest-box">
+                  <img class="team-logo-img" id="nm-logo2-img" src="" alt="" />
+                  <span id="nm-em2-emoji">🏟️</span>
+                </div>
+              </div>
+
+              <div class="nm-title-block">
+                <div class="birth-title-line">
+                  <span class="birth-title-fill">NEXT</span>
+                  <span class="birth-title-outline">MATCH</span>
+                </div>
+                <div class="birth-subtitle" id="nm-sub-val">PRÓXIMO PARTIDO</div>
+              </div>
+
+              <div class="nm-info-block">
+                <div class="nm-stadium" id="nm-stadium-val">ESTADIO SANTIAGO BERNABÉU</div>
+                <div class="nm-date" id="nm-datetime-val">06/03 — 21:00 CET</div>
+              </div>
+            </div>
+
+            <div class="nm-watermark">RMF 24/7 LIVE</div>
+          </div>
+        </div>
+        <button class="dl-btn" onclick="downloadCard('tpl-nextmatch', 'rmf-next-match')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+          </svg>
+          Télécharger
+        </button>
+        <div class="full-bleed-warning">
+          <strong>💡 Conseil :</strong> Pour un impact maximal, n'oubliez pas d'utiliser des photos de haute qualité sans bordures pour ces templates.
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <div class="form-section">
+          <div class="form-section-title">Photo du joueur</div>
+          <div class="img-upload" id="nm-upload-zone" style="max-width: 140px; margin: 0 auto; aspect-ratio: 4/5;">
+            <input
+              type="file"
+              accept="image/*"
+              onchange="loadPlayerImg(this, 'nm-player-img', 'nm-default-icon', 'nm-up-thumb')"
+            />
+            <img class="img-thumb" id="nm-up-thumb" src="" alt="" />
+            <span class="img-upload-icon">📸</span>
+            <div class="img-upload-text"><strong>Cliquer</strong>Photo</div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Logos Clubs</div>
+          <div class="form-row">
+            <div class="field">
+              <label>Dom.</label>
+              <div class="img-upload team-logo-upload" id="nm-lz1" style="aspect-ratio: 1/1;">
+                <input type="file" accept="image/*" onchange="loadTeamLogoGen(this, 'nm-logo1-img', 'nm-em1-emoji', 'nm-lz1', 'nm-lt1')" />
+                <img class="img-thumb" id="nm-lt1" src="" alt="" />
+                <span class="img-upload-icon">🏠</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Ext.</label>
+              <div class="img-upload team-logo-upload" id="nm-lz2" style="aspect-ratio: 1/1;">
+                <input type="file" accept="image/*" onchange="loadTeamLogoGen(this, 'nm-logo2-img', 'nm-em2-emoji', 'nm-lz2', 'nm-lt2')" />
+                <img class="img-thumb" id="nm-lt2" src="" alt="" />
+                <span class="img-upload-icon">🚌</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Infos Match</div>
+          <div class="field">
+            <label>Sous-titre (ex: PRÓXIMO PARTIDO)</label>
+            <input id="f-nm-sub" value="PRÓXIMO PARTIDO" oninput="setT('nm-sub-val', this.value); save('f-nm-sub', this.value);" />
+          </div>
+          <div class="field">
+            <label>Stade</label>
+            <input id="f-nm-stadium" value="ESTADIO SANTIAGO BERNABÉU" oninput="setT('nm-stadium-val', this.value); save('f-nm-stadium', this.value);" />
+          </div>
+          <div class="field">
+            <label>Date & Heure</label>
+            <input id="f-nm-date" value="06/03 — 21:00 CET" oninput="setT('nm-datetime-val', this.value); save('f-nm-date', this.value);" />
           </div>
         </div>
       </div>
@@ -3165,7 +3272,7 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               <label>Nom équipe à surligner</label
               ><input
                 id="f-class-highlight"
-                value="PSG"
+                value="Real Madrid"
                 oninput="
                   renderClassement();
                   save('f-class-highlight', this.value);

@@ -20,6 +20,7 @@ function applyLogos() {
     "tr-logo",
     "sond-logo",
     "prono-logo",
+    "nm-logo",
   ].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.src = LOGO;
