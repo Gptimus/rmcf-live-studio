@@ -648,6 +648,80 @@ function updateCarton() {
   save("f-carton-num", num);
 }
 
+window.updateCartonLayout = function () {
+  const vPos = document.getElementById("f-carton-vpos")?.value || "center";
+  const hPos = document.getElementById("f-carton-hpos")?.value || "center";
+  const op = document.getElementById("f-carton-op")?.value || 0;
+
+  const main = document.querySelector("#tpl-carton .carton-main");
+  if (main) {
+    main.style.justifyContent = vPos;
+    main.style.alignItems = hPos;
+    main.style.flex = "1";
+    main.style.width = "100%";
+    if (hPos === "flex-start") {
+      main.style.textAlign = "left";
+      const info = document.querySelector("#tpl-carton .carton-player-info");
+      if (info) info.style.alignItems = "flex-start";
+    } else if (hPos === "flex-end") {
+      main.style.textAlign = "right";
+      const info = document.querySelector("#tpl-carton .carton-player-info");
+      if (info) info.style.alignItems = "flex-end";
+    } else {
+      main.style.textAlign = "center";
+      const info = document.querySelector("#tpl-carton .carton-player-info");
+      if (info) info.style.alignItems = "center";
+    }
+  }
+
+  const overlay = document.getElementById("carton-overlay");
+  if (overlay) {
+    overlay.style.background = `rgba(0,0,0,${op / 100})`;
+  }
+
+  save("f-carton-vpos", vPos);
+  save("f-carton-hpos", hPos);
+  save("f-carton-op", op);
+};
+
+window.removeImg = function (imgId, iconId, thumbId, zoneId, extraContainerId) {
+  const img = document.getElementById(imgId);
+  const icon = document.getElementById(iconId);
+  const thumb = document.getElementById(thumbId);
+  const zone = document.getElementById(zoneId);
+  const extra = document.getElementById(extraContainerId);
+
+  if (img) {
+    img.src = "";
+    img.style.display = "none";
+  }
+  if (icon) icon.style.display = "block";
+  if (thumb) {
+    thumb.src = "";
+    thumb.classList.remove("visible");
+    thumb.style.display = "none";
+  }
+  if (zone) {
+    const iconEl = zone.querySelector(".img-upload-icon");
+    const textEl = zone.querySelector(".img-upload-text");
+    if (iconEl) iconEl.style.display = "block";
+    if (textEl) textEl.style.display = "block";
+  }
+  if (extra) extra.style.display = "none";
+
+  localStorage.removeItem("rmf247_img_" + imgId);
+};
+
+window.removeCartonImg = function () {
+  window.removeImg(
+    "carton-player-img",
+    null,
+    "carton-upload-thumb",
+    "carton-upload-zone",
+    "carton-photo-zone",
+  );
+};
+
 // ── H2H MATCHES ──
 function renderH2HMatches() {
   const raw = document.getElementById("f-h2h-matches")?.value || "";
@@ -712,19 +786,6 @@ function renderSondage() {
 // ── INIT NEW TEMPLATES ──
 function initNewTemplates() {
   // Stats
-  [
-    "f-stats-name",
-    "f-stats-prole",
-    "f-stats-rating",
-    "f-stats-buts",
-    "f-stats-passes",
-    "f-stats-matchs",
-    "f-stats-tirs",
-    "f-stats-comp",
-  ].forEach((id) => {
-    const v = load(id, document.getElementById(id)?.value || "");
-    if (document.getElementById(id)) document.getElementById(id).value = v;
-  });
   setT("stats-pname", restoreField("f-stats-name", "BENZEMA"));
   setT("stats-prole", restoreField("f-stats-prole", "Attaquant • Real Madrid"));
   setT("stats-rating", restoreField("f-stats-rating", "91"));
@@ -734,31 +795,23 @@ function initNewTemplates() {
   setT("stats-tirs", restoreField("f-stats-tirs", "68"));
   setT("stats-comp", restoreField("f-stats-comp", "Real Madrid • Liga"));
   ["vitesse", "dribble", "tir", "passe", "physique"].forEach((n) => {
-    const v = load(
-      "f-stats-v-" + n,
-      document.getElementById("f-stats-v-" + n)?.value || "0",
-    );
-    if (document.getElementById("f-stats-v-" + n))
-      document.getElementById("f-stats-v-" + n).value = v;
+    const v = restoreField("f-stats-v-" + n, "0");
     updateBar(n, v);
   });
 
-  // Classement
-  const classData = load(
+  // Classement — restore textarea THEN render
+  restoreField(
     "f-class-data",
-    document.getElementById("f-class-data")?.value || "",
+    document.getElementById("f-class-data")?.defaultValue || "",
   );
-  if (document.getElementById("f-class-data"))
-    document.getElementById("f-class-data").value = classData;
   setT("class-comp", restoreField("f-class-comp", "CLASSEMENT • LIGA"));
-  if (document.getElementById("f-class-comp"))
-    document.getElementById("f-class-comp").value = restoreField(
-      "f-class-comp",
-      "CLASSEMENT • LIGA",
-    );
   renderClassement();
 
-  // Score Live
+  // Score Live — restore textarea THEN render
+  restoreField(
+    "f-slive-events",
+    "23'·⚽·Benzema·Éq.1\n45'·🟨·Ramos·Éq.2\n67'·⚽·Mbappé·Éq.1",
+  );
   renderLiveEvents();
   setT("slive-t1", restoreField("f-slive-t1", "ÉQUIPE 1"));
   setT("slive-t2", restoreField("f-slive-t2", "ÉQUIPE 2"));
@@ -767,17 +820,48 @@ function initNewTemplates() {
   setT("slive-min", "⏱ " + restoreField("f-slive-min", "67'"));
   setT("slive-comp", restoreField("f-slive-comp", "UEFA Champions League"));
 
-  // Résumé
+  // Résumé — restore textarea THEN render
+  restoreField(
+    "f-res-events",
+    "12'·⚽·Benzema·Éq.1\n34'·🟨·Ramos·Éq.2\n67'·⚽·Mbappé·Éq.1\n78'·⚽·Benzema·Éq.1\n89'·🟥·Silva·Éq.2",
+  );
   renderResEvents();
   setT("res-t1", restoreField("f-res-t1", "ÉQUIPE 1"));
   setT("res-t2", restoreField("f-res-t2", "ÉQUIPE 2"));
   setT("res-s1", restoreField("f-res-s1", "2"));
   setT("res-s2", restoreField("f-res-s2", "1"));
 
-  // Carton
+  // Carton — restore ALL fields THEN update
+  restoreField("f-carton-type", "🟨 Carton Jaune");
+  restoreField("f-carton-name", "RAMOS");
+  restoreField("f-carton-num", "4");
+  restoreField("f-carton-min", "45'");
+  restoreField("f-carton-team", "REAL MADRID");
+  restoreField("f-carton-match", "EQ1 1-0 EQ2");
+  restoreField("f-carton-comp", "UEFA Champions League");
+  restoreField("f-carton-vpos", "center");
+  restoreField("f-carton-hpos", "center");
+  restoreField("f-carton-op", "0");
   updateCarton();
+  if (window.updateCartonLayout) window.updateCartonLayout();
+  setT(
+    "carton-min",
+    "⏱ " + (document.getElementById("f-carton-min")?.value || "45'"),
+  );
+  setT(
+    "carton-team",
+    document.getElementById("f-carton-team")?.value || "REAL MADRID",
+  );
+  setT(
+    "carton-match",
+    document.getElementById("f-carton-match")?.value || "EQ1 1-0 EQ2",
+  );
+  setT(
+    "carton-comp",
+    document.getElementById("f-carton-comp")?.value || "UEFA Champions League",
+  );
 
-  // H2H
+  // H2H — restore textarea THEN render
   restoreField(
     "f-h2h-matches",
     "15/01/25·2-1·Ligue 1\n28/09/24·1-1·Ligue 1\n12/05/24·3-0·Coupe\n10/02/24·0-1·Ligue 1",
@@ -789,9 +873,24 @@ function initNewTemplates() {
   setT("h2h-v2", restoreField("f-h2h-v2", "4"));
   setT("h2h-nuls", restoreField("f-h2h-nuls", "5"));
 
-  // Absents
+  // Absents — restore textarea THEN render
+  restoreField(
+    "f-abs-list",
+    "1·Courtois·Blessure\n4·Alaba·Blessure\n22·Rudiger·Suspension\n14·Valverde·Sélection",
+  );
   renderAbsents();
   setT("abs-team", restoreField("f-abs-team", "ÉQUIPE 1"));
+
+  // MOTM — restore ALL fields
+  setT("motm-pname", restoreField("f-motm-name", "BENZEMA"));
+  setT("motm-prole", restoreField("f-motm-prole", "Attaquant • #9"));
+  setT("motm-match", restoreField("f-motm-match", "EQ1 3-0 EQ2"));
+  setT("motm-note", restoreField("f-motm-note", "9.2"));
+  setT("motm-comp", restoreField("f-motm-comp", "UEFA Champions League"));
+  setT("motm-buts", restoreField("f-motm-buts", "2"));
+  setT("motm-pd", restoreField("f-motm-pd", "1"));
+  setT("motm-duels", restoreField("f-motm-duels", "8/12"));
+  setT("motm-tirs", restoreField("f-motm-tirs", "5"));
 
   // Hat-trick
   setT("hat-pname", restoreField("f-hat-name", "BENZEMA"));
@@ -817,7 +916,22 @@ function initNewTemplates() {
     ),
   );
 
-  // Sondage
+  // Transfer — restore ALL fields
+  setT("tr-pname", restoreField("f-tr-pname", "MBAPPÉ"));
+  setT("tr-prole", restoreField("f-tr-prole", "Attaquant • #7"));
+  setT("tr-club1", restoreField("f-tr-club1", "PSG"));
+  setT("tr-club2", restoreField("f-tr-club2", "REAL MADRID"));
+  setT("tr-type", restoreField("f-tr-type", "TRANSFERT DÉFINITIF"));
+  setT("tr-montant", restoreField("f-tr-montant", "180 M€"));
+  setT("tr-contrat", restoreField("f-tr-contrat", "5 ANS"));
+  setT("tr-num", restoreField("f-tr-num", "7"));
+  setT("tr-comp", restoreField("f-tr-comp", "OFFICIAL MERCATO ESTIVAL"));
+
+  // Sondage — restore textarea THEN render
+  restoreField(
+    "f-sond-options",
+    "Benzema·42%\nMbappé·31%\nNeymar·18%\nHaaland·9%",
+  );
   renderSondage();
   setT(
     "sond-question",
@@ -886,6 +1000,7 @@ function initNewTemplates() {
   [
     "stats-player-img",
     "motm-img",
+    "carton-player-img",
     "hat-img",
     "rec-player-img",
     "tr-player-img",
@@ -895,6 +1010,7 @@ function initNewTemplates() {
     const iconMap = {
       "stats-player-img": "stats-icon",
       "motm-img": "motm-icon",
+      "carton-player-img": "missing",
       "hat-img": "hat-icon",
       "rec-player-img": "rec-icon",
       "tr-player-img": "tr-icon",
@@ -904,6 +1020,7 @@ function initNewTemplates() {
     const thumbMap = {
       "stats-player-img": "stats-thumb",
       "motm-img": "motm-thumb",
+      "carton-player-img": "carton-upload-thumb",
       "hat-img": "hat-thumb",
       "rec-player-img": "rec-upload-thumb",
       "tr-player-img": "tr-player-th",
@@ -917,6 +1034,10 @@ function initNewTemplates() {
         img.src = d;
         img.classList.add("visible");
         img.style.display = "block";
+        if (imgId === "carton-player-img") {
+          const zone = document.getElementById("carton-photo-zone");
+          if (zone) zone.style.display = "block";
+        }
       }
       const ic = document.getElementById(iconMap[imgId]);
       if (ic) ic.style.display = "none";
@@ -1064,8 +1185,8 @@ function init() {
   setT("quote-author", restoreField("f-quote-author", "CARLO ANCELOTTI"));
   setT("quote-role", restoreField("f-quote-role", "ENTRAÎNEUR"));
 
-  // Comunicado
-  const comText = load(
+  // Comunicado — restore textarea + form field
+  const comText = restoreField(
     "f-com-text",
     "À la suite des examens effectués aujourd'hui sur notre joueur par les Services Médicaux du Real Madrid, il a été diagnostiqué une entorse du ligament latéral externe du genou droit.\n\nEn attente d'évolution.",
   );
@@ -1073,11 +1194,19 @@ function init() {
   if (elCom) elCom.innerHTML = comText.replace(/\n/g, "<br>");
   setT("com-date", restoreField("f-com-date", "15 MARS 2025"));
 
-  // Fixtures
+  // Fixtures — restore textarea THEN render
+  restoreField(
+    "f-fix-list",
+    document.getElementById("f-fix-list")?.defaultValue || "",
+  );
   renderFixtures();
   setT("fix-title", restoreField("f-fix-title", "CALENDRIER DU MOIS"));
 
-  // Ratings
+  // Ratings — restore textarea THEN render
+  restoreField(
+    "f-rat-list",
+    document.getElementById("f-rat-list")?.defaultValue || "",
+  );
   renderRatings();
   setT("rat-title", restoreField("f-rat-title", "NOTES DU MATCH"));
 
