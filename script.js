@@ -722,6 +722,57 @@ window.removeCartonImg = function () {
   );
 };
 
+window.updateMatchDayOverlay = function () {
+  const col = document.getElementById("f-md-col")?.value || "#000000";
+  const op = document.getElementById("f-md-op")?.value || "30";
+  const blend = document.getElementById("f-md-blend")?.value || "normal";
+  const overlay = document.getElementById("md-overlay");
+  if (overlay) {
+    const r = parseInt(col.substr(1, 2), 16);
+    const g = parseInt(col.substr(3, 2), 16);
+    const b = parseInt(col.substr(5, 2), 16);
+    overlay.style.backgroundColor = `rgba(${r},${g},${b},${op / 100})`;
+    overlay.style.mixBlendMode = blend;
+  }
+};
+
+window.removeMatchDayImg = function () {
+  window.removeImg(
+    "md-player-img",
+    "md-default-icon",
+    "md-upload-thumb",
+    "md-upload-zone",
+    null,
+  );
+};
+
+window.updateAbsentsLayout = function () {
+  const vPos = document.getElementById("f-abs-vpos")?.value || "center";
+  const hPos = document.getElementById("f-abs-hpos")?.value || "center";
+  const op = document.getElementById("f-abs-op")?.value || "0";
+  const imgZone = document.getElementById("abs-photo-zone");
+  const overlay = document.getElementById("abs-overlay");
+
+  if (imgZone) {
+    imgZone.style.display = "block";
+    imgZone.style.alignItems = vPos;
+    imgZone.style.justifyContent = hPos;
+  }
+  if (overlay) {
+    overlay.style.backgroundColor = `rgba(0,0,0,${op / 100})`;
+  }
+};
+
+window.removeAbsentsImg = function () {
+  window.removeImg(
+    "abs-player-img",
+    null,
+    "abs-upload-thumb",
+    "abs-upload-zone",
+    "abs-photo-zone",
+  );
+};
+
 // ── H2H MATCHES ──
 function renderH2HMatches() {
   const raw = document.getElementById("f-h2h-matches")?.value || "";
@@ -838,18 +889,10 @@ function initNewTemplates() {
     restoreField("f-md-stadium", "ESTADIO SANTIAGO BERNABÉU"),
   );
   setT("md-comp-val", restoreField("f-md-comp", "LALIGA"));
-  const mdOppLogo = loadImg("md-logo-opp");
-  if (mdOppLogo) {
-    const img = document.getElementById("md-logo-opp");
-    const thumb = document.getElementById("md-opp-thumb");
-    const emoji = document.getElementById("md-opp-emoji");
-    if (img) img.src = mdOppLogo;
-    if (thumb) {
-      thumb.src = mdOppLogo;
-      thumb.classList.add("visible");
-    }
-    if (emoji) emoji.style.display = "none";
-  }
+  restoreField("f-md-col", "#000000");
+  restoreField("f-md-op", "30");
+  restoreField("f-md-blend", "normal");
+  window.updateMatchDayOverlay();
 
   // Carton — restore ALL fields THEN update
   restoreField("f-carton-type", "🟨 Carton Jaune");
@@ -899,7 +942,12 @@ function initNewTemplates() {
     "1·Courtois·Blessure\n4·Alaba·Blessure\n22·Rudiger·Suspension\n14·Valverde·Sélection",
   );
   renderAbsents();
-  setT("abs-team", restoreField("f-abs-team", "ÉQUIPE 1"));
+  setT("abs-team", restoreField("f-abs-team", "REAL MADRID"));
+  setT("abs-comp", restoreField("f-abs-comp", "UEFA Champions League"));
+  restoreField("f-abs-vpos", "center");
+  restoreField("f-abs-hpos", "center");
+  restoreField("f-abs-op", "0");
+  if (window.updateAbsentsLayout) window.updateAbsentsLayout();
 
   // MOTM — restore ALL fields
   setT("motm-pname", restoreField("f-motm-name", "BENZEMA"));
@@ -993,6 +1041,8 @@ function initNewTemplates() {
     ["prono-logo2-img", "prono-em2", "prono-th2"],
     ["nm-logo1-img", "nm-em1-emoji", "nm-lt1"],
     ["nm-logo2-img", "nm-em2-emoji", "nm-lt2"],
+    ["md-logo1-img", "md-em1-emoji", "md-lt1"],
+    ["md-logo2-img", "md-em2-emoji", "md-lt2"],
   ];
   logoMaps.forEach(([imgId, emojiId, thumbId]) => {
     const d = loadImg(imgId);
@@ -1027,6 +1077,7 @@ function initNewTemplates() {
     "nm-player-img",
     "gen-icon-img",
     "md-player-img",
+    "abs-player-img",
   ].forEach((imgId) => {
     const iconMap = {
       "stats-player-img": "stats-icon",
@@ -1038,6 +1089,7 @@ function initNewTemplates() {
       "nm-player-img": "nm-default-icon",
       "gen-icon-img": "gen-emoji-icon",
       "md-player-img": "md-default-icon",
+      "abs-player-img": "missing",
     };
     const thumbMap = {
       "stats-player-img": "stats-thumb",
@@ -1049,6 +1101,7 @@ function initNewTemplates() {
       "nm-player-img": "nm-up-thumb",
       "gen-icon-img": "gen-icon-th",
       "md-player-img": "md-upload-thumb",
+      "abs-player-img": "abs-upload-thumb",
     };
     const d = loadImg(imgId);
     if (d) {
@@ -1059,6 +1112,10 @@ function initNewTemplates() {
         img.style.display = "block";
         if (imgId === "carton-player-img") {
           const zone = document.getElementById("carton-photo-zone");
+          if (zone) zone.style.display = "block";
+        }
+        if (imgId === "abs-player-img") {
+          const zone = document.getElementById("abs-photo-zone");
           if (zone) zone.style.display = "block";
         }
       }

@@ -3712,115 +3712,18 @@ body.theme-away .live-badge {
   display: flex;
   flex-direction: column;
 }
-
-.md-content {
-  position: relative;
-  z-index: 10;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 5%;
+/* Match Day specific adjustments if needed */
+#tpl-matchday .nm-overlay {
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    transparent 40%,
-    rgba(0, 0, 0, 0.7) 100%
+    to left,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    transparent 100%
   );
 }
 
-.md-header {
-  margin-top: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  line-height: 0.8;
-}
-
-.md-title-fill {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(60px, 18vw, 130px);
-  color: #fff;
-  letter-spacing: -2px;
-}
-
-.md-title-outline {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(60px, 18vw, 130px);
-  color: transparent;
-  -webkit-text-stroke: 2px #fff;
-  letter-spacing: -2px;
-}
-
-.md-top-info {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-}
-
-.md-logos {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.md-logo-box {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.md-logo-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: none;
-}
-.md-logo-box img[src]:not([src=""]) {
-  display: block;
-}
-.md-logo-box img[src]:not([src=""]) ~ span {
-  display: none;
-}
-
-.md-sep {
-  color: #fff;
-  font-size: 30px;
-  font-weight: 100;
-  opacity: 0.4;
-}
-
-.md-time {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(18px, 5vw, 32px);
-  color: #fff;
-  letter-spacing: 1px;
-}
-
-.md-footer-line {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 5%;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.md-footer-item {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(10px, 3vw, 18px);
-  color: #fff;
-  letter-spacing: 1px;
-  opacity: 0.9;
-}
-
-.md-partner-logo {
-  height: 25px !important;
-  width: auto !important;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+#tpl-matchday .birth-title-fill,
+#tpl-matchday .birth-title-outline {
+  font-size: clamp(40px, 10vw, 70px);
 }
