@@ -207,6 +207,7 @@ img:not([src]) {
   flex-direction: column;
   z-index: 10;
   padding: 0 40px;
+  overflow: hidden;
 }
 
 .birth-player-zone {
@@ -216,14 +217,18 @@ img:not([src]) {
   align-items: flex-end;
   position: relative;
   z-index: 5;
-  padding-bottom: 10px;
+  /* Use a bit of padding to avoid hitting the header line */
+  padding: 10px 0 20px;
+  min-height: 0; /* Important for flex-shrink */
 }
 
 .birth-player-zone img {
-  max-width: 110%; /* Allow slight overflow for dynamic feel */
+  max-width: 115%;
   max-height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+  /* Ensure image doesn't push down the info section */
+  margin-bottom: -5%;
 }
 
 #birth-default-icon {
@@ -235,25 +240,30 @@ img:not([src]) {
   text-align: center;
   position: relative;
   z-index: 15;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  flex-shrink: 0;
+  /* Add a subtle dark glow behind text for readability */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  margin: 0 -40px;
+  padding-top: 40px;
 }
 
 #birth-pname {
   font-family: "Playfair Display", serif;
-  font-size: 40px;
+  font-size: 46px;
   font-weight: 900;
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1.5px;
-  line-height: 0.95;
-  margin-bottom: 4px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  line-height: 0.9;
+  margin-bottom: 6px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
 #birth-msg {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 5px;
   color: var(--gold);
