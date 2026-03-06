@@ -6,7 +6,7 @@
     <title>RMF 24/7 LIVE — Studio | Templates foot professionnels</title>
     <meta
       name="description"
-      content="Studio de création de visuels football pour RMF 24/7 LIVE. 17 templates professionnels pour annoncer vos scores, compositions, transferts et plus."
+      content="Studio de création de visuels football pour RMF 24/7 LIVE. 22 templates & outils professionnels pour annoncer vos scores, compositions, transferts et plus."
     />
     <meta
       name="keywords"
@@ -32,7 +32,7 @@
     />
     <meta
       property="og:description"
-      content="Studio de création de visuels football pour RMF 24/7 LIVE. 17 templates professionnels pour annoncer vos scores, compositions, transferts et plus."
+      content="Studio de création de visuels football pour RMF 24/7 LIVE. 22 templates & outils professionnels pour annoncer vos scores, compositions, transferts et plus."
     />
     <meta
       property="og:image"
@@ -51,7 +51,7 @@
     />
     <meta
       property="twitter:description"
-      content="Studio de création de visuels football pour RMF 24/7 LIVE. 17 templates professionnels pour annoncer vos scores, compositions, transferts et plus."
+      content="Studio de création de visuels football pour RMF 24/7 LIVE. 22 templates & outils professionnels pour annoncer vos scores, compositions, transferts et plus."
     />
     <meta
       property="twitter:image"
@@ -130,11 +130,50 @@
         <button class="tab-btn" onclick="switchTab('prono', this)">
           🎯 Pronostic
         </button>
+        <button class="tab-btn" onclick="switchTab('quote', this)">
+          🎙️ Citation
+        </button>
+        <button class="tab-btn" onclick="switchTab('comunicado', this)">
+          🚨 Comunicado
+        </button>
+        <button class="tab-btn" onclick="switchTab('fixtures', this)">
+          📅 Calendrier
+        </button>
+        <button class="tab-btn" onclick="switchTab('ratings', this)">
+          ⭐ Notes du match
+        </button>
         <button class="tab-btn" onclick="switchTab('watermark', this)">
           💧 Watermark
         </button>
         <button class="tab-btn" onclick="switchTab('doc', this)">
           📖 Guide
+        </button>
+
+        <button class="tab-btn" onclick="toggleSettings()" style="margin-left: auto; border: 1px solid var(--border); background: rgba(201, 162, 39, 0.1);">
+          ⚙️ Réglages
+        </button>
+      </div>
+
+      <!-- FLOATING SETTINGS PANEL -->
+      <div id="settings-panel" style="display: none; position: fixed; top: 70px; right: 20px; width: 260px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+        <div style="font-size: 14px; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;">
+          ⚙️ Paramètres Studio
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+          <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; cursor: pointer; color: var(--off);">
+            <input type="checkbox" id="check-story" onchange="document.body.classList.toggle('story-mode'); save('f-story-mode', this.checked)" />
+            Mode Story (9:16)
+          </label>
+          
+          <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; cursor: pointer; color: var(--off);">
+            <input type="checkbox" id="check-away" onchange="document.body.classList.toggle('theme-away'); save('f-theme-away', this.checked)" />
+            Thème Extérieur (Dark/Orange)
+          </label>
+        </div>
+        
+        <button onclick="toggleSettings()" style="margin-top: 20px; width: 100%; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; color: var(--muted); cursor: pointer; font-size: 11px; text-transform: uppercase; font-weight: 700;">
+          Fermer
         </button>
       </div>
     </nav>
@@ -1784,8 +1823,8 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
         </div>
       </div>
 
-      <!-- 18 OUTILS & TEMPLATES -->
-      <div class="doc-section-title">🎨 Les 18 outils & templates</div>
+      <!-- 22 OUTILS & TEMPLATES -->
+      <div class="doc-section-title">🎨 Les 22 outils & templates</div>
       <div class="doc-grid">
         <div class="doc-card">
           <div class="doc-card-header">
@@ -2258,6 +2297,77 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
             </div>
           </div>
         </div>
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">🎙️</div>
+            <div>
+              <div class="doc-card-title">Citation</div>
+              <div class="doc-card-sub">Déclaration officielle</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Idéal pour les confs de presse d'Ancelotti ou des joueurs.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">🚨</div>
+            <div>
+              <div class="doc-card-title">Comunicado</div>
+              <div class="doc-card-sub">Annonce solennelle</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Format blanc épuré pour les rapports médicaux ou prolongations.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">📅</div>
+            <div>
+              <div class="doc-card-title">Calendrier</div>
+              <div class="doc-card-sub">Matchs à venir</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Format: <strong>Lieu·Compétition·Date·Heure·Adversaire</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon">⭐</div>
+            <div>
+              <div class="doc-card-title">Notes</div>
+              <div class="doc-card-sub">Évaluation des joueurs</div>
+            </div>
+          </div>
+          <div class="doc-card-body">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div class="doc-step-text">
+                Saisissez "Note · Nom · Commentaire" par ligne.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- TIPS -->
@@ -2371,13 +2481,14 @@ Suivez toute l'actualité du Real Madrid sur nos réseaux officiels ! ⚽🔥
               var(--gold)
             );
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
           "
         >
           RMF 24/7 LIVE
         </div>
         <div style="font-size: 11px; color: var(--muted); margin-top: 4px">
-          Studio de visuels football v3 — 17 templates
+          Studio de visuels football v3.5 — 22 outils & templates
         </div>
       </div>
     </div>
@@ -5183,6 +5294,186 @@ Haaland·9%</textarea
         </div>
       </div>
     </div>
+    </div>
+
+    <!-- ══════════ TAB: QUOTE ══════════ -->
+    <div class="workspace" id="ws-quote">
+      <div class="card-stage">
+        <div class="card-frame">
+          <div id="tpl-quote" class="tpl-base">
+            <div class="tpl-header">
+              <img class="tpl-logo" src="logo.png" alt="RMCF" />
+              <div class="tpl-comp" id="quote-comp">CONFÉRENCE DE PRESSE</div>
+            </div>
+            <div style="position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10% 8% 5%; flex: 1;">
+              <div style="font-size: clamp(60px, 15vw, 100px); color: rgba(201, 162, 39, 0.2); line-height: 0.5; font-family: 'Playfair Display', serif; position: absolute; top: 5%; left: 5%;">"</div>
+              <div id="quote-text" style="font-size: clamp(24px, 7vw, 42px); color: #fff; font-family: 'Bebas Neue'; letter-spacing: 2px; text-align: center; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; z-index: 5;">
+                Gagner est la seule option quand vous portez ce maillot.
+              </div>
+              <div id="quote-author" style="font-size: clamp(14px, 3.5vw, 20px); color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">CARLO ANCELOTTI</div>
+              <div id="quote-role" style="font-size: clamp(10px, 2.5vw, 14px); color: var(--muted); font-weight: 700; text-transform: uppercase; margin-top: 4px;">ENTRAÎNEUR</div>
+            </div>
+            
+            <div class="tpl-footer" style="margin-top: auto;">
+              <span class="gold-text">RMCF LIVE</span>
+              <span>100% MADRIDISTA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <button class="dl-btn" onclick="downloadCard('tpl-quote', 'rmfc-quote')">
+          TÉLÉCHARGER LA CITATION
+        </button>
+        <div class="form-section">
+          <div class="form-section-title">Contenu</div>
+          <div class="field">
+            <label>Contexte / Compétition</label>
+            <input id="f-quote-comp" value="CONFÉRENCE DE PRESSE" oninput="setT('quote-comp', v); save('f-quote-comp', v);" />
+          </div>
+          <div class="field">
+            <label>Citation</label>
+            <textarea id="f-quote-text" style="min-height: 80px;" oninput="setT('quote-text', v); save('f-quote-text', v);">Gagner est la seule option quand vous portez ce maillot.</textarea>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Auteur</label>
+              <input id="f-quote-author" value="CARLO ANCELOTTI" oninput="setT('quote-author', v); save('f-quote-author', v);" />
+            </div>
+            <div class="field">
+              <label>Rôle</label>
+              <input id="f-quote-role" value="ENTRAÎNEUR" oninput="setT('quote-role', v); save('f-quote-role', v);" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ TAB: COMUNICADO ══════════ -->
+    <div class="workspace" id="ws-comunicado">
+      <div class="card-stage">
+        <div class="card-frame" style="background: #eef1f6;">
+          <div id="tpl-comunicado" style="background: #eef1f6; width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; position: relative;">
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(200,200,200,0.2), transparent); pointer-events: none;"></div>
+            
+            <div style="flex: 1; display: flex; flex-direction: column; padding: 12% 8%;">
+              <div style="text-align: center; margin-bottom: 25px;">
+                <img src="logo.png" style="width: 70px; height: auto; filter: contrast(1.5) grayscale(100%); opacity: 0.1; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(5); pointer-events: none;" />
+                <h2 style="font-family: 'Bebas Neue'; font-size: clamp(36px, 10vw, 60px); color: #111; letter-spacing: 4px; border-bottom: 2px solid #ccc; display: inline-block; padding-bottom: 15px; margin-bottom: 30px;">COMUNICADO OFICIAL</h2>
+              </div>
+              
+              <div id="com-text" style="font-family: 'Barlow', sans-serif; font-size: clamp(14px, 4vw, 22px); color: #333; line-height: 1.6; text-align: justify; z-index: 5;">
+                À la suite des examens effectués aujourd'hui sur notre joueur par les Services Médicaux du Real Madrid, il a été diagnostiqué une entorse du ligament latéral externe du genou droit. 
+                <br><br>
+                En attente d'évolution.
+              </div>
+            </div>
+            
+            <div style="padding: 5% 8%; text-align: right; font-family: 'Bebas Neue'; font-size: clamp(14px, 3.5vw, 20px); color: #888; letter-spacing: 2px; border-top: 1px solid #ddd;">
+              RMCF LIVE — <span id="com-date">15 MARS 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <button class="dl-btn" onclick="downloadCard('tpl-comunicado', 'rmfc-comunicado')">
+          TÉLÉCHARGER LE COMMUNIQUÉ
+        </button>
+        <div class="form-section">
+          <div class="form-section-title">Contenu</div>
+          <div class="field">
+            <label>Texte Officiel</label>
+            <textarea id="f-com-text" style="min-height: 150px;" oninput="document.getElementById('com-text').innerHTML = v.replace(/\ng/, '<br>'); save('f-com-text', v);">À la suite des examens effectués aujourd'hui sur notre joueur par les Services Médicaux du Real Madrid, il a été diagnostiqué une entorse du ligament latéral externe du genou droit.&#10;&#10;En attente d'évolution.</textarea>
+          </div>
+          <div class="field">
+            <label>Date</label>
+            <input id="f-com-date" value="15 MARS 2025" oninput="setT('com-date', v); save('f-com-date', v);" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ TAB: FIXTURES ══════════ -->
+    <div class="workspace" id="ws-fixtures">
+      <div class="card-stage">
+        <div class="card-frame">
+          <div id="tpl-fixtures" class="tpl-base">
+            <div class="tpl-header">
+              <img class="tpl-logo" src="logo.png" alt="RMCF" />
+              <div class="tpl-comp" id="fix-title">CALENDRIER DU MOIS</div>
+            </div>
+            
+            <div class="fix-list" style="position: relative; z-index: 5; padding: 4% 5% 2%; flex: 1;">
+              <!-- Javascript rendered fixtures list -->
+              <div id="fix-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+
+            <div class="tpl-footer" style="margin-top: auto;">
+              <span class="gold-text">RMCF LIVE</span>
+              <span>100% MADRIDISTA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <button class="dl-btn" onclick="downloadCard('tpl-fixtures', 'rmfc-fixtures')">
+          TÉLÉCHARGER LE CALENDRIER
+        </button>
+        <div class="form-section">
+          <div class="form-section-title">Détails</div>
+          <div class="field">
+            <label>Titre</label>
+            <input id="f-fix-title" value="CALENDRIER DU MOIS" oninput="setT('fix-title', v); save('f-fix-title', v);" />
+          </div>
+          <div class="field">
+            <label>Lieu·Adversaire·Date·Heure·Compétition</label>
+            <textarea id="f-fix-list" style="min-height: 120px;" oninput="renderFixtures(); save('f-fix-list', v);">DOMICILE·BARCELONA·10 MARS·21:00·LALIGA
+EXTÉRIEUR·LIVERPOOL·15 MARS·21:00·UCL
+DOMICILE·VILLARREAL·19 MARS·18:30·LALIGA</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ TAB: RATINGS ══════════ -->
+    <div class="workspace" id="ws-ratings">
+      <div class="card-stage">
+        <div class="card-frame">
+          <div id="tpl-ratings" class="tpl-base">
+            <div class="tpl-header">
+              <img class="tpl-logo" src="logo.png" alt="RMCF" />
+              <div class="tpl-comp" id="rat-title">NOTES DU MATCH</div>
+            </div>
+            
+            <div style="position: relative; z-index: 5; padding: 4% 8%; display: flex; flex-direction: column; gap: 15px; flex: 1;" id="rat-container">
+              <!-- JS rendered -->
+            </div>
+
+            <div class="tpl-footer" style="margin-top: auto;">
+              <span class="gold-text">RMCF LIVE</span>
+              <span>100% MADRIDISTA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <button class="dl-btn" onclick="downloadCard('tpl-ratings', 'rmfc-ratings')">
+          TÉLÉCHARGER LES NOTES
+        </button>
+        <div class="form-section">
+          <div class="form-section-title">Détails</div>
+          <div class="field">
+            <label>Titre</label>
+            <input id="f-rat-title" value="NOTES DU MATCH" oninput="setT('rat-title', v); save('f-rat-title', v);" />
+          </div>
+          <div class="field">
+            <label>Note·Joueur·Poste (ou infos)</label>
+            <textarea id="f-rat-list" style="min-height: 120px;" oninput="renderRatings(); save('f-rat-list', v);">9.0·Vini Jr·HOMME DU MATCH
+8.5·Bellingham·Moteur de l'équipe
+7.5·Courtois·Solide sur sa ligne</textarea>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ══════════ TAB: WATERMARK ══════════ -->

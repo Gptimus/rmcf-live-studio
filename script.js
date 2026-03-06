@@ -828,8 +828,101 @@ function initNewTemplates() {
   });
 }
 
+// ══════════════════════════════════════
+// FIXTURES
+// ══════════════════════════════════════
+window.renderFixtures = function () {
+  const v = document.getElementById("f-fix-list").value.split("\n");
+  const c = document.getElementById("fix-container");
+  if (!c) return;
+  c.innerHTML = "";
+  v.forEach((line) => {
+    if (!line.trim()) return;
+    const parts = line.split("·");
+    if (parts.length < 5) return;
+
+    // Lieu·Adversaire·Date·Heure·Compétition
+    const lieu = parts[0].trim();
+    const adv = parts[1].trim();
+    const date = parts[2].trim();
+    const time = parts[3].trim();
+    const comp = parts[4].trim();
+
+    c.innerHTML += `
+      <div class="fix-item">
+        <div class="fix-date-box">
+          <div class="fix-date">${date.split(" ")[0]}</div>
+          <div class="fix-time">${date.split(" ")[1] || ""}<br>${time}</div>
+        </div>
+        <div class="fix-info">
+          <div class="fix-meta">${lieu} · ${comp}</div>
+          <div class="fix-adv">${adv}</div>
+        </div>
+      </div>
+    `;
+  });
+};
+
+// ══════════════════════════════════════
+// RATINGS
+// ══════════════════════════════════════
+window.renderRatings = function () {
+  const v = document.getElementById("f-rat-list").value.split("\n");
+  const c = document.getElementById("rat-container");
+  if (!c) return;
+  c.innerHTML = "";
+  v.forEach((line) => {
+    if (!line.trim()) return;
+    const parts = line.split("·");
+    if (parts.length < 3) return;
+
+    const note = parts[0].trim();
+    const name = parts[1].trim();
+    const desc = parts[2].trim();
+
+    c.innerHTML += `
+      <div class="rat-item">
+        <div class="rat-num">${note}</div>
+        <div class="rat-details">
+          <div class="rat-name">${name}</div>
+          <div class="rat-desc">${desc}</div>
+        </div>
+      </div>
+    `;
+  });
+};
+
 function init() {
   applyLogos();
+
+  // Quote
+  setT("quote-comp", load("f-quote-comp", "CONFÉRENCE DE PRESSE"));
+  setT(
+    "quote-text",
+    load(
+      "f-quote-text",
+      "Gagner est la seule option quand vous portez ce maillot.",
+    ),
+  );
+  setT("quote-author", load("f-quote-author", "CARLO ANCELOTTI"));
+  setT("quote-role", load("f-quote-role", "ENTRAÎNEUR"));
+
+  // Comunicado
+  const comText = load(
+    "f-com-text",
+    "À la suite des examens effectués aujourd'hui sur notre joueur par les Services Médicaux du Real Madrid, il a été diagnostiqué une entorse du ligament latéral externe du genou droit.\n\nEn attente d'évolution.",
+  );
+  const elCom = document.getElementById("com-text");
+  if (elCom) elCom.innerHTML = comText.replace(/\n/g, "<br>");
+  setT("com-date", load("f-com-date", "15 MARS 2025"));
+
+  // Fixtures
+  renderFixtures();
+  setT("fix-title", load("f-fix-title", "CALENDRIER DU MOIS"));
+
+  // Ratings
+  renderRatings();
+  setT("rat-title", load("f-rat-title", "NOTES DU MATCH"));
 
   // BUT
   const butName = restoreField("f-but-name", "CRISTIANO RONALDO");
@@ -959,7 +1052,28 @@ function init() {
   } else {
     switchTab("home", null);
   }
+
+  // Restore Settings
+  const st = load("f-story-mode", false);
+  if (st === "true" || st === true) {
+    document.body.classList.add("story-mode");
+    const chk = document.getElementById("check-story");
+    if (chk) chk.checked = true;
+  }
+  const aw = load("f-theme-away", false);
+  if (aw === "true" || aw === true) {
+    document.body.classList.add("theme-away");
+    const chk = document.getElementById("check-away");
+    if (chk) chk.checked = true;
+  }
 }
+
+window.toggleSettings = function () {
+  const p = document.getElementById("settings-panel");
+  if (!p) return;
+  p.style.display =
+    p.style.display === "none" || p.style.display === "" ? "block" : "none";
+};
 
 init();
 
