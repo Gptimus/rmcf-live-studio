@@ -146,6 +146,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 520px;
 }
 
 .story-mode .tpl-base-coherent {
@@ -181,10 +182,19 @@ img:not([src]) {
 #tpl-but {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 5 !important;
   overflow: hidden;
   background: #111;
   font-family: "Barlow Condensed", sans-serif;
+  display: block;
+}
+#tpl-birthday *,
+#tpl-motm *,
+#tpl-hattrick *,
+#tpl-transfert *,
+#tpl-record *,
+#tpl-but * {
+  box-sizing: border-box;
 }
 
 .story-mode #tpl-birthday,
@@ -206,6 +216,9 @@ img:not([src]) {
   justify-content: center;
 }
 .birth-photo-zone img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -390,6 +403,7 @@ img:not([src]) {
   position: relative;
   overflow: hidden;
   font-family: "Barlow Condensed";
+  min-height: 520px;
 }
 .tpl-header {
   position: relative;
@@ -2384,7 +2398,7 @@ img:not([src]) {
 }
 .card-frame {
   width: 100%;
-  max-width: 480px;
+  max-width: 420px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
@@ -2432,7 +2446,7 @@ img:not([src]) {
   cursor: pointer;
   transition: all 0.2s;
   width: 100%;
-  max-width: 480px;
+  max-width: 420px;
   justify-content: center;
 }
 .dl-btn:hover {
@@ -2556,7 +2570,35 @@ img:not([src]) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  min-height: 180px;
+}
+#but-upload-zone,
+#motm-upload,
+#hat-upload,
+#rec-upload-zone,
+#tr-player-up,
+#birth-upload {
+  aspect-ratio: 4 / 5;
+  padding: 0 !important;
+  overflow: hidden;
+  max-width: 140px;
+  margin: 0 auto;
+  width: 100%;
+}
+/* Style the thumbnails specifically for these fixed boxes */
+#but-upload-zone .img-thumb,
+#motm-upload .img-thumb,
+#hat-upload .img-thumb,
+#rec-upload-zone .img-thumb,
+#tr-player-up .img-thumb,
+#birth-upload .img-thumb {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .img-upload:hover {
   border-color: var(--gold);
