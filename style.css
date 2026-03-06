@@ -432,8 +432,8 @@ img:not([src]) {
   margin-bottom: 20px;
 }
 .nm-crest-box {
-  width: clamp(35px, 10vw, 65px);
-  height: clamp(35px, 10vw, 65px);
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -445,8 +445,8 @@ img:not([src]) {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
 }
 .nm-divider {
-  width: 1.5px;
-  height: 45px;
+  width: 1px;
+  height: 30px;
   background: rgba(255, 255, 255, 0.4);
 }
 .nm-title-block {
