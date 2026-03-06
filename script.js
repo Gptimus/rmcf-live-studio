@@ -21,11 +21,13 @@ function applyLogos() {
     "sond-logo",
     "prono-logo",
     "nm-logo",
+    "gen-logo",
   ].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.src = LOGO;
   });
 }
+
 
 // ══════════════════════════════════════
 // STORAGE
@@ -876,6 +878,7 @@ function initNewTemplates() {
     "hat-img",
     "tr-player-img",
     "nm-player-img",
+    "gen-icon-img",
   ].forEach((imgId) => {
     const iconMap = {
       "stats-player-img": "stats-icon",
@@ -883,9 +886,11 @@ function initNewTemplates() {
       "hat-img": "hat-icon",
       "tr-player-img": "tr-icon",
       "nm-player-img": "nm-default-icon",
+      "gen-icon-img": "gen-emoji-icon",
     };
     const thumbMap = {
       "nm-player-img": "nm-up-thumb",
+      "gen-icon-img": "gen-icon-th",
     };
     const d = loadImg(imgId);
     if (d) {
@@ -920,11 +925,34 @@ function initNewTemplates() {
     "sond-logo",
     "prono-logo",
     "nm-logo",
+    "gen-logo",
   ].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.src = LOGO;
   });
+
+  // Generic Background
+  const genBgData = loadImg("gen-bg-img");
+  if (genBgData) {
+    const bgEl = document.getElementById("gen-bg-img");
+    if (bgEl) bgEl.style.backgroundImage = `url(${genBgData})`;
+    const th = document.getElementById("gen-bg-th");
+    if (th) {
+      th.src = genBgData;
+      th.classList.add("visible");
+    }
+  }
+
+  // Generic Fields
+  setT("gen-title-val", restoreField("f-gen-title", "VOTRE TITRE ICI"));
+  const genDesc = restoreField("f-gen-desc", "Une description optionnelle pour ajouter du contexte à votre visuel. Vous pouvez tout personnaliser.");
+  const genDescVal = document.getElementById("gen-desc-val");
+  if (genDescVal) genDescVal.textContent = genDesc;
+  
+  // Generic Layout
+  updateGenLayout();
 }
+
 
 // ══════════════════════════════════════
 // FIXTURES
@@ -1366,6 +1394,62 @@ window.updateWatermark = function () {
   logoImg.style.filter = shadow
     ? "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6))"
     : "none";
+};
+
+// ══════════════════════════════════════
+// GENERIC TEMPLATE
+// ══════════════════════════════════════
+window.loadGenBg = function (input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const dataUrl = e.target.result;
+    document.getElementById("gen-bg-img").style.backgroundImage =
+      `url(${dataUrl})`;
+    saveImg("gen-bg-img", dataUrl);
+    const th = document.getElementById("gen-bg-th");
+    if (th) {
+      th.src = dataUrl;
+      th.classList.add("visible");
+    }
+  };
+  reader.readAsDataURL(file);
+};
+
+window.loadGenIcon = function (input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const dataUrl = e.target.result;
+    const img = document.getElementById("gen-icon-img");
+    const emoji = document.getElementById("gen-emoji-icon");
+    if (img) {
+      img.src = dataUrl;
+      img.style.display = "block";
+    }
+    if (emoji) emoji.style.display = "none";
+
+    saveImg("gen-icon-img", dataUrl);
+
+    const th = document.getElementById("gen-icon-th");
+    if (th) {
+      th.src = dataUrl;
+      th.classList.add("visible");
+    }
+  };
+  reader.readAsDataURL(file);
+};
+
+window.updateGenLayout = function () {
+  const vPos = document.getElementById("f-gen-pos-v").value;
+  const hAlign = document.getElementById("f-gen-align").value;
+  const opacity = document.getElementById("f-gen-tint-op").value;
+  const tpl = document.getElementById("tpl-generic");
+  tpl.className = `tpl-base ${vPos} ${hAlign}`;
+  document.getElementById("gen-tint").style.background =
+    `rgba(0,0,0,${opacity / 100})`;
 };
 
 // Initialize after all functions are on window global
