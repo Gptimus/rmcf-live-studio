@@ -1066,6 +1066,31 @@ function init() {
     const chk = document.getElementById("check-away");
     if (chk) chk.checked = true;
   }
+
+  // WATERMARK RESTORE
+  const wmImg = loadImg("watermark-bg");
+  if (wmImg) {
+    const bgImg = document.getElementById("watermark-bg");
+    const bgCanvas = document.getElementById("watermark-bg-canvas");
+    const th = document.getElementById("watermark-th");
+    const up = document.getElementById("watermark-up");
+    if (bgImg) bgImg.src = wmImg;
+    if (bgCanvas) bgCanvas.style.backgroundImage = `url(${wmImg})`;
+    if (th) {
+      th.src = wmImg;
+      th.style.display = "block";
+    }
+    if (up) up.classList.add("has-image");
+
+    // Restore fields
+    restoreField("watermark-format", "original");
+    restoreField("watermark-pos", "bottom-left");
+    restoreField("watermark-size", "15");
+    restoreField("watermark-opacity", "80");
+
+    document.getElementById("watermark-logo").style.display = "block";
+    updateWatermark();
+  }
 }
 
 window.toggleSettings = function () {
@@ -1087,37 +1112,74 @@ window.loadWatermarkBg = function (inputOrEvent) {
   if (!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
+    const dataUrl = e.target.result;
     const bgImg = document.getElementById("watermark-bg");
-    bgImg.src = e.target.result;
-    bgImg.style.display = "block";
+    const bgCanvas = document.getElementById("watermark-bg-canvas");
+    const th = document.getElementById("watermark-th");
+    const up = document.getElementById("watermark-up");
+
+    if (bgImg) {
+      bgImg.onload = () => {
+        saveImg("watermark-bg", dataUrl);
+        window.updateWatermark();
+      };
+      bgImg.src = dataUrl;
+    }
+
+    if (bgCanvas) bgCanvas.style.backgroundImage = "url(" + dataUrl + ")";
     document.getElementById("watermark-logo").style.display = "block";
 
-    // UI updates for the new form pattern
-    const th = document.getElementById("watermark-th");
     if (th) {
-      th.src = e.target.result;
+      th.src = dataUrl;
       th.style.display = "block";
     }
-    const up = document.getElementById("watermark-up");
-    if (up) {
-      up.classList.add("has-image");
-    }
-
-    bgImg.onload = () => {
-      window.updateWatermark();
-    };
+    if (up) up.classList.add("has-image");
   };
   reader.readAsDataURL(file);
 };
 
 window.updateWatermark = function () {
   const bgImg = document.getElementById("watermark-bg");
+  const bgCanvas = document.getElementById("watermark-bg-canvas");
+  const tpl = document.getElementById("tpl-watermark");
   const logoImg = document.getElementById("watermark-logo");
-  if (bgImg.style.display === "none" || !bgImg.src) return;
+
+  if (!bgImg || !bgImg.src || bgImg.src === "" || bgImg.src.length < 100)
+    return;
+
+  const format = document.getElementById("watermark-format").value;
+  save("watermark-format", format);
+
+  if (format === "original") {
+    tpl.style.display = "inline-block";
+    tpl.style.aspectRatio = "auto";
+    tpl.style.width = "auto";
+    tpl.style.height = "auto";
+    bgImg.style.display = "block";
+    bgCanvas.style.display = "none";
+  } else if (format === "square") {
+    tpl.style.display = "block";
+    tpl.style.aspectRatio = "1 / 1";
+    tpl.style.width = "100%";
+    tpl.style.maxWidth = "480px";
+    bgImg.style.display = "none";
+    bgCanvas.style.display = "block";
+  } else if (format === "story") {
+    tpl.style.display = "block";
+    tpl.style.aspectRatio = "9 / 16";
+    tpl.style.width = "400px";
+    tpl.style.maxWidth = "100%";
+    bgImg.style.display = "none";
+    bgCanvas.style.display = "block";
+  }
 
   const pos = document.getElementById("watermark-pos").value;
   const sizePct = document.getElementById("watermark-size").value;
   const opacity = document.getElementById("watermark-opacity").value;
+
+  save("watermark-pos", pos);
+  save("watermark-size", sizePct);
+  save("watermark-opacity", opacity);
 
   document.getElementById("watermark-size-val").textContent = `(${sizePct}%)`;
   document.getElementById("watermark-opacity-val").textContent =
@@ -1126,7 +1188,6 @@ window.updateWatermark = function () {
   logoImg.style.width = sizePct + "%";
   logoImg.style.height = "auto";
   logoImg.style.opacity = opacity / 100;
-
   logoImg.style.top = "auto";
   logoImg.style.bottom = "auto";
   logoImg.style.left = "auto";
@@ -1134,7 +1195,6 @@ window.updateWatermark = function () {
   logoImg.style.transform = "none";
 
   const margin = "5%";
-
   if (pos === "bottom-left") {
     logoImg.style.bottom = margin;
     logoImg.style.left = margin;
