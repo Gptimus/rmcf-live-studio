@@ -83,68 +83,58 @@
         <button class="tab-btn active" onclick="switchTab('home', this)">
           🏠 Accueil
         </button>
-        <button class="tab-btn" onclick="switchTab('but', this)">🥅 But</button>
-        <button class="tab-btn" onclick="switchTab('compo', this)">
-          📋 Composition
-        </button>
-        <button class="tab-btn" onclick="switchTab('convo', this)">
-          📣 Convoqués
-        </button>
-        <button class="tab-btn" onclick="switchTab('preview', this)">
-          📅 Preview
-        </button>
-        <button class="tab-btn" onclick="switchTab('stats', this)">
-          📊 Stats
-        </button>
-        <button class="tab-btn" onclick="switchTab('motm', this)">
-          ⭐ MOTM
-        </button>
-        <button class="tab-btn" onclick="switchTab('classement', this)">
-          🏆 Classement
-        </button>
-        <button class="tab-btn" onclick="switchTab('scorelive', this)">
-          ⏱️ Score Live
-        </button>
-        <button class="tab-btn" onclick="switchTab('resume', this)">
-          📝 Résumé
-        </button>
-        <button class="tab-btn" onclick="switchTab('carton', this)">
-          🟥 Carton
-        </button>
-        <button class="tab-btn" onclick="switchTab('h2h', this)">⚔️ H2H</button>
-        <button class="tab-btn" onclick="switchTab('absents', this)">
-          🤕 Absents
-        </button>
-        <button class="tab-btn" onclick="switchTab('hattrick', this)">
-          🎩 Hat-trick
-        </button>
-        <button class="tab-btn" onclick="switchTab('record', this)">
-          🏅 Record
-        </button>
-        <button class="tab-btn" onclick="switchTab('transfert', this)">
-          💰 Transfert
-        </button>
-        <button class="tab-btn" onclick="switchTab('sondage', this)">
-          🗳️ Sondage
-        </button>
-        <button class="tab-btn" onclick="switchTab('prono', this)">
-          🎯 Pronostic
-        </button>
-        <button class="tab-btn" onclick="switchTab('quote', this)">
-          🎙️ Citation
-        </button>
-        <button class="tab-btn" onclick="switchTab('comunicado', this)">
-          🚨 Comunicado
-        </button>
-        <button class="tab-btn" onclick="switchTab('fixtures', this)">
-          📅 Calendrier
-        </button>
-        <button class="tab-btn" onclick="switchTab('ratings', this)">
-          ⭐ Notes du match
-        </button>
-        <button class="tab-btn" onclick="switchTab('watermark', this)">
-          💧 Watermark
-        </button>
+
+        <!-- CATEGORY: MATCH DAY -->
+        <div class="nav-dropdown">
+          <button class="nav-category-btn">🏆 Match Day</button>
+          <div class="dropdown-content">
+            <button class="dropdown-item" onclick="switchTab('but', this)">🥅 But</button>
+            <button class="dropdown-item" onclick="switchTab('compo', this)">📋 Composition</button>
+            <button class="dropdown-item" onclick="switchTab('convo', this)">📣 Convoqués</button>
+            <button class="dropdown-item" onclick="switchTab('preview', this)">📅 Preview</button>
+            <button class="dropdown-item" onclick="switchTab('scorelive', this)">⏱️ Score Live</button>
+            <button class="dropdown-item" onclick="switchTab('resume', this)">📝 Résumé</button>
+            <button class="dropdown-item" onclick="switchTab('carton', this)">🟥 Carton</button>
+            <button class="dropdown-item" onclick="switchTab('h2h', this)">⚔️ H2H</button>
+            <button class="dropdown-item" onclick="switchTab('prono', this)">🎯 Pronostic</button>
+            <button class="dropdown-item" onclick="switchTab('fixtures', this)">📅 Calendrier</button>
+            <button class="dropdown-item" onclick="switchTab('ratings', this)">⭐ Notes match</button>
+          </div>
+        </div>
+
+        <!-- CATEGORY: JOUEURS -->
+        <div class="nav-dropdown">
+          <button class="nav-category-btn">👤 Joueurs</button>
+          <div class="dropdown-content">
+            <button class="dropdown-item" onclick="switchTab('birthday', this)">🎂 Anniversaire</button>
+            <button class="dropdown-item" onclick="switchTab('motm', this)">⭐ MOTM</button>
+            <button class="dropdown-item" onclick="switchTab('hattrick', this)">🎩 Hat-trick</button>
+            <button class="dropdown-item" onclick="switchTab('transfert', this)">💰 Transfert</button>
+            <button class="dropdown-item" onclick="switchTab('record', this)">🏅 Record</button>
+            <button class="dropdown-item" onclick="switchTab('absents', this)">🤕 Absents</button>
+          </div>
+        </div>
+
+        <!-- CATEGORY: ANALYSE -->
+        <div class="nav-dropdown">
+          <button class="nav-category-btn">📊 Analyse</button>
+          <div class="dropdown-content">
+            <button class="dropdown-item" onclick="switchTab('classement', this)">🏆 Classement</button>
+            <button class="dropdown-item" onclick="switchTab('stats', this)">📈 Stats</button>
+            <button class="dropdown-item" onclick="switchTab('sondage', this)">🗳️ Sondage</button>
+          </div>
+        </div>
+
+        <!-- CATEGORY: MÉDIA -->
+        <div class="nav-dropdown">
+          <button class="nav-category-btn">🎙️ Média</button>
+          <div class="dropdown-content">
+            <button class="dropdown-item" onclick="switchTab('quote', this)">🎙️ Citation</button>
+            <button class="dropdown-item" onclick="switchTab('comunicado', this)">🚨 Comunicado</button>
+            <button class="dropdown-item" onclick="switchTab('watermark', this)">💧 Watermark</button>
+          </div>
+        </div>
+
         <button class="tab-btn" onclick="switchTab('doc', this)">
           📖 Guide
         </button>

@@ -131,18 +131,21 @@ function switchTab(name, btn) {
   document
     .querySelectorAll(".workspace")
     .forEach((w) => w.classList.remove("active"));
+
+  // Clear active from all navigation buttons
   document
-    .querySelectorAll(".tab-btn")
+    .querySelectorAll(".tab-btn, .dropdown-item")
     .forEach((b) => b.classList.remove("active"));
+
   const ws = document.getElementById("ws-" + name);
   if (ws) ws.classList.add("active");
 
   if (btn) {
     btn.classList.add("active");
   } else {
-    // Fallback if triggered from code without btn ref
+    // Fallback if triggered from code/reload
     const targetBtn = document.querySelector(
-      `.tab-btn[onclick*="switchTab('${name}'"]`,
+      `.tab-btn[onclick*="'${name}'"], .dropdown-item[onclick*="'${name}'"]`,
     );
     if (targetBtn) targetBtn.classList.add("active");
   }
