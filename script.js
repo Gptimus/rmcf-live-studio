@@ -48,9 +48,36 @@ function load(key, def = "") {
   }
 }
 function saveImg(key, dataUrl) {
-  try {
-    localStorage.setItem(PREFIX + "img_" + key, dataUrl);
-  } catch (e) {}
+  if (!dataUrl || dataUrl.length < 200000) {
+    // Too small to worry
+    try {
+      localStorage.setItem(PREFIX + "img_" + key, dataUrl);
+    } catch (e) {}
+    return;
+  }
+  // Compress large images (> 200KB)
+  const img = new Image();
+  img.onload = () => {
+    const maxW = 1600;
+    const maxH = 1600;
+    let w = img.width;
+    let h = img.height;
+    if (w > maxW || h > maxH) {
+      const r = Math.min(maxW / w, maxH / h);
+      w *= r;
+      h *= r;
+    }
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, w, h);
+    const lowRes = canvas.toDataURL("image/jpeg", 0.75);
+    try {
+      localStorage.setItem(PREFIX + "img_" + key, lowRes);
+    } catch (e) {}
+  };
+  img.src = dataUrl;
 }
 function loadImg(key) {
   try {
@@ -1088,7 +1115,13 @@ function init() {
     restoreField("watermark-opacity", "80");
 
     document.getElementById("watermark-logo").style.display = "block";
-    updateWatermark();
+
+    // Ensure the image belongs to the DOM before updating
+    if (bgImg.complete) {
+      window.updateWatermark();
+    } else {
+      bgImg.onload = window.updateWatermark;
+    }
   }
 }
 
@@ -1143,8 +1176,7 @@ window.updateWatermark = function () {
   const tpl = document.getElementById("tpl-watermark");
   const logoImg = document.getElementById("watermark-logo");
 
-  if (!bgImg || !bgImg.src || bgImg.src === "" || bgImg.src.length < 100)
-    return;
+  if (!bgImg || !bgImg.src || bgImg.src === "" || bgImg.src.length < 50) return;
 
   const format = document.getElementById("watermark-format").value;
   save("watermark-format", format);
