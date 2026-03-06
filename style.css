@@ -411,11 +411,13 @@ img:not([src]) {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 65%;
+  width: 70%;
+  /* Dégradé plus profond pour la lisibilité sur fond blanc */
   background: linear-gradient(
     to left,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.2) 80%,
     transparent 100%
   );
   z-index: 10;
@@ -424,6 +426,8 @@ img:not([src]) {
   justify-content: center;
   align-items: flex-end;
   padding: 8% 7%;
+  /* Ombre globale pour détacher l'overlay si l'image est blanche */
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
 }
 .nm-crests {
   display: flex;
@@ -432,21 +436,27 @@ img:not([src]) {
   margin-bottom: 20px;
 }
 .nm-crest-box {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .nm-crest-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  position: static !important; /* On annule l'absolute de .team-logo-img */
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important; /* On annule le 50% de .team-logo-img */
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  background: transparent !important;
 }
 .nm-divider {
   width: 1px;
-  height: 30px;
+  height: 20px;
   background: rgba(255, 255, 255, 0.4);
 }
 .nm-title-block {
@@ -479,16 +489,14 @@ img:not([src]) {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   line-height: 1;
 }
-.nm-watermark {
+.nm-top-logo {
   position: absolute;
-  bottom: 25px;
-  left: 30px;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.25);
-  z-index: 10;
-  text-transform: uppercase;
+  top: 4%;
+  right: 5%;
+  width: 38px;
+  height: auto;
+  z-index: 20;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
 }
 
 /* ═══════════════════════════════════════════════
