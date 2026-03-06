@@ -966,8 +966,10 @@ init();
 // ══════════════════════════════════════
 // WATERMARK TOOL
 // ══════════════════════════════════════
-window.loadWatermarkBg = function (event) {
-  const file = event.target.files[0];
+window.loadWatermarkBg = function (inputOrEvent) {
+  const file = inputOrEvent.target
+    ? inputOrEvent.target.files[0]
+    : inputOrEvent.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
@@ -975,6 +977,17 @@ window.loadWatermarkBg = function (event) {
     bgImg.src = e.target.result;
     bgImg.style.display = "block";
     document.getElementById("watermark-logo").style.display = "block";
+
+    // UI updates for the new form pattern
+    const th = document.getElementById("watermark-th");
+    if (th) {
+      th.src = e.target.result;
+      th.style.display = "block";
+    }
+    const up = document.getElementById("watermark-up");
+    if (up) {
+      up.classList.add("has-image");
+    }
 
     bgImg.onload = () => {
       window.updateWatermark();

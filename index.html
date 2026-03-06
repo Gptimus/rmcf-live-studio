@@ -5197,44 +5197,109 @@ Haaland·9%</textarea
       </div>
       <div class="panel-right">
         <div class="panel-section">
-          <h3>WATERMARK 💧</h3>
-          <div class="form-group">
-            <label>1. Importer votre image</label>
-            <input type="file" accept="image/*" onchange="loadWatermarkBg(event)" style="color: white; width: 100%; margin-top: 5px; background: #222; padding: 10px; border-radius: 4px; border: 1px solid #333;" />
-          </div>
-          
-          <div class="form-group" style="margin-top: 20px;">
-            <label>Position du Logo</label>
-            <select id="watermark-pos" class="val-input" onchange="updateWatermark()">
-              <option value="bottom-left">Bas Gauche</option>
-              <option value="bottom-right">Bas Droite</option>
-              <option value="top-left">Haut Gauche</option>
-              <option value="top-right">Haut Droite</option>
-              <option value="center">Centre</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label>Taille du Logo <span id="watermark-size-val">(15%)</span></label>
-            <input type="range" id="watermark-size" min="5" max="50" value="15" oninput="updateWatermark()" style="width: 100%; margin-top: 5px;" />
-          </div>
-          
-          <div class="form-group">
-            <label>Opacité <span id="watermark-opacity-val">(80%)</span></label>
-            <input type="range" id="watermark-opacity" min="10" max="100" value="80" oninput="updateWatermark()" style="width: 100%; margin-top: 5px;" />
-          </div>
+          <h2>WATERMARK 💧</h2>
+          <button
+            class="dl-btn"
+            style="margin-bottom: 24px"
+            onclick="downloadCard('tpl-watermark', 'rmfc-watermark')"
+          >
+            <svg
+              style="
+                width: 16px;
+                height: 16px;
+                margin-bottom: -3px;
+                margin-right: 8px;
+              "
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
+            TÉLÉCHARGER + WATERMARK
+          </button>
+        </div>
 
-          <div style="margin-top: 30px">
-            <button class="dl-btn" onclick="downloadCard('tpl-watermark', 'rmfc-watermark')">
-              TÉLÉCHARGER + WATERMARK
-            </button>
+        <div class="form-section">
+          <div class="form-section-title">Image</div>
+          <div class="form-row">
+            <div class="field">
+              <label>Importer votre image</label>
+              <div class="img-upload" id="watermark-up">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onchange="loadWatermarkBg(this)"
+                />
+                <img
+                  class="img-thumb"
+                  id="watermark-th"
+                  src=""
+                  alt=""
+                  style="display: none"
+                />
+                <span class="img-upload-icon">📸</span>
+                <div class="img-upload-text"><strong>Uploader</strong>Image</div>
+              </div>
+            </div>
           </div>
         </div>
-        
+
+        <div class="form-section">
+          <div class="form-section-title">Ajustements</div>
+          <div class="form-row single">
+            <div class="field">
+              <label>Position du Logo</label>
+              <select id="watermark-pos" class="val-input" onchange="updateWatermark()">
+                <option value="bottom-left">Bas Gauche</option>
+                <option value="bottom-right">Bas Droite</option>
+                <option value="top-left">Haut Gauche</option>
+                <option value="top-right">Haut Droite</option>
+                <option value="center">Centre</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="field">
+              <label style="display: flex; justify-content: space-between;">
+                <span>Taille</span>
+                <span id="watermark-size-val" style="color: var(--gold);">(15%)</span>
+              </label>
+              <input
+                type="range"
+                id="watermark-size"
+                min="5"
+                max="50"
+                value="15"
+                oninput="updateWatermark()"
+                style="width: 100%; margin-top: 10px"
+              />
+            </div>
+            <div class="field">
+              <label style="display: flex; justify-content: space-between;">
+                <span>Opacité</span>
+                <span id="watermark-opacity-val" style="color: var(--gold);">(80%)</span>
+              </label>
+              <input
+                type="range"
+                id="watermark-opacity"
+                min="10"
+                max="100"
+                value="80"
+                oninput="updateWatermark()"
+                style="width: 100%; margin-top: 10px"
+              />
+            </div>
+          </div>
+        </div>
+
         <div class="form-section">
           <div class="form-section-title">✨ Astuce</div>
-          <div class="field" style="color: var(--off); font-size: 13px; line-height: 1.5;">
-            Ajoutez le filigrane du club sur toutes vos photos exclusives avant de les poster sur les réseaux sociaux. <br/><br/>
+          <div class="field" style="color: var(--off); font-size: 13px; line-height: 1.5">
+            Ajoutez le filigrane du club sur toutes vos photos exclusives avant
+            de les poster sur les réseaux sociaux. <br /><br />
             Le logo s'ajuste proportionnellement à l'image uploadée, garantissant un rendu propre et optimisé.
           </div>
         </div>
