@@ -826,6 +826,14 @@ function initNewTemplates() {
   setT("prono-opt2-pct", load("f-prono-p2", "24%"));
   setT("prono-opt3-pct", load("f-prono-p3", "24%"));
 
+  // Next Match
+  const nmSub = restoreField("f-nm-sub", "PRÓXIMO PARTIDO");
+  setT("nm-sub-val", nmSub);
+  const nmStadium = restoreField("f-nm-stadium", "ESTADIO SANTIAGO BERNABÉU");
+  setT("nm-stadium-val", nmStadium);
+  const nmDate = restoreField("f-nm-date", "06/03 — 21:00 CET");
+  setT("nm-datetime-val", nmDate);
+
   // Restore team logos for all new templates
   const logoMaps = [
     ["slive-logo1-img", "slive-em1"],
@@ -838,8 +846,10 @@ function initNewTemplates() {
     ["tr-logo2-img", "tr-em2"],
     ["prono-logo1-img", "prono-em1"],
     ["prono-logo2-img", "prono-em2"],
+    ["nm-logo1-img", "nm-em1-emoji", "nm-lt1"],
+    ["nm-logo2-img", "nm-em2-emoji", "nm-lt2"],
   ];
-  logoMaps.forEach(([imgId, emojiId]) => {
+  logoMaps.forEach(([imgId, emojiId, thumbId]) => {
     const d = loadImg(imgId);
     if (d) {
       const img = document.getElementById(imgId);
@@ -849,30 +859,50 @@ function initNewTemplates() {
       }
       const em = document.getElementById(emojiId);
       if (em) em.style.display = "none";
+      if (thumbId) {
+        const th = document.getElementById(thumbId);
+        if (th) {
+          th.src = d;
+          th.classList.add("visible");
+        }
+      }
     }
   });
 
   // Player images
-  ["stats-player-img", "motm-img", "hat-img", "tr-player-img"].forEach(
-    (imgId) => {
-      const iconMap = {
-        "stats-player-img": "stats-icon",
-        "motm-img": "motm-icon",
-        "hat-img": "hat-icon",
-        "tr-player-img": "tr-icon",
-      };
-      const d = loadImg(imgId);
-      if (d) {
-        const img = document.getElementById(imgId);
-        if (img) {
-          img.src = d;
-          img.classList.add("visible");
-        }
-        const ic = document.getElementById(iconMap[imgId]);
-        if (ic) ic.style.display = "none";
+  [
+    "stats-player-img",
+    "motm-img",
+    "hat-img",
+    "tr-player-img",
+    "nm-player-img",
+  ].forEach((imgId) => {
+    const iconMap = {
+      "stats-player-img": "stats-icon",
+      "motm-img": "motm-icon",
+      "hat-img": "hat-icon",
+      "tr-player-img": "tr-icon",
+      "nm-player-img": "nm-default-icon",
+    };
+    const thumbMap = {
+      "nm-player-img": "nm-up-thumb",
+    };
+    const d = loadImg(imgId);
+    if (d) {
+      const img = document.getElementById(imgId);
+      if (img) {
+        img.src = d;
+        img.classList.add("visible");
       }
-    },
-  );
+      const ic = document.getElementById(iconMap[imgId]);
+      if (ic) ic.style.display = "none";
+      const th = document.getElementById(thumbMap[imgId]);
+      if (th) {
+        th.src = d;
+        th.classList.add("visible");
+      }
+    }
+  });
 
   // Apply logos to new templates
   [
@@ -889,6 +919,7 @@ function initNewTemplates() {
     "tr-logo",
     "sond-logo",
     "prono-logo",
+    "nm-logo",
   ].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.src = LOGO;
